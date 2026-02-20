@@ -242,6 +242,8 @@ Phase 6 outputs:
   - `content/workshop-javascript.md`
 - Added Hugo image render hook fallback for legacy unresolved `/content/images/...` markdown assets:
   - `layouts/_default/_markup/render-image.html`
+- Validation notes:
+  - `migration/phase-6-validation.md`
 
 ### Phase 7 - Cutover and cleanup
 
@@ -261,6 +263,8 @@ Phase 7 outputs:
   - `src/**`
   - `yarn.lock` (stale lockfile with removed dependencies)
 - Updated `README.md` to Hugo development/build usage
+- Validation notes:
+  - `migration/phase-7-validation.md`
 
 ## Definition of done
 
