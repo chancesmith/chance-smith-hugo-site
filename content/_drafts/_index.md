@@ -1,0 +1,10 @@
+---
+title: "Drafts"
+build:
+  list: never
+  render: never
+cascade:
+  build:
+    list: never
+    render: never
+---

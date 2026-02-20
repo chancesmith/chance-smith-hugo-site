@@ -1,0 +1,9 @@
+{{ define "main" }}
+  <section>
+    {{ range .Pages }}
+      <article class="archive-post">
+        <h3><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

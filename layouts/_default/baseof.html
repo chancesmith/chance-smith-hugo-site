@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {{ partial "seo.html" . }}
+    <link rel="stylesheet" href="{{ "/css/global.css" | relURL }}">
+    {{ template "_internal/google_analytics.html" . }}
+  </head>
+  <body>
+    {{ $isBlogPost := and .IsPage (eq .Section "blog") }}
+    {{ $showPageTitle := and (not .IsHome) (not $isBlogPost) (ne .Kind "404") }}
+    {{ $avatarClass := "avatar-link" }}
+    {{ if $isBlogPost }}
+      {{ $avatarClass = "avatar-link avatar-link--tiny" }}
+    {{ else if $showPageTitle }}
+      {{ $avatarClass = "avatar-link avatar-link--small" }}
+    {{ end }}
+
+    <div class="site-shell">
+      <div class="site-nav">
+        <a class="nav-link{{ if eq .RelPermalink "/archive/" }} is-active{{ end }}" href="/archive/">Insights</a>
+      </div>
+
+      <header class="site-header{{ if $showPageTitle }} site-header--with-title{{ end }}">
+        <a class="{{ $avatarClass }}" href="/" aria-label="{{ .Site.Title }}">CS</a>
+        {{ if $showPageTitle }}
+          <h1 class="page-title">{{ .Title }}</h1>
+        {{ end }}
+      </header>
+
+      <main>
+        {{ block "main" . }}{{ end }}
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="nav-link{{ if eq .RelPermalink "/about/" }} is-active{{ end }}" href="/about/">About</a>
+          <a class="nav-link{{ if eq .RelPermalink "/archive/" }} is-active{{ end }}" href="/archive/">Insights</a>
+        </nav>
+      </footer>
+    </div>
+  </body>
+</html>

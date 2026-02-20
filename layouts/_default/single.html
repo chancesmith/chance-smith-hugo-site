@@ -1,0 +1,9 @@
+{{ define "main" }}
+  {{ if eq .Section "blog" }}
+    {{ partial "blog-post.html" . }}
+  {{ else }}
+    <article class="page-content">
+      {{ .Content }}
+    </article>
+  {{ end }}
+{{ end }}

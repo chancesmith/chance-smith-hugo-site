@@ -1,0 +1,31 @@
+{{ define "main" }}
+  {{ $posts := sort (where .Site.RegularPages "Section" "blog") "Params.date" "desc" }}
+  {{ $latestPosts := first 3 $posts }}
+
+  <section>
+    <h1 class="home-hero-title">Less hectic, more impactful, on-time software</h1>
+    <p class="home-hero-subtitle">
+      Accelerate you and your team to confidently delivering valuable software and building software teams.
+    </p>
+
+    <h2 class="home-latest-heading">Latest Posts</h2>
+
+    {{ range $latestPosts }}
+      <article class="home-post">
+        <h2 class="gradient-text home-post-title">
+          <a class="home-post-link" href="{{ .RelPermalink }}">
+            {{ with .Title }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}
+          </a>
+        </h2>
+        <div class="home-post-excerpt">
+          {{ if .Summary }}
+            {{ .Summary }}
+          {{ else }}
+            <p>{{ .Plain | truncate 240 }}</p>
+          {{ end }}
+        </div>
+        <a class="home-post-link" href="{{ .RelPermalink }}">Continue Reading &gt;&gt;</a>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

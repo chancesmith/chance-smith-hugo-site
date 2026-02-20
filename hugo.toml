@@ -1,0 +1,41 @@
+baseURL = "https://chancesmith.io/"
+languageCode = "en-us"
+title = "Chance Smith"
+disableKinds = ["taxonomy", "term"]
+ignoreFiles = ["^content/_drafts/", "^content/_ready/"]
+
+[params]
+  author = "Chance Smith"
+  description = "What if management wasn't about controlling the work, but creating space for it? Exploring leadership that serves engineers instead of managing them."
+
+  [params.social]
+    twitter = "chance_smith"
+    github = "chancesmith"
+
+[permalinks]
+  blog = "/:contentbasename/"
+
+[frontmatter]
+  date = [":filename", ":fileModTime"]
+  lastmod = [":git", ":fileModTime"]
+  publishDate = []
+  expiryDate = []
+
+[services]
+  [services.googleAnalytics]
+    ID = "G-FD4ZXPSLB6"
+
+[sitemap]
+  filename = "sitemap.xml"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = true
+    lineNos = false
+    noClasses = false
+    style = "github"

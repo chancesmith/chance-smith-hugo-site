@@ -1,0 +1,30 @@
+---
+layout: post
+title: Projects
+date: "2014-02-01T22Z"
+---
+
+Here are the current projects I am working on.
+
+## ## Wolfgang Computer - [wolfgangcomputer.com](https://wolfgangcomputer.com)
+
+Helping awesome people with busy lifes simplify their workflow and automate their maintenance with their technology devices.
+
+## ## Better Job Landing - [betterjoblanding.com](https://betterjoblanding.com)
+
+An new and evoloving way to hire the **rockstar** team members that are hungry for work that matters.
+
+## ## Smoothie King #0448 - [skjackson.com](https://skjackson.com)
+
+## ## Sodium Halogen - [sodiumhalogen.com](https://sodiumhalogen.com)
+
+## Upcoming 2014 Projects:
+
+- teach website development at local college
+- iOS app development
+- redesign wife's site: [mollysmith.org](https://mollysmith.org)
+
+## Latest 2014 Projects:
+
+- RSVP site for my son: [catersmith.me](https://catersmith.me)
+- Email signature creator tool: [tlmae.com/signature](https://tlmae.com/signature)

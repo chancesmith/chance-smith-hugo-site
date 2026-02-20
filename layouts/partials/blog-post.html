@@ -1,0 +1,43 @@
+{{ $posts := sort (where .Site.RegularPages "Section" "blog") "Params.date" "desc" }}
+{{ $currentIndex := -1 }}
+{{ range $index, $post := $posts }}
+  {{ if eq $post.RelPermalink $.RelPermalink }}
+    {{ $currentIndex = $index }}
+  {{ end }}
+{{ end }}
+
+{{ $previous := "" }}
+{{ $next := "" }}
+{{ if ge $currentIndex 0 }}
+  {{ $previousIndex := add $currentIndex 1 }}
+  {{ if lt $previousIndex (len $posts) }}
+    {{ $previous = index $posts $previousIndex }}
+  {{ end }}
+  {{ if gt $currentIndex 0 }}
+    {{ $next = index $posts (sub $currentIndex 1) }}
+  {{ end }}
+{{ end }}
+
+<article class="post">
+  <h1 class="gradient-text">{{ .Title }}</h1>
+  <p class="post-author">by {{ .Site.Params.author }}</p>
+
+  <div class="post-content">
+    {{ .Content }}
+  </div>
+
+  <hr>
+
+  <ul class="post-pagination">
+    <li>
+      {{ with $previous }}
+        <a href="{{ .RelPermalink }}" rel="prev">← {{ .Title }}</a>
+      {{ end }}
+    </li>
+    <li class="post-pagination-next">
+      {{ with $next }}
+        <a href="{{ .RelPermalink }}" rel="next">{{ .Title }} →</a>
+      {{ end }}
+    </li>
+  </ul>
+</article>

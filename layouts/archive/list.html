@@ -1,0 +1,22 @@
+{{ define "main" }}
+  {{ $posts := sort (where .Site.RegularPages "Section" "blog") "Params.date" "desc" }}
+
+  <section>
+    {{ range $posts }}
+      {{ $rawDate := printf "%v" .Params.date }}
+      {{ $displayDate := .Date.Format "Jan 02, 2006" }}
+      {{ if gt (len (findRE "^\\d{4}-\\d{2}-\\d{2}T\\d{2}Z$" $rawDate)) 0 }}
+        {{ $normalizedDate := replaceRE "^([0-9]{4}-[0-9]{2}-[0-9]{2})T([0-9]{2})Z$" "${1}T${2}:00:00Z" $rawDate }}
+        {{ $displayDate = (time.AsTime $normalizedDate).Format "Jan 02, 2006" }}
+      {{ end }}
+      <article class="archive-post">
+        <small>{{ $displayDate }}</small>
+        <h3>
+          <a href="{{ .RelPermalink }}">
+            {{ with .Title }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}
+          </a>
+        </h3>
+      </article>
+    {{ end }}
+  </section>
+{{ end }}

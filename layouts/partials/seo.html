@@ -1,0 +1,44 @@
+{{- $siteTitle := .Site.Title -}}
+{{- $title := $siteTitle -}}
+{{- if not .IsHome -}}
+  {{- with .Title -}}
+    {{- $title = . -}}
+  {{- end -}}
+{{- end -}}
+
+{{- $pageTitle := $title -}}
+{{- if and (not .IsHome) (ne $title $siteTitle) -}}
+  {{- $pageTitle = printf "%s | %s" $title $siteTitle -}}
+{{- end -}}
+
+{{- $description := .Site.Params.description | default "" -}}
+{{- with .Description -}}
+  {{- $description = . -}}
+{{- end -}}
+{{- if and (not .IsHome) (eq $description (.Site.Params.description | default "")) -}}
+  {{- with .Summary -}}
+    {{- $description = . | plainify | replaceRE "\\s+" " " | truncate 170 -}}
+  {{- end -}}
+{{- end -}}
+{{- $description = $description | plainify | replaceRE "\\s+" " " | strings.TrimSpace -}}
+
+{{- $keywords := slice -}}
+{{- with .Params.keywords -}}
+  {{- if reflect.IsSlice . -}}
+    {{- $keywords = . -}}
+  {{- else -}}
+    {{- $keywords = slice . -}}
+  {{- end -}}
+{{- end -}}
+
+<title>{{ $pageTitle }}</title>
+<meta name="description" content="{{ $description }}">
+<meta property="og:title" content="{{ $title }}">
+<meta property="og:description" content="{{ $description }}">
+<meta property="og:type" content="website">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta name="twitter:card" content="summary">
+{{ with .Site.Params.author }}<meta name="twitter:creator" content="{{ . }}">{{ end }}
+<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:description" content="{{ $description }}">
+{{ if gt (len $keywords) 0 }}<meta name="keywords" content="{{ delimit $keywords ", " }}">{{ end }}
