@@ -1,67 +1,18 @@
 {
   "name": "chance-smith-blog",
   "private": true,
-  "description": "A starter for a blog powered by Gatsby and Markdown",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
+  "description": "Personal site powered by Hugo and Markdown",
+  "version": "0.2.0",
+  "author": "Chance Smith",
   "scripts": {
-    "build": "gatsby build",
-    "develop": "gatsby develop",
+    "build": "hugo --gc --minify",
+    "develop": "hugo server --buildDrafts --disableFastRender",
     "start": "npm run develop",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
+    "serve": "hugo server",
+    "clean": "rm -rf public resources/_gen",
     "routes:inventory": "node scripts/generate-route-inventory.js"
   },
-  "dependencies": {
-    "babel-plugin-styled-components": "^1.13.2",
-    "gatsby": "^4.25.7",
-    "gatsby-image": "^3.11.0",
-    "gatsby-plugin-google-gtag": "^5.13.1",
-    "gatsby-plugin-image": "^3.12.0",
-    "gatsby-plugin-manifest": "^5.12.0",
-    "gatsby-plugin-netlify": "^5.1.0",
-    "gatsby-plugin-offline": "^6.12.0",
-    "gatsby-plugin-prefetch-google-fonts": "^1.4.3",
-    "gatsby-plugin-react-helmet": "^6.12.0",
-    "gatsby-plugin-sharp": "^5.12.0",
-    "gatsby-plugin-sitemap": "^6.12.0",
-    "gatsby-plugin-styled-components": "^6.12.0",
-    "gatsby-plugin-typography": "^5.12.0",
-    "gatsby-plugin-workerize-loader": "^2.1.0",
-    "gatsby-remark-copy-linked-files": "^3.0.0",
-    "gatsby-remark-images": "^3.0.0",
-    "gatsby-remark-prismjs": "^5.10.0",
-    "gatsby-remark-responsive-iframe": "^4.10.0",
-    "gatsby-remark-smartypants": "^3.0.0",
-    "gatsby-source-filesystem": "^3.13.0",
-    "gatsby-transformer-remark": "^3.0.0",
-    "gatsby-transformer-sharp": "^3.13.0",
-    "prismjs": "^1.24.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "react-typography": "^0.16.18",
-    "styled-components": "^5.3.1",
-    "typeface-major-mono-display": "^0.0.71",
-    "typography": "^0.16.18",
-    "typography-theme-stow-lake": "^0.16.18"
-  },
-  "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
-  "keywords": [
-    "gatsby"
-  ],
   "license": "MIT",
-  "main": "n/a",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/gatsbyjs/gatsby-starter-blog.git"
-  },
-  "devDependencies": {
-    "gatsby-plugin-favicons": "^2.0.0"
-  },
   "volta": {
     "node": "18.17.1"
   }

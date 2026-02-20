@@ -32,5 +32,5 @@ I'll be shocked if you have ever thought a moderate hotel, or better, needs a **
 ## The point is
 
 You can have this where ever you are.<br/>
-[Restart a surface to zero](/focus-closer-to-zero).<br/>
+[Restart a surface to zero](/focus-get-closer-to-zero/).<br/>
 Box it all up and find out later what you need to add back.
