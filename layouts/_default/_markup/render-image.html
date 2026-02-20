@@ -1,0 +1,10 @@
+{{- if hasPrefix .Destination "/content/images/" -}}
+  {{- /* Hide unresolved legacy image paths from pre-migration content imports. */ -}}
+{{- else -}}
+  <img
+    src="{{ .Destination | safeURL }}"
+    alt="{{ .Text }}"
+    {{- with .Title }} title="{{ . }}"{{- end }}
+    loading="lazy"
+  >
+{{- end -}}
