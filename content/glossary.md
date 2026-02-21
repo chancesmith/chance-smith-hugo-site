@@ -55,6 +55,9 @@ description: "Glossary terms and definitions."
 <h2 id="low-fidelity-work">Low Fidelity Work <a href="#low-fidelity-work">#</a></h2>
 <p>Any non-high-fidelity work, such as a sketch, wireframe, prototype, or pixel-free, database-less experience. This is a healthy constraint on the kind of feedback and amount of work required. Do this to quickly get feedback and iterate. See also: Thin Slices.</p>
 
+<h2 id="process-flow">Process Flow <a href="#process-flow">#</a></h2>
+<p>A pixel-free, low‑fidelity representation of a user journey. This allows teams to discuss the process, sequence, actor interactions, and edge cases without focusing on specific content, screens, element placement, or colors. Examples include slide decks, sticky notes, or Lucidchart diagrams. See also: Low Fidelity Work</p>
+
 <h2 id="reps">Reps <a href="#reps">#</a></h2>
 <p>Like reps in your exercises, the more you do something, the more comfortable you'll be. Your grandfather's drill press or grandmother's blender is overwhelming at first but less overwhelming after you've used one a hundred times. Feel uncomfortable? Most likely, you haven't been here or done this thing before. Go get some reps in.</p>
 
