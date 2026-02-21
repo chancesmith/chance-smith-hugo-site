@@ -16,7 +16,7 @@ The format:
 3. Teach me something
 Knowing the format ahead of time doesn't make it easier. It makes it harder.
 Now they have to choose: What passion? What to teach? And then actually prepare.
-I say: "You're the brain. I'm the hands."
+For the teaching portion, I ask them to walk me through a real process as if I'm doing it with them. They direct, I follow. "You're the brain. I'm the hands."
 Simple tasks don't cut it. Complex tasks reveal their ability to think, explain, and engage.
 Can they break down ideas?<br/>
 Adapt when I play dumb?<br/>
