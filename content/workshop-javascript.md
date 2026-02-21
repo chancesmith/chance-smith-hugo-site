@@ -4,8 +4,6 @@ url: "/workshop-javascript/"
 description: "Introduce basic programming concepts - no prior experience is needed."
 ---
 
-<img src="/Javascript-Workshop-Wide.png" alt="Javascript Fundamentals Workshop with Chance">
-
 **$150 - 3 hour workshop**  
 [Enroll Now >>](https://lu.ma/chancesmith)
 
