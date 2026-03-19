@@ -17,7 +17,7 @@ description: "Glossary terms and definitions."
 
 <div id="asyncs-doc"></div>
 <h2 id="asyncs-doc">Asyncs Doc <a href="#asyncs-doc">#</a></h2>
-<p>Queuing non-urgent items to discuss in a shared doc for async review or the next sync, keeping clear ownership of next actions (who holds the :football:) without constantly interrupting each other.</p>
+<p>Queue of non-urgent items for async review or next sync. A fishbowl view of what 🏈s  I’m carrying + thinking about + clear next-action ownership, no constant pings needed.</p>
 
 <div id="sync"></div>
 <h2 id="sync">Sync <a href="#sync">#</a></h2>
