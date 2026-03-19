@@ -224,19 +224,47 @@ Phase 5 outputs:
 
 ### Phase 6 - Content and asset cleanup
 
-- [ ] Validate internal links and fix known typos
-- [ ] Decide strategy for missing legacy assets:
-  - recover files, or
-  - replace/remove broken references, or
-  - add redirects/placeholders
+- [x] Validate internal links and fix known typos
+- [x] Decide strategy for missing legacy assets:
+  - keep existing post bodies intact
+  - suppress unresolved legacy markdown images (`/content/images/...`) via Hugo markdown render hook (`layouts/_default/_markup/render-image.html`)
+  - remove hard-broken static page image references where source files are missing
 - [ ] Normalize frontmatter where needed (`tags` consistency)
+
+Phase 6 outputs:
+
+- Fixed known typoed internal links:
+  - `content/blog/hotels-start-at-zero/index.md`: `/focus-closer-to-zero` -> `/focus-get-closer-to-zero/`
+  - `content/blog/wip/index.md`: `/work-out-load` -> `/work-out-loud/`
+- Removed broken static-page image references in:
+  - `content/projects.md`
+  - `content/hire-me-kit.md`
+  - `content/workshop-javascript.md`
+- Added Hugo image render hook fallback for legacy unresolved `/content/images/...` markdown assets:
+  - `layouts/_default/_markup/render-image.html`
+- Validation notes:
+  - `migration/phase-6-validation.md`
 
 ### Phase 7 - Cutover and cleanup
 
-- [ ] Compare generated route list against baseline
+- [x] Compare generated route list against baseline
 - [ ] Run final QA for mobile and desktop
-- [ ] Switch Netlify build command from Gatsby to Hugo
-- [ ] Remove Gatsby dependencies/files after successful cutover
+- [x] Switch Netlify build command from Gatsby to Hugo
+- [x] Remove legacy JS framework dependencies/files after successful cutover
+
+Phase 7 outputs:
+
+- Updated local scripts and metadata to Hugo-only in `package.json`
+- Added `netlify.toml` with Hugo build command and `public` publish directory
+- Removed legacy framework files and source tree:
+  - `gatsby-browser.js`
+  - `gatsby-config.js`
+  - `gatsby-node.js`
+  - `src/**`
+  - `yarn.lock` (stale lockfile with removed dependencies)
+- Updated `README.md` to Hugo development/build usage
+- Validation notes:
+  - `migration/phase-7-validation.md`
 
 ## Definition of done
 

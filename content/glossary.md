@@ -31,6 +31,9 @@ description: "Glossary terms and definitions."
 <h2 id="clarity-check">Clarity Check <a href="#clarity-check">#</a></h2>
 <p>A continuous planning practice of revisiting what's blurry, to help set expectations. We ask: What can we plan next, at any level of granularity? It's permission to move forward with what we know and be honest about what we don't. Keeps planning ongoing so teams are ready when big planning moments arrive. See also: 3Ws, Horizon.</p>
 
+<h2 id="context-stacking">Context Stacking <a href="#context-stacking">#</a></h2>
+<p>The practice of storing what you give AI once, making information atomic and additive as needed. It creates a decision tree that stacks context based on what you're working on, for efficient, modular use without clutter.</p>
+
 <div id="essential-release"></div>
 <h2 id="essential-releases">Essential Releases <a href="#essential-releases">#</a></h2>
 <p>Releasing early with simple-enough so you can get feedback sooner. See also: Feature-Boxing.</p>
@@ -63,8 +66,17 @@ description: "Glossary terms and definitions."
 <h2 id="low-fidelity-work">Low Fidelity Work <a href="#low-fidelity-work">#</a></h2>
 <p>Any non-high-fidelity work, such as a sketch, wireframe, prototype, or pixel-free, database-less experience. This is a healthy constraint on the kind of feedback and amount of work required. Do this to quickly get feedback and iterate. See also: Thin Slices.</p>
 
+<h2 id="process-flow">Process Flow <a href="#process-flow">#</a></h2>
+<p>A pixel-free, low‑fidelity representation of a user journey. This allows teams to discuss the process, sequence, actor interactions, and edge cases without focusing on specific content, screens, element placement, or colors. Examples include slide decks, sticky notes, or Lucidchart diagrams. See also: Low Fidelity Work</p>
+
+<h2 id="progressive-disclosure">Progressive Disclosure <a href="#progressive-disclosure">#</a></h2>
+<p>Giving someone a soft landing by starting with simple information to avoid heavy, technical details and large quantities of text. It lets them dive deeper into a topic when they're ready, keeping things inviting and clear.</p>
+
 <h2 id="reps">Reps <a href="#reps">#</a></h2>
 <p>Like reps in your exercises, the more you do something, the more comfortable you'll be. Your grandfather's drill press or grandmother's blender is overwhelming at first but less overwhelming after you've used one a hundred times. Feel uncomfortable? Most likely, you haven't been here or done this thing before. Go get some reps in.</p>
+
+<h2 id="reps-with-feedback">Reps with Feedback <a href="#reps-with-feedback">#</a></h2>
+<p>Large amounts of practice with a feedback loop. The volume builds skill, and feedback builds precision. Correct behaviors produce desirable outcomes. As we put in more reps and learn from feedback, chaos starts to settle, precision improves, skills strengthen through meaningful practice, and results become more reliable. For teams, shape behaviors with consistent feedback to grow skills and bring out the best.</p>
 
 <h2 id="sandbox">Sandbox <a href="#sandbox">#</a></h2>
 <p>Take your current problem and put it in a sandbox (whiteboard, spreadsheet, codesandbox.io, codepen, etc). This is a safe place to play and experiment. You can try new things in isolation and not worry about breaking anything.</p>

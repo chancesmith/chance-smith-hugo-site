@@ -6,10 +6,6 @@ description: "Hire Me! Guide and Tools to Enter the Work You Love."
 
 <p style="text-align: center;">by Chance Smith</p>
 
-<p style="text-align: center;">
-  <img src="/Hire-Me-Kit-Cover.png" alt="hire me kit cover" style="max-width: 350px; box-shadow: 5px 5px 20px #444;">
-</p>
-
 Today I'm early releasing the Hire-Me Kit. A collection: email template, email example, and a video for interns. There will be updates along the way.
 
 After a big career switch from restaurant/retail to creative and software work, I've experienced a role. Also, I've conducted hundreds of interviews and hires. Over my career, I've collected a fine-tuned way of getting hired.

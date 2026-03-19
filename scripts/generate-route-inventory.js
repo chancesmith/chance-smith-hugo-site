@@ -2,14 +2,14 @@ const fs = require("fs");
 const path = require("path");
 
 const projectRoot = path.resolve(__dirname, "..");
-const blogDirectory = path.join(projectRoot, "content", "blog");
-const pagesDirectory = path.join(projectRoot, "src", "pages");
+const contentDirectory = path.join(projectRoot, "content");
+const blogDirectory = path.join(contentDirectory, "blog");
 const outputDirectory = path.join(projectRoot, "migration");
 const inventoryPath = path.join(outputDirectory, "phase-1-route-inventory.json");
 const checklistPath = path.join(outputDirectory, "phase-1-url-parity-checklist.md");
 
 const markdownExtensions = new Set([".md", ".markdown"]);
-const pageExtensions = new Set([".js", ".jsx", ".ts", ".tsx", ".md", ".mdx"]);
+const ignoredStaticSections = new Set(["blog", "_drafts", "_ready"]);
 
 function walkFiles(directoryPath) {
   const entries = fs.readdirSync(directoryPath, { withFileTypes: true });
@@ -37,6 +37,42 @@ function toPosixPath(filePath) {
   return filePath.split(path.sep).join("/");
 }
 
+function normalizeRoute(route) {
+  if (!route) {
+    return null;
+  }
+
+  let normalized = route.trim();
+
+  if (!normalized.startsWith("/")) {
+    normalized = `/${normalized}`;
+  }
+
+  if (!normalized.endsWith("/")) {
+    normalized = `${normalized}/`;
+  }
+
+  return normalized.replace(/\/{2,}/g, "/");
+}
+
+function readFrontMatterValue(absoluteFilePath, key) {
+  const source = fs.readFileSync(absoluteFilePath, "utf8");
+  const frontMatterMatch = source.match(/^---\s*\n([\s\S]*?)\n---\s*(?:\n|$)/);
+
+  if (!frontMatterMatch) {
+    return null;
+  }
+
+  const keyPattern = new RegExp(`^${key}:\\s*(.+)$`, "m");
+  const keyMatch = frontMatterMatch[1].match(keyPattern);
+
+  if (!keyMatch) {
+    return null;
+  }
+
+  return keyMatch[1].trim().replace(/^['"]|['"]$/g, "");
+}
+
 function toPostRoute(absoluteFilePath) {
   const relativeFilePath = toPosixPath(path.relative(blogDirectory, absoluteFilePath));
   let withoutExtension = relativeFilePath.replace(/\.(md|markdown)$/i, "");
@@ -45,18 +81,35 @@ function toPostRoute(absoluteFilePath) {
     withoutExtension = withoutExtension.slice(0, -"/index".length);
   }
 
-  return `/${withoutExtension.replace(/^\/+/, "")}/`;
+  return normalizeRoute(withoutExtension);
 }
 
 function toStaticPageRoute(absoluteFilePath) {
-  const relativeFilePath = toPosixPath(path.relative(pagesDirectory, absoluteFilePath));
-  const withoutExtension = relativeFilePath.replace(/\.[^.]+$/, "");
+  const configuredRoute = readFrontMatterValue(absoluteFilePath, "url");
+  if (configuredRoute) {
+    return normalizeRoute(configuredRoute);
+  }
 
-  if (withoutExtension === "index") {
+  const relativeFilePath = toPosixPath(path.relative(contentDirectory, absoluteFilePath));
+  let withoutExtension = relativeFilePath.replace(/\.(md|markdown)$/i, "");
+
+  if (withoutExtension === "_index" || withoutExtension === "index") {
     return "/";
   }
 
-  return `/${withoutExtension.replace(/^\/+/, "")}/`;
+  if (withoutExtension.endsWith("/_index")) {
+    withoutExtension = withoutExtension.slice(0, -"/_index".length);
+  } else if (withoutExtension.endsWith("/index")) {
+    withoutExtension = withoutExtension.slice(0, -"/index".length);
+  }
+
+  return normalizeRoute(withoutExtension);
+}
+
+function isStaticContentFile(absoluteFilePath) {
+  const relativeFilePath = toPosixPath(path.relative(contentDirectory, absoluteFilePath));
+  const topLevelSection = relativeFilePath.split("/")[0];
+  return !ignoredStaticSections.has(topLevelSection);
 }
 
 function formatChecklistSection(title, routes) {
@@ -80,12 +133,17 @@ function getPostRoutes() {
 }
 
 function getStaticPageRoutes() {
-  const allFiles = walkFiles(pagesDirectory);
+  const allFiles = walkFiles(contentDirectory);
+  const routes = new Set(["/"]);
 
-  return allFiles
-    .filter(filePath => pageExtensions.has(path.extname(filePath).toLowerCase()))
+  allFiles
+    .filter(filePath => markdownExtensions.has(path.extname(filePath).toLowerCase()))
+    .filter(isStaticContentFile)
     .map(toStaticPageRoute)
-    .sort((a, b) => a.localeCompare(b));
+    .filter(Boolean)
+    .forEach(route => routes.add(route));
+
+  return Array.from(routes).sort((a, b) => a.localeCompare(b));
 }
 
 function writeArtifacts() {
@@ -98,10 +156,10 @@ function writeArtifacts() {
   const inventory = {
     generatedAt: new Date().toISOString(),
     sources: {
+      contentDirectory: "content",
       blogDirectory: "content/blog",
-      pagesDirectory: "src/pages",
+      staticContentStrategy: "content markdown files excluding blog/_drafts/_ready",
       postExtensions: Array.from(markdownExtensions.values()),
-      pageExtensions: Array.from(pageExtensions.values()),
     },
     counts: {
       staticPages: staticPageRoutes.length,
@@ -118,22 +176,17 @@ function writeArtifacts() {
   const checklist = [
     "# Phase 1 URL Parity Checklist",
     "",
-    "Generated from current Gatsby routes for migration parity verification.",
+    "Generated from current Hugo content routes for parity verification.",
     "",
     `Generated at: ${inventory.generatedAt}`,
     "",
     "## Usage",
     "",
-    "Mark routes as verified when the Hugo build is available.",
+    "Mark routes as verified against generated Hugo output.",
     "",
     formatChecklistSection("Static pages", staticPageRoutes).trimEnd(),
     "",
     formatChecklistSection("Post routes", postRoutes).trimEnd(),
-    "",
-    "## Known pre-existing route risks",
-    "",
-    "- [ ] `/focus-closer-to-zero` (expected typo risk, likely `/focus-get-closer-to-zero/`)",
-    "- [ ] `/work-out-load` (expected typo risk, likely `/work-out-loud/`)",
     "",
   ].join("\n");
 
