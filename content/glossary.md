@@ -15,6 +15,14 @@ description: "Glossary terms and definitions."
 <h2 id="activity-stacking">Activity Stacking <a href="#activity-stacking">#</a></h2>
 <p>Pairing activities together to have a win-win-win, a triple benefit, like HSAs. For example, spending time with kids playing a game that teaches money. (kids, fun, fiscal education)</p>
 
+<div id="asyncs-doc"></div>
+<h2 id="asyncs-doc">Asyncs Doc <a href="#asyncs-doc">#</a></h2>
+<p>Queuing non-urgent items to discuss in a shared doc for async review or the next sync, keeping clear ownership of next actions (who holds the :football:) without constantly interrupting each other.</p>
+
+<div id="sync"></div>
+<h2 id="sync">Sync <a href="#sync">#</a></h2>
+<p>Short meeting to review the Asyncs Doc, address quick questions, confirm we're on the same page, and hand off the football without diving into big strategy or planning.</p>
+
 <div id="busco"></div>
 <div id="bus-coefficiency"></div>
 <h2 id="bus-co-efficiency">Bus Co-efficiency <a href="#bus-co-efficiency">#</a></h2>
