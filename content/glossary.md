@@ -17,7 +17,7 @@ description: "Glossary terms and definitions."
 
 <div id="asyncs-doc"></div>
 <h2 id="asyncs-doc">Asyncs Doc <a href="#asyncs-doc">#</a></h2>
-<p>Queue of non-urgent items for async review or next sync. A fishbowl view of what 🏈s  I’m carrying + thinking about + clear next-action ownership, no constant pings needed.</p>
+<p>Shared asynchronous queue for non-urgent collab items: drop in thoughts, review when convenient or next to you sync. Fishbowl view of my current 🏈s + clear ownership, no constant pings needed. See: Fishbowl Experience</p>
 
 <div id="sync"></div>
 <h2 id="sync">Sync <a href="#sync">#</a></h2>
@@ -26,7 +26,7 @@ description: "Glossary terms and definitions."
 <div id="busco"></div>
 <div id="bus-coefficiency"></div>
 <h2 id="bus-co-efficiency">Bus Co-efficiency <a href="#bus-co-efficiency">#</a></h2>
-<p>The number of people on your team that could get hit by a bus and the project (or company) would survive. Disseminating knowledge across your team will increase your bus co-efficiency.</p>
+<p>The number of people on your team that could get hit by a bus (or called-in-rich) and the project (or company) would survive. Disseminating knowledge across your team will increase your bus co-efficiency.</p>
 
 <h2 id="clarity-check">Clarity Check <a href="#clarity-check">#</a></h2>
 <p>A continuous planning practice of revisiting what's blurry, to help set expectations. We ask: What can we plan next, at any level of granularity? It's permission to move forward with what we know and be honest about what we don't. Keeps planning ongoing so teams are ready when big planning moments arrive. See also: 3Ws, Horizon.</p>
