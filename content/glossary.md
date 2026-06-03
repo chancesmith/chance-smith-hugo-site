@@ -8,6 +8,10 @@ description: "Glossary terms and definitions."
 <h2 id="3ws">3Ws <a href="#3ws">#</a></h2>
 <p>Prevent your customers from worrying, waiting, wondering. Credit: <em>Burn Your Portfolio</em> by Michael Janda.</p>
 
+<div id="accountability-tool"></div>
+<h2 id="accountability-tool">Accountability Tool <a href="#accountability-tool">#</a></h2>
+<p>The tool we use to track tasks for ourselves and others. We end up using communication tools as task management tools. Email and Slack are for communication, not for tasks and accountability. Tasks in communication tools make it difficult to be and keep others accountable, and easy to get lost. Communication tools make it difficult to know who is holding the football on the work that is being done.</p>
+
 <div id="asynchronous-meetings"></div>
 <h2 id="5on2">5on2 <a href="#5on2">#</a></h2>
 <p>Talk for 5 minutes about any work you have today that will take 2 hours or more. This helps prevent roadblocks and wasted time doing the wrong work.</p>
