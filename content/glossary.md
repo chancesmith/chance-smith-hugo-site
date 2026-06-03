@@ -62,6 +62,10 @@ description: "Glossary terms and definitions."
 <h2 id="invariant-map">Invariant Map <a href="#invariant-map">#</a></h2>
 <p>The professional's undocumented mental landscape of known business truths, universal truths, and watch-your-step assumptions that may affect other areas. TigerBeetle calls invariants the negative space. (Solutions: assertions, automated tests, documentation.) See also: Invariant.</p>
 
+<div id="last-8-percent"></div>
+<h2 id="last-8-percent">Last 8% <a href="#last-8-percent">#</a></h2>
+<p>The gap between the risk people feel they should take and the risk they actually take. In conversations, people leave out roughly 8% of what they want to say. Which is the part with the biggest consequences. Closing the gap requires connection and courage. Feeling of safety and the willingness to do hard things. Credit: JP Pawliw, The Secret to Building a High-Performing Team.</p>
+
 <div id="lofiwork"></div>
 <h2 id="low-fidelity-work">Low Fidelity Work <a href="#low-fidelity-work">#</a></h2>
 <p>Any non-high-fidelity work, such as a sketch, wireframe, prototype, or pixel-free, database-less experience. This is a healthy constraint on the kind of feedback and amount of work required. Do this to quickly get feedback and iterate. See also: Thin Slices.</p>
