@@ -29,7 +29,10 @@
   --r-full: 9999px;
 }
 
-html { color-scheme: light; }
+html {
+  color-scheme: light;
+  scrollbar-gutter: stable;
+}
 
 body {
   margin: 0;
