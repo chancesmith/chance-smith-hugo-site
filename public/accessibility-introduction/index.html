@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Accessibility Introduction | Chance Smith</title>
+<meta name="description" content="This post is a work in progress. Last updated: 5/13/2023 - added accessibility video and visual guide I&amp;amp;rsquo;m starting a new project helping the visually impaired use …">
+<meta property="og:title" content="Accessibility Introduction">
+<meta property="og:description" content="This post is a work in progress. Last updated: 5/13/2023 - added accessibility video and visual guide I&amp;amp;rsquo;m starting a new project helping the visually impaired use …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/accessibility-introduction/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Accessibility Introduction">
+<meta name="twitter:description" content="This post is a work in progress. Last updated: 5/13/2023 - added accessibility video and visual guide I&amp;amp;rsquo;m starting a new project helping the visually impaired use …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Accessibility Introduction</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>This post is a work in progress.
+Last updated: 5/13/2023 - added accessibility video and visual guide</p>
+<p>I&rsquo;m starting a new project helping the visually impaired use software. There are many resources; I need this to be a digital garden of sorts to organize an approach and research around the topic. I hope this is helpful and that you enjoy it. Bear with me, as this needs to be organized and curated in its current state.</p>
+<h2 id="resource-links">Resource links</h2>
+<ul>
+<li><a href="https://www.a11yproject.com/checklist">https://www.a11yproject.com/checklist</a></li>
+<li><a href="http://inclusive-components.design">http://inclusive-components.design</a></li>
+<li><a href="https://a11ysupport.io/">https://a11ysupport.io/</a></li>
+<li><a href="https://alphagov.github.io/accessibility-personas/">personas with access needs</a></li>
+<li><a href="https://www.voorhoede.nl/nl/blog/accessibility-kit-for-web-developers/">accessiblity kit</a></li>
+<li><a href="https://accessibe.com/accessscan">measure the accesibility of your site</a></li>
+<li><a href="https://frontendmasters.com/courses/?q=accessibility">frontend accessiblity training with FrontendMasters</a></li>
+<li><a href="https://addons.mozilla.org/en-US/firefox/addon/nocoffee/">nocoffee firefox addon</a></li>
+<li><a href="https://a11y-style-guide.com/style-guide/">A11y Style Guide</a></li>
+<li><a href="https://wave.webaim.org/">WAVE - Web Accessibility Evaluation Tool</a></li>
+<li>accessibility fundamentals video <a href="https://youtu.be/z8xUCzToff8">https://youtu.be/z8xUCzToff8</a></li>
+<li>Visual guide to accessibility <a href="https://www.accessguide.io/">https://www.accessguide.io/</a></li>
+</ul>
+<h2 id="questions">Questions</h2>
+<h3 id="how-are-form-errors-handled-best">How are form errors handled best?</h3>
+<p>At first, I thought errors would be auto-focused. The user would be taken to the first field with a mistake, and the error would be read to them.</p>
+<p>Demo #1
+<img
+    src="autofocus-field.png"
+    alt="autofocused error on field a11y"
+    loading="lazy"
+  ></p>
+<p>Yet, after finding the A11y Project checklist, it&rsquo;s recommended to put the list of errors at the top of the form.</p>
+<p>Demo #2
+<img
+    src="autofocus-error-list.png"
+    alt="auto focusing on the error list above the fields"
+    loading="lazy"
+  ></p>
+<p>Is auto-focusing on the field or the error list still disorienting for those with no sight? This was listed on the checklist as well.</p>
+<p>The next step will be to use your test in these two demos and get feedback about the best approach.</p>
+<h3 id="are-in-app-keyboard-shortcuts-better-for-navigating">Are in-app keyboard shortcuts better for navigating?</h3>
+<p>If there are app-specific keyboard shortcuts, users shared that exiting the <a href="https://support.freedomscientific.com/teachers/lessons/4.2.3_VirtualPCCursor.htm">JAWS Virtual PC Cursor</a> is annoying.</p>
+<p>I&rsquo;ll start with VoiceOver and see if the in-app keyboard shortcuts are available while VoiceOver is on.</p>
+<p>&hellip;need to test this.</p>
+<h3 id="is-it-best-to-prevent-horizontal-scrolling-and-keep-all-content-vertical-like-a-mobile-experience">Is it best to prevent horizontal scrolling and keep all content vertical like a mobile experience?</h3>
+<p>While watching users move around their screens, the user spends too much time horizontal + vertical scrolling. Removing the horizontal axis will reduce the hide-and-seek experience.</p>
+<h3 id="what-is-the-best-way-to-hide-input-labels-but-still-have-them-read-by-screen-readers">What is the best way to hide input labels but still have them read by screen readers?</h3>
+<p>The A11y Project offers up solutions for hiding content for screen readers or for visual users.</p>
+<p><a href="https://www.a11yproject.com/posts/how-to-hide-content/">https://www.a11yproject.com/posts/how-to-hide-content/</a></p>
+<h2 id="my-empthy-dialed-up">My empthy dialed up</h2>
+<p>Apple does a great job bringing attention to how they&rsquo;ve solved the accessibility challenge. (<a href="https://www.youtube.com/watch?v=8sX9IEHWRJ8">🎥 The Greatest</a>)</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/testing-guides/" rel="prev">← Testing Guides</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/conduct-asynchronous-meetings/" rel="next">Conduct Asynchronous Meetings →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

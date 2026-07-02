@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>A Simple Git Workflow | Chance Smith</title>
+<meta name="description" content="UPDATED: 4/22/2023 - updated the intro At Sodium Halogen, we use Git with every development project. Our primary Git hosts are Github, BitBucket, and GitLab (in that …">
+<meta property="og:title" content="A Simple Git Workflow">
+<meta property="og:description" content="UPDATED: 4/22/2023 - updated the intro At Sodium Halogen, we use Git with every development project. Our primary Git hosts are Github, BitBucket, and GitLab (in that …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2019-06-26-simple-git-workflow/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="A Simple Git Workflow">
+<meta name="twitter:description" content="UPDATED: 4/22/2023 - updated the intro At Sodium Halogen, we use Git with every development project. Our primary Git hosts are Github, BitBucket, and GitLab (in that …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">A Simple Git Workflow</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>UPDATED: 4/22/2023 - updated the intro</p>
+<p>At <a href="https://sodiumhalogen.com?ref=csio">Sodium Halogen</a>, we use Git with every development project. Our primary Git hosts are Github, BitBucket, and GitLab (in that order). Here I&rsquo;ll share a solo workflow you can adopt. If you&rsquo;re working with a team, give this post a read and then jump over to <a href="/2020-02-03-simple-git-team-workflow">Simple Team Git Workflow</a></p>
+<h2 id="our-common-git-commands">Our common git commands</h2>
+<p>We all have a <code>~/wip/</code> work-in-progress folder where all of our development projects and repos go. In terminal, goto the root of your project&rsquo;s GIT repo. You can follow these steps no matter the branch you&rsquo;re on. Let&rsquo;s assume your on <code>main</code> or <code>master</code>.</p>
+<p>So we&rsquo;ll do something like this&hellip;</p>
+<ul>
+<li><code>cd ~/wip/PROJECT_NAME</code> to access project</li>
+<li><code>git pull</code> - to fetch all changes from the remote repo (Github, Bitbucket, GitLab)</li>
+<li>make some changes to the files</li>
+<li><code>git status</code> to check and see what files we have changed</li>
+<li>if you want commit all the changes at once, go to the next step</li>
+<li><code>git add .</code> to add all files in current directory</li>
+<li><code>git commit -m &quot;[FILE, FILE] YOUR MESSAGE HERE&quot;</code> - add a note of the files you changed and what you did. Yet, <a href="https://github.com/sodiumhalogenteam/git-emoji-commit#readme">we use emmojis in our commits</a>.</li>
+<li><code>git push</code> - to push changes up to remote repo</li>
+</ul>
+<p>At first this can feel overwhelming. If you&rsquo;re new to Git I&rsquo;d reccomend starting a repo that you take notes in or a small project you can use to get lots of practice. Make changes and commit early and often. This will give yourself some <a href="/glossary#reps">reps to get comfortable</a>.</p>
+<h2 id="our-workflow">Our workflow</h2>
+<p>This is what the workflow looks like for us, with a real example.</p>
+<ul>
+<li><code>cd ~/wip/vtx</code> to access the Vertex project.</li>
+<li><code>git status</code> to check if there is anything I need to commit before making new changes</li>
+<li><code>git pull</code></li>
+<li>make some changes to the files (index.html, Modal.js)</li>
+<li><code>git add .</code> or <code>git add index.html Modal.js</code></li>
+<li><code>git commit -m &quot;[index, Modal] add modal root, add Modal&quot;</code> - except replace with <a href="https://github.com/sodiumhalogenteam/git-emoji-commit#readme">gec</a>.</li>
+<li><code>git push</code> - all done, now move on to the next change</li>
+</ul>
+<h2 id="git-tips">Git tips</h2>
+<ul>
+<li>Where ever you clone your project onto your computer, that is where you want to makes changes from going forword. This is why we put all repos in our <code>~/wip/</code> folder.</li>
+<li>Use Git often, even by yourself. Just keep using it. This will help when you start working with other developers. I&rsquo;ve even used repo for class notes for extra practice.</li>
+<li>FOCUS - make small changes and commit after that small change is done (like above, or when fixing a single bug). You want to avoid commits that have 10 or more files changed. This is a sign that you&rsquo;re doing to much at once.</li>
+<li>Use <a href="https://github.com/sodiumhalogenteam/git-emoji-commit#readme">git-emoji-commit</a> to keep yourself focused on one category of change at a time.</li>
+<li>After you get the Git flow 😄, create <a href="https://github.com/sodiumhalogenteam/setup-mac/blob/master/.zshrc#L118">terminal aliases</a> for your git commands to speed your workflow up and save your fingers.</li>
+</ul>
+<h2 id="tldr-quick-workflow-reference">TL;DR Quick Workflow Reference</h2>
+<ul>
+<li><code>git pull</code></li>
+<li><code>git status</code></li>
+<li><code>git add .</code></li>
+<li><code>git commit -m &quot;[FILE, FILE] YOUR MESSAGE HERE&quot;</code></li>
+<li><code>git push</code></li>
+</ul>
+<h2 id="next-up">Next up</h2>
+<p><a href="/2020-02-03-simple-git-team-workflow">Simple Team Git Workflow</a></p>
+<h2 id="other-resources">Other Resources</h2>
+<ul>
+<li><a href="https://rogerdudler.github.io/git-guide/">Git - the simple guide</a></li>
+</ul>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2019-03-21-reactjs-search-filter-data-results/" rel="prev">← ReactJS - Search and Filter Data Results</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2019-08-14-diving-into-utility-first-css/" rel="next">Diving Into Utility-First CSS →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

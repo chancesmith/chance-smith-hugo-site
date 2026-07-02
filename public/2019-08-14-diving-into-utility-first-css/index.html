@@ -1,0 +1,555 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Diving Into Utility-First CSS | Chance Smith</title>
+<meta name="description" content="At Sodium Halogen, we&amp;amp;rsquo;ve seen many projects with different types of CSS methodologies and frameworks (BEM, Bootstrap, Foundation, Bulma). CSS &#43; React has been …">
+<meta property="og:title" content="Diving Into Utility-First CSS">
+<meta property="og:description" content="At Sodium Halogen, we&amp;amp;rsquo;ve seen many projects with different types of CSS methodologies and frameworks (BEM, Bootstrap, Foundation, Bulma). CSS &#43; React has been …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2019-08-14-diving-into-utility-first-css/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Diving Into Utility-First CSS">
+<meta name="twitter:description" content="At Sodium Halogen, we&amp;amp;rsquo;ve seen many projects with different types of CSS methodologies and frameworks (BEM, Bootstrap, Foundation, Bulma). CSS &#43; React has been …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Diving Into Utility-First CSS</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>At <a href="https://sodiumhalogen.com?ref=csio">Sodium Halogen</a>, we&rsquo;ve seen many projects with different types of CSS methodologies and frameworks (BEM, Bootstrap, Foundation, Bulma).</p>
+<h2 id="css--react-has-been-wonderful-with-styled-components">CSS + React has been wonderful with Styled Components</h2>
+<p>For over a year we&rsquo;ve been playing with ReactJS + Styled-Components. We&rsquo;ve loved not having to worry about CSS naming and overwriting cascading effects. It&rsquo;s helped a ton.</p>
+<h2 id="what-about-projects-that-need-classes-to-style-elements">What about projects that need classes to style elements?</h2>
+<p>We&rsquo;ve recently had a project that is vanilla CSS and JS. No frameworks at all! 🙀</p>
+<p>We didn&rsquo;t see this coming. It&rsquo;s also been a bit since we have had to create/write classes. Components in React there was less context switching having all HTML, CSS, and JS all in one file. Context switching is mentally expensive and time-consuming.</p>
+<h2 id="looking-at-utility-first-css">Looking at Utility-First CSS</h2>
+<p><a href="https://danmall.me/">Dan Mal</a> (genius) was the first to introduce us to utility classes. You might have seen the <a href="https://getbootstrap.com/docs/4.3/utilities/spacing/">spacing utility classes in Bootstrap</a> before.</p>
+<p>Utility classes are tiny bits of CSS, tied to a class name, that do one thing. Here are a few examples&hellip;</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="p">.</span><span class="nc">flex-1</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">flex</span><span class="p">:</span> <span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">ml-5</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">ml-10</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">ml-20</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin-left</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">pl-5</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">5</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">pl-10</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">10</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">pl-20</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><h2 id="pros-for-utility-first-css">Pros for Utility-First CSS</h2>
+<ul>
+<li>writing way less CSS</li>
+<li>more time in HTML (local space), less time in CSS files (global space)</li>
+<li>way less class name creation/modifying</li>
+<li>less BEM modifier class overhead</li>
+</ul>
+<h2 id="cons-for-utility-first-css">Cons for Utility-First CSS</h2>
+<ul>
+<li>not as easy to duplicate styles (templates/components really help with this)</li>
+<li>messy HTML, similar to inline-styles (we might just have to change the editor theme or look past it)</li>
+<li>not semantic-css names (CSS class names don&rsquo;t have to be semantic, but your HTML does)</li>
+</ul>
+<h2 id="tailwind-utility-first-css-framework">Tailwind Utility-First CSS Framework</h2>
+<p>At UndergroundJS conf in Nashville, TN, a few of us meet with another dev that introduced Tailwind.</p>
+<p>We haven&rsquo;t used the Tailwind in our no-framework project, but we have been modeling our own utilities classes the same way. So far we&rsquo;re liking how much time we&rsquo;re saving on layout and spacing.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* layout */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">flex-24</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">flex</span><span class="p">:</span> <span class="mi">24</span> <span class="mi">1</span> <span class="mi">0</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">margin-right</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">flex-7</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">flex</span><span class="p">:</span> <span class="mi">7</span> <span class="mi">1</span> <span class="mi">0</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">min-width</span><span class="p">:</span> <span class="mi">400</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">border-transparent</span><span class="o">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">hover</span><span class="err">\</span><span class="p">:</span><span class="nd">border-transparent</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">border-color</span><span class="p">:</span> <span class="kc">transparent</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* type */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">uppercase</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">text-transform</span><span class="p">:</span> <span class="kc">uppercase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">lowercase</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">text-transform</span><span class="p">:</span> <span class="kc">lowercase</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">capitalize</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">text-transform</span><span class="p">:</span> <span class="kc">capitalize</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* spacing */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">px-20</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding-right</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">pl-20</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">20</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">pl-30</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">padding-left</span><span class="p">:</span> <span class="mi">30</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c">/* size */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">h-full</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">height</span><span class="p">:</span> <span class="mi">100</span><span class="kt">%</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">w-300</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">width</span><span class="p">:</span> <span class="mi">300</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>We&rsquo;re going to give it a run by adding just what we need as we go. We&rsquo;ll be meshing BEM and Utility-classes.</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2019-06-26-simple-git-workflow/" rel="prev">← A Simple Git Workflow</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2019-11-07-getting-job-in-tech/" rel="next">How To Get A Development Job →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

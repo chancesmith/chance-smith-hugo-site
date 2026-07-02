@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>ReactJS - Search and Filter Data Results | Chance Smith</title>
+<meta name="description" content="At Sodium Halogen, we&amp;amp;rsquo;ve made several search fields, but thought it would be good to document an output. Here we go with just the Javascript part&amp;amp;hellip; data &#43; …">
+<meta property="og:title" content="ReactJS - Search and Filter Data Results">
+<meta property="og:description" content="At Sodium Halogen, we&amp;amp;rsquo;ve made several search fields, but thought it would be good to document an output. Here we go with just the Javascript part&amp;amp;hellip; data &#43; …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2019-03-21-reactjs-search-filter-data-results/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="ReactJS - Search and Filter Data Results">
+<meta name="twitter:description" content="At Sodium Halogen, we&amp;amp;rsquo;ve made several search fields, but thought it would be good to document an output. Here we go with just the Javascript part&amp;amp;hellip; data &#43; …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">ReactJS - Search and Filter Data Results</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>At <a href="https://sodiumhalogen.com?ref=csio">Sodium Halogen</a>, we&rsquo;ve made several search fields, but thought it would be good to document an output. Here we go with just the Javascript part&hellip;</p>
+<h2 id="data--search--filtering-data--awesome">data + search + filtering data = awesome</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">movies</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;101 Dalmations&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Disney, Dog&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;102 Dalmations&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Dog&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;5 Children and It&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;SciFi&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Aladdin&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Disney, Adventure&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;All Dogs Go to Heaven&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Dog&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Anastasia&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Princess&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Aristocats&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Disney, Animal&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Aussie and Teds Great Adventure&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Adventure, Dog&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="p">{</span> <span class="nx">title</span><span class="o">:</span> <span class="s2">&#34;Babe&#34;</span><span class="p">,</span> <span class="nx">genre</span><span class="o">:</span> <span class="s2">&#34;Drama, Animal&#34;</span><span class="p">,</span> <span class="nx">rating</span><span class="o">:</span> <span class="s2">&#34;G&#34;</span> <span class="p">},</span>
+</span></span><span class="line"><span class="cl"><span class="p">];</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// Fuzzy Search &gt;&gt; source: https://stackoverflow.com/a/15252131/3979495
+</span></span></span><span class="line"><span class="cl"><span class="nb">String</span><span class="p">.</span><span class="nx">prototype</span><span class="p">.</span><span class="nx">fuzzy</span> <span class="o">=</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">s</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">hay</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">(),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">n</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">l</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">s</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="k">for</span> <span class="p">(;</span> <span class="p">(</span><span class="nx">l</span> <span class="o">=</span> <span class="nx">s</span><span class="p">[</span><span class="nx">i</span><span class="o">++</span><span class="p">]);</span> <span class="p">)</span> <span class="k">if</span> <span class="p">(</span><span class="o">!~</span><span class="p">(</span><span class="nx">n</span> <span class="o">=</span> <span class="nx">hay</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="nx">l</span><span class="p">,</span> <span class="nx">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)))</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="kc">true</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// state variable
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">search</span> <span class="o">=</span> <span class="s2">&#34;Dsy&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">moviesFound</span> <span class="o">=</span> <span class="nx">movies</span><span class="p">.</span><span class="nx">filter</span><span class="p">((</span><span class="nx">movie</span><span class="p">)</span> <span class="p">=&gt;</span>
+</span></span><span class="line"><span class="cl">  <span class="nb">Object</span><span class="p">.</span><span class="nx">keys</span><span class="p">(</span><span class="nx">movie</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">map</span><span class="p">((</span><span class="nx">key</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="nx">movie</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">fuzzy</span><span class="p">(</span><span class="nx">search</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">reduce</span><span class="p">((</span><span class="nx">acc</span><span class="p">,</span> <span class="nx">bool</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">(</span><span class="nx">bool</span> <span class="o">?</span> <span class="nx">acc</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">:</span> <span class="nx">acc</span><span class="p">))</span>
+</span></span><span class="line"><span class="cl"><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">moviesFound</span><span class="p">);</span>
+</span></span></code></pre></div><p>pen: <a href="https://codepen.io/chancesmith/pen/RdEeva?editors=1111">https://codepen.io/chancesmith/pen/RdEeva?editors=1111</a></p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2019-03-20-citq-prune-old-non-renamed-s3-bucket-files/" rel="prev">← CITQ - Prune Old Non-Renamed S3 Bucket Files</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2019-06-26-simple-git-workflow/" rel="next">A Simple Git Workflow →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

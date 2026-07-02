@@ -1,0 +1,497 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>BetaTester Mode | Chance Smith</title>
+<meta name="description" content="When we built apps at Sodium Halogen, we found ways to speed up development, test features with trusted friends and family, and debug in any environment release. We call …">
+<meta property="og:title" content="BetaTester Mode">
+<meta property="og:description" content="When we built apps at Sodium Halogen, we found ways to speed up development, test features with trusted friends and family, and debug in any environment release. We call …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/betatester-mode/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="BetaTester Mode">
+<meta name="twitter:description" content="When we built apps at Sodium Halogen, we found ways to speed up development, test features with trusted friends and family, and debug in any environment release. We call …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">BetaTester Mode</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>When we built apps at <a href="https://sodiumhalogen.com">Sodium Halogen</a>, we found ways to speed up development, test features with trusted friends and family, and debug in any environment release. We call it BetaTester Mode.</p>
+<p>In each app, we add this BetaTester Mode by adding a hidden button that reveals the version number at the top of the screen.</p>
+<p><img
+    src="./betatester-mode-version-number.jpeg"
+    alt="BetaTester Mode"
+    loading="lazy"
+  ></p>
+<p>The hidden button turns on the version number that will now show on every screen you&rsquo;re on. This is great for knowing the version used for user testing and screenshots.</p>
+<p>You&rsquo;ll know you are a beta-tester if your version number is green.</p>
+<h2 id="the-hidden-menu">The hidden menu</h2>
+<p>If you press the version number, a menu will show up that allows you to turn on BetaTester Mode and see extra details and controls.</p>
+<p><img
+    src="./betatester-mode-menu-1.jpeg"
+    alt="BetaTester Mode"
+    loading="lazy"
+  ></p>
+<p><img
+    src="./betatester-mode-menu-2.jpeg"
+    alt="BetaTester Mode"
+    loading="lazy"
+  ></p>
+<h2 id="betatesters-have-superpowers">BetaTesters Have SuperPowers</h2>
+<p>When BetaTester Mode is on, here are some things you can expect:</p>
+<ul>
+<li>animations/transitions are faster, so testing is faster</li>
+<li>hidden features are unlocked/revealed</li>
+<li>unlimited access to content</li>
+<li>reveals extra buttons for developers</li>
+</ul>
+<h2 id="the-point-is">The point is</h2>
+<p>In your own apps, a BetaTester Mode can be helpful for your developers to have a faster feedback loop and a UX team to test features that are public to everyone.</p>
+<p>This isn&rsquo;t a list of easter-eggs in the app, but a way to move development along with incredible speed.</p>
+<p>And, of course, you can set BetaTester Mode to be removed in your production environment.</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/wip/" rel="prev">← Push Up A WIP</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/hotels-start-at-zero/" rel="next">Focus: Hotels Start At Zero →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>ELI5 - What is Docker? | Chance Smith</title>
+<meta name="description" content="Wait, what is Docker? Let&amp;amp;rsquo;s talk about the problem first. There have been many inconsistencies with development projects when sharing with team members and even …">
+<meta property="og:title" content="ELI5 - What is Docker?">
+<meta property="og:description" content="Wait, what is Docker? Let&amp;amp;rsquo;s talk about the problem first. There have been many inconsistencies with development projects when sharing with team members and even …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2017-12-12-eli5-what-is-docker/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="ELI5 - What is Docker?">
+<meta name="twitter:description" content="Wait, what is Docker? Let&amp;amp;rsquo;s talk about the problem first. There have been many inconsistencies with development projects when sharing with team members and even …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">ELI5 - What is Docker?</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <h2 id="wait-what-is-docker">Wait, what is Docker?</h2>
+<p>Let&rsquo;s talk about the problem first.</p>
+<p>There have been many inconsistencies with development projects when sharing with team members and even going into production. The project might work for a developer, but then it doesn&rsquo;t work for a System Admin. Marketers and team leads might see nothing at all.</p>
+<h2 id="virtual-machines-might-work">Virtual Machines might work</h2>
+<p>A Virtual Machine (VM) enters the scene&hellip;an application that runs another Operating System (OS) in a window on your current OS. The process is like booting up your Mac (jsut as normal) and then opening a VM software app (ex: VirtualBox) that then gives you the option to select to boot a VM OS of your choice Linux or Windows. Now you can have two operating systems at once.</p>
+<h2 id="eh-virtual-machines-helped-some">Eh, Virtual Machines helped some</h2>
+<p>Virtual Machines helped to keep things consistent but was a heavy lift for the computer it ran on. The VM would need a Linux OS, for example, to then run the project.</p>
+<h2 id="vagrant-was-one-step-closer">Vagrant was one step closer</h2>
+<p>With the help of Vagrant you could (ideally) setup your project in a VM in just a few steps. It did make this process simple instead of having to share a whole VM iso image with your team. Yet, this was still a resource hog solution compared to Docker.</p>
+<p>You know what is next&hellip; :)</p>
+<h2 id="docker-is-the-current-winner">Docker is the current winner</h2>
+<p>Docker is a lighter solution because it puts the Linux OS outside of the project, and just contains the project and it&rsquo;s dependencies. This is why they call it a container. You can now have multiple projects/containers running at once. This would have been hard, if not impossible on some PCs, to do with multiple VMs running at once.</p>
+<h2 id="give-docker-a-shot-tutorial">Give Docker a shot (tutorial)</h2>
+<p>Dip your toes into the watcher next to the Docker barge.
+<a href="https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b">https://medium.freecodecamp.org/a-beginner-friendly-introduction-to-containers-vms-and-docker-79a9e3e119b</a></p>
+<p>If you liked this explanation or want to chat, <a href="https://twitter.com/Chance_Smith">get in touch with me</a>.</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2016-06-13-local-wordpress-development-setup/" rel="prev">← Local Wordpress Development Setup</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2017-12-13-fast-sites-and-trimming-bloat/" rel="next">Fast sites and trimming bloat →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

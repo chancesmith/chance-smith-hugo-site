@@ -1,0 +1,498 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Design System Research | Chance Smith</title>
+<meta name="description" content="Updated 6/12/21: adding talk-out-loud video Frontend work and tools have changed so much in the last 15 years since I started development work. In the past couple of …">
+<meta property="og:title" content="Design System Research">
+<meta property="og:description" content="Updated 6/12/21: adding talk-out-loud video Frontend work and tools have changed so much in the last 15 years since I started development work. In the past couple of …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/design-system-research/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Design System Research">
+<meta name="twitter:description" content="Updated 6/12/21: adding talk-out-loud video Frontend work and tools have changed so much in the last 15 years since I started development work. In the past couple of …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Design System Research</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>Updated 6/12/21: adding talk-out-loud video</p>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/OaG1ndLQgdc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Frontend work and tools have changed so much in the last 15 years since I started development work. In the past couple of years, we&rsquo;ve defined <em>how we work</em> so we can speak the same vocabulary and deliver consistent results. This week, I&rsquo;m wanting to look at building a CSS styling process our team and our clients&rsquo; teams can be guided by.</p>
+<p>Our team has gone from creating websites to building web and native apps. Now we&rsquo;re using ReactJS and Blazor. Here is the problem and the big goal in mind.</p>
+<h2 id="seen-problem">Seen problem</h2>
+<p>Our designers spend time creating a design system that our development team (and myself) don&rsquo;t use.</p>
+<h2 id="the-frontend-workflow-goal">The Frontend Workflow Goal</h2>
+<p>Find a UI library tool that exposes what our designers&rsquo; design system looks like and the UI patterns and components too. I&rsquo;ll use this tool to build a boilerplate for our team and call it &ldquo;Periodic.&rdquo; Each of our customers will get a copy of Periodic for where their UI library will be developed.</p>
+<p>I want our development team to thinking about typeface size, spacing and layout just like the designers do. In a way, I&rsquo;d like to codify our designers&rsquo; systems.</p>
+<h2 id="2021-css-architecture">2021 CSS Architecture</h2>
+<p>After using SASS, LESS, CSS Modules, and Styled Components our team&rsquo;s process for creating styles has diminished. We favor different methods of styling applications. We need to unite on a single method.</p>
+<p>Brad Frost, creator and author of Atomic Design, <a href="https://youtu.be/TgWyyoofKIA?t=1601">mentions Styled Components</a> having its merits but wondering what happened to the trusty global stylesheet. A single style sheet that could be used across many applications and leaving less room for error.</p>
+<p>I agree that the styles we&rsquo;ve had in React seem like in-line (<a href="https://chancesmith.io/2019-08-14-diving-into-utility-first-css/">Tailwind CSS</a>) or wild-west (Styled Components). We&rsquo;ve enjoyed not having to think about the global context of styles or &ldquo;What do I name this class?&rdquo; Yet, it&rsquo;s come at a cost not having guidelines for our team to follow.</p>
+<p>Brad also mentions how he <a href="https://bradfrost.com/blog/post/css-architecture-for-design-systems/">architects CSS for design systems</a> with a naming convention of the global namespace, class-prefixes, and following with BEM like naming.</p>
+<p>This global style sheets thinking will be a bit painful to go back to, but worth revisiting. We need a system we can grow with and help us move with speed.</p>
+<p>I was then lead down a path of reading&hellip;</p>
+<p>The new CSS variables are very valuble and I wondered how they fit in a <a href="https://www.sarasoueidan.com/blog/style-settings-with-css-variables/">global and component style settings</a> setup. Sarah talks about building a internal UI kit that very close to want to we want.</p>
+<p>Going back to the roots of <a href="https://clubmate.fi/oocss-acss-bem-smacss-what-are-they-what-should-i-use">BEM + Atomic design</a></p>
+<p>Then considering how CSS-in-JS has been introduced.</p>
+<p>Should we still be seperating concerns and <a href="https://www.smashingmagazine.com/2012/04/decoupling-html-from-css/">decoupling the styles from HTML</a>?</p>
+<p>Dan Mal and Brad Frost <a href="https://bradfrost.com/blog/post/designer-developer-workflow/">show off their designer and developer workflow</a> where the two roles work in parallel&hellip;instead of a <a href="https://bradfrost.com/blog/post/your-sketch-library-is-not-a-design-system-redux/">waterfall design</a> like workflow.</p>
+<blockquote>
+<p>&ldquo;It’s a shame to see a ton of hard work go into static designs only to see all that thinking, detail, and nuance get washed away when it’s translated into code.&rdquo; - Brad Frost</p>
+</blockquote>
+<p>Okay, regardless of having picked a  methodology or workflow, let&rsquo;s get a few tools us developers can use.</p>
+<h2 id="css-component-style-guide-tools">CSS Component Style Guide Tools</h2>
+<p>Here are the ones I want to explore:</p>
+<ul>
+<li><a href="https://patternlab.io/?ref=chancesmith.io">Pattern Lab</a>: made by Dan Mal + Brad Frost, uses SASS to build a global style sheet we can use in a CDN</li>
+<li><a href="https://storybook.js.org/?ref=chancesmith.io">Storybook</a>: we&rsquo;ve used this in the past, but is specific to React/Vue/Angular</li>
+<li><a href="https://fractal.build/?ref=chancesmith.io">Fractal</a>: worth a shot</li>
+</ul>
+<p>I&rsquo;m interested in trying more, but these are where I&rsquo;ll start and add a few components to see which fits our team and our future best.</p>
+<p><a href="/our-frontend-design-system/">to be continued&hellip;</a></p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/tdd-get-me-started/" rel="prev">← TDD: Get me started</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/our-frontend-design-system/" rel="next">Our Frontend Design System →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

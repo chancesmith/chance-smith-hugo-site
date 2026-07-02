@@ -1,7 +1,12 @@
 {{ define "main" }}
   {{ $posts := sort (where .Site.RegularPages "Section" "blog") "Params.date" "desc" }}
 
-  <section>
+  <div class="archive-header">
+    <p class="archive-section-label">All Posts</p>
+    <h1 class="archive-title">Insights</h1>
+  </div>
+
+  <section class="archive-list">
     {{ range $posts }}
       {{ $rawDate := printf "%v" .Params.date }}
       {{ $displayDate := .Date.Format "Jan 02, 2006" }}
@@ -10,12 +15,12 @@
         {{ $displayDate = (time.AsTime $normalizedDate).Format "Jan 02, 2006" }}
       {{ end }}
       <article class="archive-post">
-        <small>{{ $displayDate }}</small>
-        <h3>
+        <h3 class="archive-post-title">
           <a href="{{ .RelPermalink }}">
             {{ with .Title }}{{ . }}{{ else }}{{ .RelPermalink }}{{ end }}
           </a>
         </h3>
+        <span class="archive-post-date">{{ $displayDate }}</span>
       </article>
     {{ end }}
   </section>

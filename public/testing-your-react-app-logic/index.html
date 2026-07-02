@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Testing Your React App Logic | Chance Smith</title>
+<meta name="description" content="I find myself and other teams avoiding writing tests. Mostly because we&amp;amp;rsquo;re out of practice or if there aren&amp;amp;rsquo;t enough examples in the codebase. So, I&amp;amp;rsquo;ve …">
+<meta property="og:title" content="Testing Your React App Logic">
+<meta property="og:description" content="I find myself and other teams avoiding writing tests. Mostly because we&amp;amp;rsquo;re out of practice or if there aren&amp;amp;rsquo;t enough examples in the codebase. So, I&amp;amp;rsquo;ve …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/testing-your-react-app-logic/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Testing Your React App Logic">
+<meta name="twitter:description" content="I find myself and other teams avoiding writing tests. Mostly because we&amp;amp;rsquo;re out of practice or if there aren&amp;amp;rsquo;t enough examples in the codebase. So, I&amp;amp;rsquo;ve …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Testing Your React App Logic</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>I find myself and other teams avoiding writing tests. Mostly because we&rsquo;re out of practice or if there aren&rsquo;t enough examples in the codebase.</p>
+<p>So, I&rsquo;ve been thinking about how to make it easier to add tests to your app.</p>
+<p>Here, I&rsquo;d like to share some quick ways to add a test with your next feature, such as bug fixing or refactoring. Here&rsquo;s the list.</p>
+<ol>
+<li><a href="#the-utility">The Utility</a></li>
+<li><a href="#the-slice">The Slice</a></li>
+<li><a href="#the-view-brain">The View Brain</a></li>
+<li><a href="#the-shipping-container">The Shipping Container</a></li>
+<li><a href="#the-whole-view">The Whole View</a></li>
+<li><a href="#the-app">The App</a></li>
+</ol>
+<h2 id="quick-ways-to-add-a-test-to-your-frontend">Quick Ways To Add A Test To Your Frontend</h2>
+<h3 id="the-utility">1. The Utility</h3>
+<p>Any new or untested utility function is a great place start writing tests. These functions are typically small and simple to test.</p>
+<p>If you have utility functions like this, you can write a test for it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">formatMsToTime</span> <span class="o">=</span> <span class="p">(</span><span class="nx">ms</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">seconds</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">ms</span> <span class="o">/</span> <span class="mi">1000</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">minutes</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">seconds</span> <span class="o">/</span> <span class="mi">60</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">hours</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">floor</span><span class="p">(</span><span class="nx">minutes</span> <span class="o">/</span> <span class="mi">60</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="sb">`</span><span class="si">${</span><span class="nx">hours</span><span class="si">}</span><span class="sb">:</span><span class="si">${</span><span class="nx">minutes</span><span class="si">}</span><span class="sb">`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>So, let&rsquo;s write a test for it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;formatMsToTime&#34;</span><span class="p">,</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">expect</span><span class="p">(</span><span class="nx">formatMsToTime</span><span class="p">(</span><span class="mi">1000</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&#34;0:0&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">expect</span><span class="p">(</span><span class="nx">formatMsToTime</span><span class="p">(</span><span class="mi">60000</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&#34;0:1&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">expect</span><span class="p">(</span><span class="nx">formatMsToTime</span><span class="p">(</span><span class="mi">3600000</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&#34;1:0&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">expect</span><span class="p">(</span><span class="nx">formatMsToTime</span><span class="p">(</span><span class="mi">3661000</span><span class="p">)).</span><span class="nx">toBe</span><span class="p">(</span><span class="s2">&#34;1:1&#34;</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h3 id="the-slice">2. The Slice</h3>
+<p>A function with logic and state setters, we can slice out the logic with a new function. This new function will return the value we want the new state to be. Now we have something we can test.</p>
+<p>So, if we knew we were having a bug with a function, we could slice out the logic into a testable unit.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// Before
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">handleSortItems</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">sortedItems</span> <span class="o">=</span> <span class="p">[...</span><span class="nx">state</span><span class="p">.</span><span class="nx">items</span><span class="p">].</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="k">return</span> <span class="mi">2</span><span class="p">;</span> <span class="c1">// &lt;-- 🐛
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setState</span><span class="p">({</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">items</span>: <span class="kt">sortedItems</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// After: Slicing out `sortItems` for testing.
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">sortItems</span> <span class="o">=</span> <span class="p">(</span><span class="nx">items</span>: <span class="kt">Item</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">[...</span><span class="nx">items</span><span class="p">].</span><span class="nx">sort</span><span class="p">((</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">&lt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="k">return</span> <span class="o">-</span><span class="mi">1</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">if</span> <span class="p">(</span><span class="nx">a</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">()</span> <span class="o">&gt;</span> <span class="nx">b</span><span class="p">.</span><span class="nx">name</span><span class="p">.</span><span class="nx">toLowerCase</span><span class="p">())</span> <span class="k">return</span> <span class="mi">1</span><span class="p">;</span> <span class="c1">// &lt;-- 🤌 fixed
+</span></span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">handleSortItems</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">sortedItems</span> <span class="o">=</span> <span class="nx">sortItems</span><span class="p">(</span><span class="nx">state</span><span class="p">.</span><span class="nx">items</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">setState</span><span class="p">({</span> <span class="p">...</span><span class="nx">state</span><span class="p">,</span> <span class="nx">items</span>: <span class="kt">sortedItems</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><h3 id="the-view-brain">3. The View Brain</h3>
+<p>One of my favorites, is abstracting the logic that the view needs. All our view state will live in a class, useReducer, custom hook or a tool like MST. Every state modifier will be tested in our view-brain.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// Before
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">skillAreas</span><span class="p">,</span> <span class="nx">setSkillAreas</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">stagedQuestions</span><span class="p">,</span> <span class="nx">setStagedQuestions</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">[</span><span class="nx">modalOpen</span><span class="p">,</span> <span class="nx">setModalOpen</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">handleAddQuestion</span> <span class="o">=</span> <span class="p">(</span><span class="nx">question</span>: <span class="kt">Question</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* logic + setStagedQuestions() + setModeOpen(false) */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">handleReorderSkillAreas</span> <span class="o">=</span> <span class="p">(</span><span class="nx">newSkillAreas</span>: <span class="kt">SkillArea</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* sorting logic + setSkillAreas() */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">handleOpenModal</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="cm">/* setModalOpen(true) */</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>Having all your state setters in that same place as your handlers with logic, makes it hard to test. We can merge all the state and logic into a testable unit, a custom hook.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// After: merge all the state and logic into a testable unit, a custom hook.
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">skillAreas</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">stagedQuestions</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">addQuestion</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">reorderSkillAreas</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">modalOpen</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span> <span class="o">=</span> <span class="nx">useEditAssessment</span><span class="p">();</span>
+</span></span></code></pre></div><p>Now, we can make a test suite against the <code>useEditAssessment()</code> hook to test all the state changes. As an alternative, we could also use a useReducer.</p>
+<h3 id="the-shipping-container">4. The Shipping Container</h3>
+<p>Decouple your view from your API calls. Just pass in the data your view needs.</p>
+<p>Yes, we could have the view do everything.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="c1">// Before
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MyView</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">setData</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">skillAreas</span><span class="p">,</span> <span class="nx">setSkillAreas</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">stagedQuestions</span><span class="p">,</span> <span class="nx">setStagedQuestions</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">modalOpen</span><span class="p">,</span> <span class="nx">setModalOpen</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">(</span><span class="kc">false</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Get data
+</span></span></span><span class="line"><span class="cl">  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">fetch</span><span class="p">(</span><span class="s1">&#39;/api/data&#39;</span><span class="p">).</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">()).</span><span class="nx">then</span><span class="p">(</span><span class="nx">setData</span><span class="p">)</span> <span class="p">},</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleSubmit</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="cm">/* fetch(&#39;/api/assessment&#39;, { method: &#39;POST&#39;, body: JSON.stringify({ skillAreas, stagedQuestions }) }) */</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleAddQuestion</span> <span class="o">=</span> <span class="p">(</span><span class="nx">question</span>: <span class="kt">Question</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="cm">/* logic + setStagedQuestions() + setModeOpen(false) */</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleReorderSkillAreas</span> <span class="o">=</span> <span class="p">(</span><span class="nx">newSkillAreas</span>: <span class="kt">SkillArea</span><span class="p">[])</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="cm">/* sorting logic + setSkillAreas() */</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleOpenModal</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="cm">/* setModalOpen(true) */</span> <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">(</span><span class="cm">/* JSX */</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>Yet, we can decouple the view from the API calls.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-tsx" data-lang="tsx"><span class="line"><span class="cl"><span class="c1">// After: only passing the props the view needs.
+</span></span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">MyViewContainer</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="p">[</span><span class="nx">data</span><span class="p">,</span> <span class="nx">setData</span><span class="p">]</span> <span class="o">=</span> <span class="nx">useState</span><span class="p">([]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">useEffect</span><span class="p">(()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fetch</span><span class="p">(</span><span class="s2">&#34;/api/data&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">then</span><span class="p">((</span><span class="nx">res</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl">      <span class="p">.</span><span class="nx">then</span><span class="p">(</span><span class="nx">setData</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">  <span class="p">},</span> <span class="p">[]);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleSubmit</span> <span class="o">=</span> <span class="p">(</span><span class="nx">skillAreas</span><span class="p">,</span> <span class="nx">stagedQuestions</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">fetch</span><span class="p">(</span><span class="s2">&#34;/api/assessment&#34;</span><span class="p">,</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">method</span><span class="o">:</span> <span class="s2">&#34;POST&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">body</span>: <span class="kt">JSON.stringify</span><span class="p">({</span> <span class="nx">skillAreas</span><span class="p">,</span> <span class="nx">stagedQuestions</span> <span class="p">}),</span>
+</span></span><span class="line"><span class="cl">    <span class="p">});</span>
+</span></span><span class="line"><span class="cl">  <span class="p">};</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="p">&lt;</span><span class="nt">MyView</span> <span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span> <span class="na">handleSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span> <span class="p">/&gt;;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span></code></pre></div><p>Now we can mock any of variation data and any response from the server.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// MyView.test.tsx
+</span></span></span><span class="line"><span class="cl"><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;MyView&#34;</span><span class="p">,</span> <span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">id</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;React&#34;</span> <span class="p">}];</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleSubmit</span> <span class="o">=</span> <span class="nx">jest</span><span class="p">.</span><span class="nx">fn</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="p">(&lt;</span><span class="nt">MyView</span> <span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span> <span class="na">handleSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span> <span class="p">/&gt;);</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...test the inner state changes based on user events
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>Next time you get a error response from the server, you can test how your view handles it.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// MyView.test.tsx
+</span></span></span><span class="line"><span class="cl"><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;shows error message&#34;</span><span class="p">,</span> <span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">data</span> <span class="o">=</span> <span class="p">[{</span> <span class="nx">id</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;React&#34;</span> <span class="p">}];</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">handleSubmit</span> <span class="o">=</span> <span class="nx">jest</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">fn</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl">    <span class="p">.</span><span class="nx">mockRejectedValueOnce</span><span class="p">({</span> <span class="nx">message</span><span class="o">:</span> <span class="s2">&#34;Server Error&#34;</span> <span class="p">});</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="p">(&lt;</span><span class="nt">MyView</span> <span class="na">data</span><span class="o">=</span><span class="p">{</span><span class="nx">data</span><span class="p">}</span> <span class="na">handleSubmit</span><span class="o">=</span><span class="p">{</span><span class="nx">handleSubmit</span><span class="p">}</span> <span class="p">/&gt;);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// Test the error response
+</span></span></span><span class="line"><span class="cl">  <span class="nx">fireEvent</span><span class="p">.</span><span class="nx">click</span><span class="p">(</span><span class="nx">screen</span><span class="p">.</span><span class="nx">getByText</span><span class="p">(</span><span class="s2">&#34;Submit&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">expect</span><span class="p">(</span><span class="k">await</span> <span class="nx">screen</span><span class="p">.</span><span class="nx">findByText</span><span class="p">(</span><span class="s2">&#34;Server Error&#34;</span><span class="p">)).</span><span class="nx">toBeInTheDocument</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h3 id="the-whole-view">5. The Whole View</h3>
+<p>If we want to test everything, we can set up a mock server your tests can use.</p>
+<p>Here is an example with <a href="https://mswjs.io/">MSW</a>.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// MyVewContainer.test.tsx
+</span></span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">rest</span> <span class="p">}</span> <span class="kr">from</span> <span class="s2">&#34;msw&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">test</span><span class="p">(</span><span class="s2">&#34;MyView&#34;</span><span class="p">,</span> <span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kr">const</span> <span class="nx">server</span> <span class="o">=</span> <span class="nx">setupServer</span><span class="p">(</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rest</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s2">&#34;/api/data&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">res</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">json</span><span class="p">([{</span> <span class="nx">id</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&#34;React&#34;</span> <span class="p">}]))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">),</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">rest</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s2">&#34;/api/assessment&#34;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">)</span> <span class="o">=&gt;</span>
+</span></span><span class="line"><span class="cl">      <span class="nx">res</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="nx">success</span>: <span class="kt">true</span> <span class="p">}))</span>
+</span></span><span class="line"><span class="cl">    <span class="p">)</span>
+</span></span><span class="line"><span class="cl">  <span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">server</span><span class="p">.</span><span class="nx">listen</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="p">(&lt;</span><span class="nt">MyViewContainer</span> <span class="p">/&gt;);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">server</span><span class="p">.</span><span class="nx">close</span><span class="p">();</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><p>Ideally, you&rsquo;d have a <a href="https://mswjs.io/docs/integrations/node#test-runner">test setup file</a> that starts and stops the server for you.</p>
+<p>If you did that you&rsquo;re tests would be a little cleaner.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-ts" data-lang="ts"><span class="line"><span class="cl"><span class="c1">// MyVewContainer.test.tsx
+</span></span></span><span class="line"><span class="cl"><span class="kr">import</span> <span class="p">{</span> <span class="nx">server</span> <span class="p">}</span> <span class="kr">from</span> <span class="s1">&#39;../setupTests/server&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nx">test</span><span class="p">(</span><span class="s1">&#39;MyView&#39;</span><span class="p">,</span> <span class="kr">async</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">http</span><span class="p">.</span><span class="kr">get</span><span class="p">(</span><span class="s1">&#39;/api/data&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">json</span><span class="p">([{</span> <span class="nx">id</span>: <span class="kt">1</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s1">&#39;React&#39;</span> <span class="p">}])));</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">&#39;/api/assessment&#39;</span><span class="p">,</span> <span class="p">(</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">ctx</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="nx">res</span><span class="p">(</span><span class="nx">ctx</span><span class="p">.</span><span class="nx">json</span><span class="p">({</span> <span class="nx">success</span>: <span class="kt">true</span> <span class="p">}))));</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="nx">render</span><span class="p">(&lt;</span><span class="nt">MyViewContainer</span> <span class="p">/&gt;);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="c1">// ...
+</span></span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div><h3 id="the-app">6. The App</h3>
+<p>Pick up an E2E tool and test your app with a few user flows. Focus on navigating through the app without errors. Use tools like <a href="https://playwright.dev/">Playwright</a> or <a href="https://www.cypress.io/">Cypress</a>.</p>
+<h2 id="the-point-is">The Point Is</h2>
+<p>You can decided to test the logic of your app at any level.</p>
+<p>Now you have some easy ways to adding tests for your valuable app logic.</p>
+<p>I&rsquo;ve found that <a href="./is-it-slow-to-test">testing your app will save you time</a> in the long run. It will also help you understand your app better.</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/is-it-slow-to-test/" rel="prev">← Is it slow to test?</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/early-product-launching-process/" rel="next">An Early Product Launching Process →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

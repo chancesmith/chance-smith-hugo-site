@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Projects | Chance Smith</title>
+<meta name="description" content="Record of projects I&#39;ve worked on.">
+<meta property="og:title" content="Projects">
+<meta property="og:description" content="Record of projects I&#39;ve worked on.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/projects/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Projects">
+<meta name="twitter:description" content="Record of projects I&#39;ve worked on.">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+        <h1 class="page-title">Projects</h1>
+      
+
+      <main>
+        
+  
+    <article class="page-content">
+      <p>On-site or remote, these are projects and the role I played. Please email me at <a href="mailto:chance@sodiumhalogen.com">chance@sodiumhalogen.com</a> for us to collaborate on your project.</p>
+<div class="project-item">
+  <div class="project-content">
+    <h3 class="project-title"><a href="http://savewithenvie.com">Envie | TeamWALT, a Southern Bank Initiative</a></h3>
+    <p class="project-meta">2020 | mobile-app | consultant</p>
+    <p class="project-description">Building a mobile app to encourage creating a habit of savings by playing the envelope game every day.</p>
+  </div>
+</div>
+<div class="project-item">
+  <div class="project-content">
+    <h3 class="project-title"><a href="https://sevcosecurity.com/">Sevco</a></h3>
+    <p class="project-meta">2020 | web-app | consultant</p>
+    <p class="project-description">Building a JavaScript web app for visualizing device inventory on a network. <a href="https://www.youtube.com/watch?v=7H6zxWnzwcQ">Watch the app demo.</a></p>
+  </div>
+</div>
+<div class="project-item">
+  <div class="project-content">
+    <h3 class="project-title"><a href="https://youtu.be/-KbIMCVYA9U">FunFact</a></h3>
+    <p class="project-meta">2019 | mobile-app | developer</p>
+    <p class="project-description">Building an iOS game as an ice breaker for small groups to get to know each other. <a href="https://youtu.be/Gd9OkNIbeP8?t=330">Watch the app demo.</a></p>
+    <p class="project-description">Business Outcome: App of the Day in 2022</p>
+  </div>
+</div>
+<div class="project-item">
+  <div class="project-content">
+    <h3 class="project-title"><a href="https://vertex.link/">Synapase | The Vertex Project</a></h3>
+    <p class="project-meta">2019 | web-app | developer</p>
+    <p class="project-description">Building a complex JavaScript web app for data analysts to visualize data they query from a forcegraph into maps, tables, and nodes. <a href="https://youtu.be/Gd9OkNIbeP8?t=330">Watch the app demo.</a></p>
+  </div>
+</div>
+<div class="project-item">
+  <div class="project-content">
+    <h3 class="project-title"><a href="https://www.gokmusa.org/">Kontakt Mission USA</a></h3>
+    <p class="project-meta">2016 | website | developer</p>
+    <p class="project-description">A WordPress theme from scratch plus customizations for a non-profit organization to help Germany.</p>
+  </div>
+</div>
+
+    </article>
+  
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

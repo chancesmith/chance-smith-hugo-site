@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>A Simple Git Team Workflow | Chance Smith</title>
+<meta name="description" content="At Sodium Halogen, there are several projects that have 2-3 team members doing development. We use Git for developers to collaborate and share code. Since we&amp;amp;rsquo;ve …">
+<meta property="og:title" content="A Simple Git Team Workflow">
+<meta property="og:description" content="At Sodium Halogen, there are several projects that have 2-3 team members doing development. We use Git for developers to collaborate and share code. Since we&amp;amp;rsquo;ve …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2020-02-03-simple-git-team-workflow/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="A Simple Git Team Workflow">
+<meta name="twitter:description" content="At Sodium Halogen, there are several projects that have 2-3 team members doing development. We use Git for developers to collaborate and share code. Since we&amp;amp;rsquo;ve …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">A Simple Git Team Workflow</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>At <a href="https://sodiumhalogen.com?ref=csio">Sodium Halogen</a>, there are several projects that have 2-3 team members doing development. We use Git for developers to collaborate and share code. Since we&rsquo;ve been using Git as a team for 5+ years, I thought it would be good to share our workflow. Here is how we roll&hellip;</p>
+<p>Since we use GitHub for our projects, you&rsquo;ll see that as the primary tool of choice.</p>
+<h2 id="tldr">TL;DR</h2>
+<ul>
+<li>rarely commit to the <code>master</code> branch (unless only one dev)</li>
+<li>create a branch for each new code base addition: <code>git checkout -b 123-feature-name</code> (123 = GitHub issue number)</li>
+<li>make commits with context</li>
+<li>push all changes to that new branch</li>
+<li>once ready for review, make a PR (Pull Request) in GitHub</li>
+<li>mention the issue, testing instructions, screenshots in the PR</li>
+<li>another team member reviews the PR and merges it in</li>
+</ul>
+<h2 id="give-your-commits-context">Give your commits context</h2>
+<p>We&rsquo;ve adapted how we do commits over the years. We aim to give context through each commit. Let me show you.</p>
+<p>Example: <code>[cart/item] add price and discounts #24</code></p>
+<p>Breakdown: <code>[context_here] SUBJECT: details of actions taken in present tense #ISSUE_NUM</code></p>
+<ul>
+<li><code>[cart/item]</code> mentions where in the app and possibly what component specificly was changed</li>
+<li><code>SUBJECT:...</code>Being consistant with the tense gives less variety in our how the team writes the commit sbject.</li>
+<li><code>#ISSUE_NUM</code> the GitHub issue where progress was made</li>
+</ul>
+<p>When you metion the issue number in a commit, your commit gets associated with that issue. It&rsquo;s pretty cool to see the paper trail of progress on an issue.</p>
+<p>If you&rsquo;re really cool you add emojis to your commits. We all use git-emoji-commit, a tool we created. Our goal was to commit often and keep our commits concise, and not just commit everything under the sun.</p>
+<h2 id="making-helpful-prs">Making helpful PRs</h2>
+<ul>
+<li>issue numbers</li>
+<li>testing instructions</li>
+<li>screenshot/gif</li>
+</ul>
+<p>Here is a full example:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">fix #27
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## how to test
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">- add item to cart
+</span></span><span class="line"><span class="cl">- see prices are correct for each item
+</span></span><span class="line"><span class="cl">- add discount code `20OFFNOVEMBER`
+</span></span><span class="line"><span class="cl">- see 20% discount applied to whole order
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">## screenshot
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">(drag and drop screenshot of expected cart results)
+</span></span></code></pre></div><h2 id="git-workflow">Git workflow</h2>
+<ul>
+<li>create and look at issue in GitHub</li>
+<li>use issue number as the prefix for each feature branch</li>
+<li>make sure you are branching from master: <code>git checkout master</code></li>
+<li>create new feature branch with issue# prefix: <code>git checkout -b 27-timeline-view</code></li>
+<li>then make changes to that branch until the feature is complete</li>
+<li>each commit starts with context in brackets: <code>[context_here] subject #ISSUE_NUM</code> Example: <code>git commit -m &quot;[timeline] add timeline chart #27&quot;</code></li>
+<li>create the PR in GitHub</li>
+<li>mention the issues that need to be closed: <code>fix #72</code></li>
+<li>mention instrcuctions on how to test the addition</li>
+<li>add screenshots of visual changes</li>
+<li>set a team member to review and link them to the PR</li>
+<li>team member reviews and then merges it in if all is good</li>
+</ul>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2019-11-12-javascript-timelines/" rel="prev">← Javascript Timelines</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2020-02-17-simple-estimates/" rel="next">Do A Short Discovery for Very Small Project →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

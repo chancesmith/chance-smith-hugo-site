@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>One-Liner ADR | Chance Smith</title>
+<meta name="description" content="This week has been a week of thinking through repeatable processes. I&amp;amp;rsquo;ve been on-call and helped consult on a project. That&amp;amp;rsquo;s made me think about making …">
+<meta property="og:title" content="One-Liner ADR">
+<meta property="og:description" content="This week has been a week of thinking through repeatable processes. I&amp;amp;rsquo;ve been on-call and helped consult on a project. That&amp;amp;rsquo;s made me think about making …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/one-liner-adr/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="One-Liner ADR">
+<meta name="twitter:description" content="This week has been a week of thinking through repeatable processes. I&amp;amp;rsquo;ve been on-call and helped consult on a project. That&amp;amp;rsquo;s made me think about making …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">One-Liner ADR</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>This week has been a week of thinking through repeatable processes. I&rsquo;ve been on-call and helped consult on a project. That&rsquo;s made me think about making things easier for the next person.</p>
+<h2 id="so-what-is-an-adr">So, what is an ADR?</h2>
+<p>ADR - Architecture Decision Record</p>
+<p>A record of a decision made. It&rsquo;s a way to document a decision&rsquo;s context, decision, and consequences. It&rsquo;s a way to document the why and how of a decision.</p>
+<p>Kent C. Dodds uses them in projects. So others can follow, and each decision gets recorded.
+<a href="https://github.com/epicweb-dev/epic-stack/tree/main/docs/decisions">https://github.com/epicweb-dev/epic-stack/tree/main/docs/decisions</a></p>
+<h2 id="your-first-adr">Your first ADR</h2>
+<p>Don&rsquo;t overthink it. Just create a file in your project. Slack has a Canvas feature where you can drop notes or use a Google Doc. The point is to document the decision.</p>
+<p>Just one file with a one-liner. That&rsquo;s it. You can add more later.</p>
+<h2 id="the-one-liner-adr">The One-Liner ADR</h2>
+<p>A <code>one-liner ADR</code> could look like:</p>
+<blockquote>
+<p>[date] – We found out [scenario/context]. So, we&rsquo;ve decided [decision]. We [manifesto value or rule].</p>
+</blockquote>
+<p>Example:</p>
+<blockquote>
+<p>08/25/2023 – We don&rsquo;t want the security risks and ownership headaches. So, we&rsquo;ve decided to set up projects under their accounts. We don&rsquo;t host our clients&rsquo; production servers.</p>
+</blockquote>
+<h2 id="the-point-is">The Point Is</h2>
+<p>We all forget. ADRs is a process you and your team can follow.</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/next7/" rel="prev">← Better understand your next steps</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/is-it-slow-to-test/" rel="next">Is it slow to test? →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

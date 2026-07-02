@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Javascript Timelines | Chance Smith</title>
+<meta name="description" content="At Sodium Halogen (SH), we&amp;amp;rsquo;re digging into a data-rich project. The task at hand is to have a javascript timeline that has several features we&amp;amp;rsquo;re trying to …">
+<meta property="og:title" content="Javascript Timelines">
+<meta property="og:description" content="At Sodium Halogen (SH), we&amp;amp;rsquo;re digging into a data-rich project. The task at hand is to have a javascript timeline that has several features we&amp;amp;rsquo;re trying to …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2019-11-12-javascript-timelines/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Javascript Timelines">
+<meta name="twitter:description" content="At Sodium Halogen (SH), we&amp;amp;rsquo;re digging into a data-rich project. The task at hand is to have a javascript timeline that has several features we&amp;amp;rsquo;re trying to …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Javascript Timelines</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>At <a href="https://sodiumhalogen.com?ref=csio">Sodium Halogen</a> (SH), we&rsquo;re digging into a data-rich project. The task at hand is to have a javascript timeline that has several features we&rsquo;re trying to fit in.</p>
+<p>The options we have are to find something that matches closely or build our own. Today I&rsquo;m digging through the internet to find the right solution.</p>
+<p>To protect our SH customer, some of the details are vague. That, I do apologize for.</p>
+<h2 id="small-scale-mocks-of-the-timeline-idea">small scale mocks of the timeline idea</h2>
+<p>Gantt chart like with mini timeline map at the bottom
+<img
+    src="./timeline-mock.png"
+    alt="javascript-timeline-mock"
+    loading="lazy"
+  ></p>
+<p>Inner elements inside a gantt chart bar
+<img
+    src="./timeline-gantt-with-sub-elements.png"
+    alt="timeline-gantt-with-sub-elements"
+    loading="lazy"
+  ></p>
+<h3 id="features-needed">features needed</h3>
+<ul>
+<li>gantt bars are time intervals</li>
+<li>gantt bars are dots or moments in time</li>
+<li>box drawing selection</li>
+<li>scrollable (horz/vert/zoom)</li>
+<li>grouping of gantt chart bars</li>
+<li>inner-nest items in a gantt chart bar</li>
+</ul>
+<p>Let the digging for solutions begin&hellip;</p>
+<h2 id="diving-into-the-internet-looking-for-a-javascript-timeline-graph-or-framework">Diving into the internet looking for a javascript timeline graph or framework</h2>
+<p>I know <a href="https://d3js.org/">D3</a> will show up along the way. I have run across D3 a lot looking for graph solutions. The D3 framework seems to be a mind-job to get started, but holds a lot of promise. We&rsquo;ll see&hellip;</p>
+<h2 id="d3js-gantt-chart-example-3">D3.js Gantt Chart, example 3</h2>
+<hr>
+<p>This solution looks like a good start for a custom timeline graph. Not a bad place to begin the search. 💪</p>
+<p><img
+    src="./d3-gantt-chart-example-3.png"
+    alt="d3 timeline gantt chart"
+    loading="lazy"
+  >
+<a href="https://bl.ocks.org/dk8996/5538271">https://bl.ocks.org/dk8996/5538271</a></p>
+<h3 id="example-d3js-pros">example D3.js pros</h3>
+<ul>
+<li>shows intervals</li>
+<li>best fit for starter D3 custom build</li>
+<li>timeline changes as expanding time</li>
+</ul>
+<h3 id="example-d3js-cons">example D3.js cons</h3>
+<ul>
+<li>not scrollable (horz/vert)</li>
+</ul>
+<p>Let&rsquo;s keep looking&hellip;(see another D3 example further down)</p>
+<h2 id="overwhelmed-with-frameworks-starting-now">Overwhelmed with frameworks starting now</h2>
+<hr>
+<p>Wikipedia then shows up with a plate full of options.</p>
+<p><img
+    src="./wikipedia-table-of-javascript-chart-libs.png"
+    alt="wikipedia-table-of-javascript-chart-libs"
+    loading="lazy"
+  >
+<a href="https://en.wikipedia.org/wiki/Comparison_of_JavaScript_charting_libraries">https://en.wikipedia.org/wiki/Comparison_of_JavaScript_charting_libraries</a></p>
+<h2 id="amcharts---timeline-and-gantt-charts">amCharts - Timeline and Gantt charts</h2>
+<hr>
+<p>amCharts has been in the running for this solution before. The visuals and animations are amazing!</p>
+<p><img
+    src="./amchart4-timeline-feature.gif"
+    alt="amchart4-timeline-feature"
+    loading="lazy"
+  ></p>
+<p>I currently feel the graphs I see in the <a href="https://www.amcharts.com/timeline-chart/">new amChart4 timelines</a> aren&rsquo;t a great fit for analysis, but great tools for telling a story with the data that is found.</p>
+<p>There has been some hope we could use the Gantt chart.</p>
+<p><img
+    src="./amchart-gantt-chart.png"
+    alt="amchart-gantt-chart"
+    loading="lazy"
+  ></p>
+<h3 id="amcharts-pros">amCharts pros</h3>
+<ul>
+<li>the timeline shows a range of data with the top handle UI</li>
+</ul>
+<h3 id="amcharts-cons">amCharts cons</h3>
+<ul>
+<li>not scrollable (horz/vert/zoom)</li>
+<li>inner content would need to be dropdowns instead</li>
+</ul>
+<p>This is really close to want we want, but might be painful to bend-to-our-will.</p>
+<h2 id="anychart---gantt-chart">AnyChart - Gantt chart</h2>
+<hr>
+<p><img
+    src="./anychart-anygantt.png"
+    alt="anychart-anygantt"
+    loading="lazy"
+  >
+<a href="https://www.anychart.com/products/anygantt/gallery/Gantt_Working_With_Data/">https://www.anychart.com/products/anygantt/gallery/Gantt_Working_With_Data/</a></p>
+<h3 id="anychart-pros">AnyChart pros</h3>
+<ul>
+<li>hierarchy of gantt bar elements (expandable with clicks)</li>
+</ul>
+<h3 id="anychart-cons">AnyChart cons</h3>
+<ul>
+<li>not scrollable (horz/vert/zoom)</li>
+</ul>
+<p><img
+    src="./anychart-table-data-example.gif"
+    alt="anychart-anygantt"
+    loading="lazy"
+  ></p>
+<h2 id="visjs---timeline-chart">Vis.js - Timeline chart</h2>
+<hr>
+<p>An outdated branding, but super feature-rich. This one has so many examples and use-cases.</p>
+<p><img
+    src="./visjsorg.png"
+    alt="visjsorg"
+    loading="lazy"
+  >
+<a href="https://visjs.org/">https://visjs.org/</a></p>
+<p><img
+    src="./visjs-individual-editable-items.png"
+    alt="visjs-individual-editable-items"
+    loading="lazy"
+  >
+<a href="https://visjs.github.io/vis-timeline/examples/timeline/groups/groups.html">https://visjs.github.io/vis-timeline/examples/timeline/groups/groups.html</a></p>
+<h3 id="visjs-pros">Vis.js pros</h3>
+<ul>
+<li>so many options to tinker with</li>
+<li>scrollable (zoom) &amp; click+drag for panning left/right</li>
+<li>grouping of gantt chart bars</li>
+</ul>
+<h3 id="visjs-cons">Vis.js cons</h3>
+<ul>
+<li>not sure how to handle box drawing selection</li>
+</ul>
+<p>Very promising as well.</p>
+<h2 id="chartjs-simple-and-flexible-charts">Chart.js simple and flexible charts</h2>
+<hr>
+<p>These are simple and pretty. Yet, don&rsquo;t seem to have a good gantt or timeline chart we can use.</p>
+<p><img
+    src="./chartjsorg.png"
+    alt="chartjsorg"
+    loading="lazy"
+  >
+<a href="https://www.chartjs.org/">https://www.chartjs.org/</a></p>
+<p>Not a good fit for us.</p>
+<h2 id="d3js-scrollable-timeline-example">D3.js scrollable timeline example</h2>
+<hr>
+<p>The x-axis timeline scales well on scroll. Nice.</p>
+<p><img
+    src="./d3js-timeline-scrollable.png"
+    alt="d3js-timeline-scrollable"
+    loading="lazy"
+  >
+<a href="https://www.cssscript.com/demo/simple-scrollable-timeline-chart-with-d3-js-d3-timeline/">https://www.cssscript.com/demo/simple-scrollable-timeline-chart-with-d3-js-d3-timeline/</a></p>
+<h3 id="d3js-scrollable-timeline-pros">D3.js scrollable timeline pros</h3>
+<ul>
+<li>dots for moments in time</li>
+<li>scrollable/pannable, nice</li>
+</ul>
+<h3 id="d3js-scrollable-timeline-cons">D3.js scrollable timeline cons</h3>
+<ul>
+<li>not sure how adding more rows will stack</li>
+<li>eh, definitely not as pretty as some of the previous (not a deal-breaker)</li>
+</ul>
+<p>Details: <a href="https://www.cssscript.com/simple-scrollable-timeline-chart-with-d3-js-d3-timeline/">https://www.cssscript.com/simple-scrollable-timeline-chart-with-d3-js-d3-timeline/</a></p>
+<h2 id="vasturiano-timelines-chart">vasturiano: timelines-chart</h2>
+<hr>
+<p>This is nice as well. The zoom feature is handy but might conflict with the way we want to handle the node selection.</p>
+<p><img
+    src="./vasturiano-timelines-chart.png"
+    alt="vasturiano-timelines-chart"
+    loading="lazy"
+  >
+<a href="https://github.com/vasturiano/timelines-chart">https://github.com/vasturiano/timelines-chart</a></p>
+<p>Also, a StackOverflow request that this tool is mentioned as the solution: <a href="https://stackoverflow.com/questions/48890790/d3-multi-layer-timeline">https://stackoverflow.com/questions/48890790/d3-multi-layer-timeline</a></p>
+<h3 id="vasturiano-pros">vasturiano pros</h3>
+<ul>
+<li>zoom by selection</li>
+<li>bottom vert-pan bar</li>
+</ul>
+<h3 id="vasturiano-cons">vasturiano cons</h3>
+<ul>
+<li>not scrollable</li>
+</ul>
+<h2 id="jiahuang-d3-timeline">jiahuang: d3-timeline</h2>
+<hr>
+<p>Kind of a dated repo, but has quite a few examples to be inspired by.</p>
+<p><img
+    src="./jiahuang_d3-timeline.png"
+    alt="jiahuang_d3-timeline"
+    loading="lazy"
+  >
+<a href="https://github.com/jiahuang/d3-timeline">https://github.com/jiahuang/d3-timeline</a></p>
+<p>shows a StackOverflow request: <a href="https://stackoverflow.com/questions/13201749/draw-simple-timeline-with-d3">https://stackoverflow.com/questions/13201749/draw-simple-timeline-with-d3</a></p>
+<p>If we do a D3 build, this is another inspiring example.</p>
+<h2 id="bills-d3-timeline">bill&rsquo;s d3 timeline</h2>
+<hr>
+<p>Another good D3 example for inspo.</p>
+<p><img
+    src="./bills-d3-timeline-example.png"
+    alt="bills-d3-timeline-example"
+    loading="lazy"
+  >
+<a href="https://bl.ocks.org/bunkat/2338034">https://bl.ocks.org/bunkat/2338034</a></p>
+<p>The more D3 examples I find, the more comfortable I am to building something from scratch using the D3 framework. 🤔</p>
+<h2 id="reinhard-engels-timeline-concept">Reinhard Engel&rsquo;s timeline concept</h2>
+<hr>
+<p>Yet, another D3 example with may rows in the timeline. Cool!</p>
+<p><img
+    src="./reinhard-engel-timeline-concept.png"
+    alt="reinhard-engel-timeline-concept"
+    loading="lazy"
+  >
+<a href="https://bl.ocks.org/rengel-de/5603464">https://bl.ocks.org/rengel-de/5603464</a></p>
+<h2 id="timeline-research-exhausted">Timeline research exhausted</h2>
+<hr>
+<p>With these in mind, I believe we can now pump out a few sandboxes. We&rsquo;ll probably start with vasturiano&rsquo;s timeline-chart and look further into how we can add the features we need.</p>
+<p>Got questions? Hit me!</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2019-11-11-boys-and-fewer-toys/" rel="prev">← Boys and Having Fewer Toys</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2020-02-03-simple-git-team-workflow/" rel="next">A Simple Git Team Workflow →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

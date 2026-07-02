@@ -1,0 +1,499 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Local Wordpress Development Setup | Chance Smith</title>
+<meta name="description" content="Updated post here (late 2017): https://blog.chancesmith.org/2017/12/22/update-local-wordpress-setup/ Over the past three years I&amp;amp;rsquo;ve built a handle full of themes. …">
+<meta property="og:title" content="Local Wordpress Development Setup">
+<meta property="og:description" content="Updated post here (late 2017): https://blog.chancesmith.org/2017/12/22/update-local-wordpress-setup/ Over the past three years I&amp;amp;rsquo;ve built a handle full of themes. …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2016-06-13-local-wordpress-development-setup/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Local Wordpress Development Setup">
+<meta name="twitter:description" content="Updated post here (late 2017): https://blog.chancesmith.org/2017/12/22/update-local-wordpress-setup/ Over the past three years I&amp;amp;rsquo;ve built a handle full of themes. …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Local Wordpress Development Setup</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>Updated post here (late 2017):
+<a href="https://blog.chancesmith.org/2017/12/22/update-local-wordpress-setup/">https://blog.chancesmith.org/2017/12/22/update-local-wordpress-setup/</a></p>
+<p>Over the past three years I&rsquo;ve built a handle full of themes. The last 12-14 months possibly has been the heaviest amount lifting in the world of Wordpress.</p>
+<p>One thing that has saved me more time in developement, or anything I have ever done, is finding a mentor to bring me up to speed. Not having a mentor has also contributed to the considerable amount of time I&rsquo;ve wasted. Teachers and mentor share their wisdom. Find some and work together.</p>
+<p>All that to say, here I&rsquo;m share my setup for when I work on Wordpress. I get jazzed about saving time and I wish I had found better ways to dev earlier in my career. Let&rsquo;s get to it.</p>
+<p>Currently, this is what my toolbelt looks like for build and developing Wordpress themes.</p>
+<h2 id="mac">Mac</h2>
+<p>I work on a Mid-2012 15 inch MacPro. Oldy but still customizable.</p>
+<h2 id="sage-theme-boilerplate-gulpsass">Sage theme boilerplate (gulp,sass)</h2>
+<p>The last two themes built, I&rsquo;ve used Sage as a starting point. Since Gulp and SASS are already baked in, this helps get rolling much quicker.</p>
+<p>As Roots recommends, if you are just starting with Wordpress development, you might not want to start with Sage.</p>
+<h2 id="mamp">MAMP</h2>
+<p>For a local development environment, I use MAMP to have a local server to install Wordpress on. There is no need to push files up via FTP every time you want to see changes to your website.</p>
+<p>Whether you are using Wordpress or not, always find a way to see your website locally. This will increase your developement speed exponentially.</p>
+<h2 id="wp-migrate-db-pro">WP Migrate DB Pro</h2>
+<p>Another time saver is WPMDBP (however it is best to abbreviate). With this tool you can copy the database to any location you want. Local, dev (testing server) or live, it doesn&rsquo;t matter.</p>
+<p>WPMDBP will also copy uploads to any location you wish. Compared to FTPing down and up files manually, it&rsquo;s really a great experience! #mindBlown</p>
+<h2 id="advanced-custom-fields-or-cmb2">Advanced Custom Fields or CMB2</h2>
+<p>When building a theme, customers want there to be editable sections, and not everything needs to go in the WYSIWYG.</p>
+<p>ACF and CMB2 are great for building in custom fields, or meta boxes, for customer to be able to edit parts of the pages on their site.</p>
+<p>This flexibility helps your customer have the power to edit all of the right things and none of the wrong things. Powerful indeed.</p>
+<h2 id="bitbucket">BitBucket</h2>
+<p>I use BitBucket to save my code using Git. Git makes it great for sharing, collaborating and keeping up with the history of your code.</p>
+<p>If you&rsquo;re not familiar with Git, this can take some time to wrap your mind around.</p>
+<h2 id="all-that-to-say">All that to say</h2>
+<p>Find a setup that works for you. Try out tools that best fit your workflow and get to work.</p>
+<h2 id="here-are-links-for-the-above-tools">Here are links for the above tools:</h2>
+<ul>
+<li><a href="https://roots.io/sage/">Sage by Roots</a></li>
+<li><a href="https://www.mamp.info/">MAMP</a></li>
+<li><a href="https://deliciousbrains.com/wp-migrate-db-pro/">WP Migrate DB Pro</a></li>
+<li><a href="https://www.advancedcustomfields.com/">Advanced Custom Fields</a> or <a href="https://github.com/webdevstudios/CMB2/wiki">CMB2</a></li>
+<li><a href="bitbucket.org">BitBucket</a></li>
+</ul>
+<p>If you liked this setup or want to chat, <a href="https://twitter.com/Chance_Smith">get in touch with me</a>.</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2016-06-06-use-sketches-to-communicate-with-your-team/" rel="prev">← Use sketches to communicate with your team</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2017-12-12-eli5-what-is-docker/" rel="next">ELI5 - What is Docker? →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

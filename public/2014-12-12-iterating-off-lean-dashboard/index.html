@@ -1,0 +1,503 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Iterating off of the Lean Dashboard | Chance Smith</title>
+<meta name="description" content="In the world of lean, Ash Maurya has created an information radiator for software companies to test ideas to achieve company goals. Enter the Lean Dashboard: (image from …">
+<meta property="og:title" content="Iterating off of the Lean Dashboard">
+<meta property="og:description" content="In the world of lean, Ash Maurya has created an information radiator for software companies to test ideas to achieve company goals. Enter the Lean Dashboard: (image from …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2014-12-12-iterating-off-lean-dashboard/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Iterating off of the Lean Dashboard">
+<meta name="twitter:description" content="In the world of lean, Ash Maurya has created an information radiator for software companies to test ideas to achieve company goals. Enter the Lean Dashboard: (image from …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Iterating off of the Lean Dashboard</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p></p>
+<p>In the world of lean, Ash Maurya has created an information radiator for software companies to test ideas to achieve company goals.</p>
+<p>Enter the Lean Dashboard:
+(image from Ash Maury&rsquo;s <a href="https://practicetrumpstheory.com/new-book-the-customer-factory/">site</a>)
+</p>
+<p>I love Maurya&rsquo;s dashboard, but I feel&hellip;</p>
+<h2 id="the-dashboard-can-be-improved-and-repurposed-to-have">The Dashboard Can Be Improved and Repurposed To Have&hellip;</h2>
+<ul>
+<li>multipurpose usecases</li>
+<li>clear visual flow</li>
+<li>multiple goals</li>
+</ul>
+<h2 id="but-chance-youre-screwing-it-up">But Chance, You’re Screwing It Up</h2>
+<p>Maybe, but I’m conducting a test for testing’s sake. I’m sure others told Salvador Dalí or Picasso they were messing up too. I forge on.</p>
+<p>Also, I’m not proposing anything change with the Lean Dashboard. I’m iterating off Maurya’s idea to build something new. Hopefully something just as useful for another audience, and not just for business startups and/or SaaS companies (software as a service) exclusively.</p>
+<p>I&rsquo;m proposing the creation of a new dashboard.</p>
+<h2 id="multipurpose">Multipurpose</h2>
+<p>What about making experiments with websites, print, and ads for restaurants, design firms, and banks.</p>
+<p>So, create an information radiator that any team can use to help visually and interactively help achieve company goals. A tool that is not just for starting and validating a business, but for growing it.</p>
+<h2 id="clear-visual-flow">Clear Visual Flow</h2>
+<p>With the Lean Dashboard, I feel there is something that can be added to make it more intuitive. The flow of information is not clear. I want this dashboard&rsquo;s information to be easly consumed at a glance. I want its use to be clear for the teams I introduce this new dashboard to.</p>
+<h2 id="multiple-goals">Multiple Goals</h2>
+<p>From the examples I’ve seen of the Lean Dashboard, the goal is always the same. Yet, time and quantity change or increase.</p>
+<p>Example Goals:</p>
+<ul>
+<li>1,200 Users first quarter</li>
+<li>4,000 Users third quarter</li>
+<li>11,00 Users fourth quarter</li>
+</ul>
+<p>This is great for adding customers to your service and validating the business model. In a business that is already established there are serval goals that need to be achieved.</p>
+<p>A bank, for instance, might want more qualified home loan inquires, more positive customer reviews, and faster drive-thru service. We could use a dashboard, similar to Maurya’s, to have multiple goals being tracked while running multiple projects.</p>
+<p>#Sketches</p>
+<p>I’ve started sketches to rethinking the Lean Dashboard to help achieve the above. Here is where I am so far&hellip; <a href="https://blog.chancesmith.org/create-validate-iterate-dashboard-sketches/">the new dashboard sketches</a></p>
+<p>Maybe soon I&rsquo;ll have a name for it.</p>
+<h2 id="kudos-to">#Kudos to</h2>
+<ul>
+<li><a href="https://practicetrumpstheory.com/">Ash Maurya</a></li>
+<li><a href="https://leanstack.com/">Lean Dashboard</a></li>
+</ul>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2014-12-10-how-to-make-your-own-gifs-tldr/" rel="prev">← How to make your own gifs : TLDR</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2014-12-17-create-validate-iterate-dashboard-sketches/" rel="next">The Create-Validate-Iterate Dashboard Sketches →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

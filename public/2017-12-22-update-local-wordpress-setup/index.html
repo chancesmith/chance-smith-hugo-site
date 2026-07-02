@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Update - WordPress local setup | Chance Smith</title>
+<meta name="description" content="Do you have customers that have WordPress sites? Do you have a good way to test your changes before pushing them live? Let&amp;amp;rsquo;s go through a way to setup WordPress on …">
+<meta property="og:title" content="Update - WordPress local setup">
+<meta property="og:description" content="Do you have customers that have WordPress sites? Do you have a good way to test your changes before pushing them live? Let&amp;amp;rsquo;s go through a way to setup WordPress on …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/2017-12-22-update-local-wordpress-setup/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Update - WordPress local setup">
+<meta name="twitter:description" content="Do you have customers that have WordPress sites? Do you have a good way to test your changes before pushing them live? Let&amp;amp;rsquo;s go through a way to setup WordPress on …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Update - WordPress local setup</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>Do you have customers that have WordPress sites?
+Do you have a good way to test your changes before pushing them live?</p>
+<p>Let&rsquo;s go through a way to setup WordPress on your computer. This way you can wring out any bugs before pushing to your production website.</p>
+<p>This post is an update from <a href="https://blog.chancesmith.org/2016/06/13/local-wordpress-development-setup/">last year</a>. Our current setup is much faster for setting up new sites.</p>
+<h2 id="why-wordpress">Why WordPress?</h2>
+<p>Maybe you don&rsquo;t have any expreince with WordPress. It&rsquo;s been around awhile. For us at <a href="https://sodiumhalogen.com?ref=csio">Sodium Halogen</a>, WordPress is still a great solution for our customers needing an editable broucher website. Automatic, creater of WordPress, does a great job keeping updates coming to the framework. We don&rsquo;t have to worry about security as much, and our customer can still benefit from any new WordPress updates. It&rsquo;s the best setup we&rsquo;ve found so far. We love it.</p>
+<p>Other options we have considered are: Squarespace and Craft CMS.</p>
+<h2 id="what-tools-to-you-use-for-local-setup">What tools to you use for local setup?</h2>
+<p>Let&rsquo;s run through the tools first:</p>
+<ul>
+<li><a href="https://github.com/html5blank/html5blank">HTML5Blank</a> theme starter shell</li>
+<li><a href="https://wp-cli.org/">WP CLI</a> for installing and setting up WordPress super fast</li>
+<li>Laravel&rsquo;s <a href="https://laravel.com/docs/5.5/valet">Valet</a> (if you&rsquo;re on a mac, but not required)</li>
+</ul>
+<h2 id="could-you-just-show-us-how-you-do-it">Could you just show us how you do it?</h2>
+<iframe width="100%" height="315" src="https://www.youtube.com/embed/Es1O-3THM2E" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+<h2 id="what-steps-do-you-use-to-setup-wordpress">What steps do you use to setup WordPress?</h2>
+<p>We start by moving into our project directory in side our <code>wip/</code> (work in progress) folder. This WIP folder is where all our projects go.
+(see WP setup trick below to combine these first few steps)</p>
+<ol>
+<li>go into your project directory first: $<code>cd wip/project_name/</code></li>
+<li>download WP with the WP CLI: $<code>wp core download</code></li>
+<li>setup WordPress config: $<code>wp core config --dbname=DB_NAME --dbuser=root --dbpass=</code></li>
+<li>create the database: $<code>wp db create</code></li>
+<li>install WP: $<code>wp core install --title=SITE_NAME --url=SITE_URL --admin_user=admin --admin_password=pass --admin_email=YOUR@EMAIL.com</code></li>
+<li>TIP: here&rsquo;s an example of the above all at once: $<code>wp core download &amp;&amp; wp core config --dbname=blog_wp --dbuser=root --dbpass= &amp;&amp; wp db create &amp;&amp; wp core install --title=Chance Smith Blog --url=chancesmith.test --admin_user=sh --admin_password=sh --admin_email=my@email.com</code></li>
+<li>for <code>chancesmith.test</code> to work we need <a href="https://laravel.com/docs/5.5/valet#installation">Valet</a> to be setup. You could you use MAMP and point to your new WP directory. MAMP would give you a local url like <code>https://localhost:8080</code> or whatever setup you prefer. Valet is just a huge time saver moving from project to project on the fly.</li>
+<li>pull down a copy of HTML5Blank into your <code>wp-content/themes/</code> if you are starting from scratch</li>
+</ol>
+<p>Here is a snippet in <a href="https://code.visualstudio.com/">VSC</a> editor you can take with you. :)
+We just fire up VSC, type <code>wpsetup</code> and press TAB to then help setup the query from above to then copy and paste into our terminal.</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;Setup Local Wordpress&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;prefix&#34;</span><span class="p">:</span> <span class="s2">&#34;wpsetup&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;body&#34;</span><span class="p">:</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      <span class="s2">&#34;wp core download &amp;&amp; wp core config --dbname=${1:DB_NAME} --dbuser=root --dbpass= &amp;&amp; wp db create &amp;&amp; wp core install --title=${2:SITE_NAME} --url=${3:SITE_URL} --admin_user=admin --admin_password=pass --admin_email=${4:YOUR@EMAIL.com}&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="p">],</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;description&#34;</span><span class="p">:</span> <span class="s2">&#34;Install and setup WP&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><p>If you liked this or want to chat, <a href="https://twitter.com/Chance_Smith">get in touch with me</a>.</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/2017-12-17-improving-customer-service-and-your-vision/" rel="prev">← Improving Customer Service and Casting Your Vision</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/2017-12-30-2017-review/" rel="next">My 2017 Review →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

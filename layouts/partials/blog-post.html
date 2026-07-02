@@ -19,14 +19,14 @@
 {{ end }}
 
 <article class="post">
-  <h1 class="gradient-text">{{ .Title }}</h1>
-  <p class="post-author">by {{ .Site.Params.author }}</p>
+  <h1 class="post-title">{{ .Title }}</h1>
+  <p class="post-author">{{ .Site.Params.author }}</p>
 
   <div class="post-content">
     {{ .Content }}
   </div>
 
-  <hr>
+  <hr class="post-divider">
 
   <ul class="post-pagination">
     <li>

@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Project Management: Features and Bugs After Launch | Chance Smith</title>
+<meta name="description" content="After a few months of consistent releases, your team crosses the finish line and finally launches the product. 🍾🙌 Glorious! Great job, everyone. Stellar work! …">
+<meta property="og:title" content="Project Management: Features and Bugs After Launch">
+<meta property="og:description" content="After a few months of consistent releases, your team crosses the finish line and finally launches the product. 🍾🙌 Glorious! Great job, everyone. Stellar work! …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/features-and-bugs-after-launch/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Project Management: Features and Bugs After Launch">
+<meta name="twitter:description" content="After a few months of consistent releases, your team crosses the finish line and finally launches the product. 🍾🙌 Glorious! Great job, everyone. Stellar work! …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Project Management: Features and Bugs After Launch</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p><img
+    src="./csio-kanban-bugs-focused-lock.png"
+    alt="kanban of locked features and start with bugs"
+    loading="lazy"
+  ></p>
+<p>After a few months of consistent releases, your team crosses the finish line and finally launches the product. 🍾🙌 Glorious! Great job, everyone. Stellar work!</p>
+<p>You&rsquo;ve now reached a point where a decision is made. Don&rsquo;t delay this conversation any further.</p>
+<blockquote>
+<p>&ldquo;Yo, team! If we keep making changes to our app, what changes should we make, and when should we start?&rdquo;</p>
+</blockquote>
+<p>Let&rsquo;s begin to answer these two questions.</p>
+<p><img
+    src="./csio-goal-focused-doodle.png"
+    alt="goal focused - eyeball with a flagged mountain doodle"
+    loading="lazy"
+  ></p>
+<h2 id="how-to-give-your-team-permission-to-focus-on-high-impact-work">How to give your team permission to focus on high-impact work</h2>
+<p>Remind the team of your long-term goals. With your vision in mind, decide if the work in front of you will deliver true progress.</p>
+<p><strong>Will today&rsquo;s work assist in reaching your goal?</strong></p>
+<blockquote>
+<p>&ldquo;Let your eyes look directly forward, and your gaze be straight before you.&rdquo; - Proverbs 4:25</p>
+</blockquote>
+<p>You and your team must <strong>be ongoing advocates for your cast vision</strong>. Don&rsquo;t allow the urgent and unimportant to get in the way of what you prize most. They&rsquo;re distractions. Stop!</p>
+<p>How many distractions do your team members have? The number isn&rsquo;t important; just <a href="https://chancesmith.io/focus-get-closer-to-zero/">set boundaries and get closer to zero</a>.</p>
+<blockquote>
+<p>&ldquo;A man without self-control is like a city broken into and left without walls.&rdquo; - Proverbs 28:28</p>
+</blockquote>
+<p>At the very least, you can pause the project and push your team&rsquo;s attention to something else.</p>
+<p><img
+    src="./csio-consider-nice-to-haves.png"
+    alt="sharpie text - don&rsquo;t start, but consider the nice to haves"
+    loading="lazy"
+  ></p>
+<h2 id="save-your-team-from-nice-to-have-v2-or-vn-features">Save your team from nice-to-have v2 or v(N) features</h2>
+<p>Your sprint backlog is a never-ending to-do list of promising features. Teams feel like there is no end in sight. They don&rsquo;t know where the proverbial <em>project bookends</em> should be. So, it&rsquo;s vital to set constraints. Let&rsquo;s walk-through through how to get your team and software on track. Here are the <strong>4 steps after each version launch</strong>.</p>
+<h2 id="1-celebrate-the-progress-made">1. Celebrate the progress made</h2>
+<p>Don&rsquo;t gloss over the hard work your team has done. The hope is that their inputs and early deliverables will bring an early desirable outcome.</p>
+<h2 id="2-set-success-metrics-before-starting-on-new-features">2. Set success metrics before starting on new features</h2>
+<p>This is the time to let the software work and measure success. Also, you&rsquo;re giving your team permission to focus. Pick success metrics that determine the project is worth more investment and that help decide what features should be next. Be sure you can track these in the software. Here are a few ideas to start with.</p>
+<ul>
+<li>X number of users per week</li>
+<li>X churn of subscriptions or daily/weekly visits</li>
+<li>user activity that produces X revenue (or desired outcome) per month</li>
+<li>X number of support tickets and success</li>
+<li>X app store reviews and ratings per week</li>
+</ul>
+<p>Be sure your metrics are drivers of value over time.</p>
+<p>Encase your success metrics don&rsquo;t hit, set a time limit to trigger a moment to make the decision. Maybe 2 weeks or 3 months can confirm if more progress should be made.</p>
+<p>To note, during this time, it&rsquo;s great to have marketing continue promoting the app but add constraints as needed.</p>
+<h2 id="3-schedule-whats-in-your-next-release">3. Schedule what&rsquo;s in your next release</h2>
+<p>At this point, you have reached your success metrics, or you decided to forge on. Now, you pick the important and impactful work for the next product release.</p>
+<p>This is where our team will lock down our capacity by stacking up 4 weeks or more. We&rsquo;ll continue sprinting weekly until we reach the bottom of our backlog.</p>
+<h2 id="4-crush-the-bugs---for-just-awhile">4. Crush the bugs - for just awhile</h2>
+<p>Our team sets a 3-month time limit for bugs to surface after we launch. If any bugs arise, we&rsquo;ll tackle them while waiting for the success metrics to hit.</p>
+<h2 id="define-the-bug-scope-">Define the bug scope 🔬</h2>
+<p>Before we wrap up, so there is a standard and boundary to what the team can work on, let&rsquo;s define a bug. As new bugs hit your Kanban inbox, your team can call an audible for what should be labeled a bug or not.</p>
+<h3 id="what-is-a-software-bug-">What is a software bug? 🐛</h3>
+<ul>
+<li>unexpected behavior (ex: link to wrong view, expected an input error, glitch, role access)</li>
+<li>errors or exceptions thrown (ex: 404, authentication failure)</li>
+<li>style tweaks (ex: UX issues, correct spelling)</li>
+</ul>
+<h3 id="what-is-not-a-bug-">What is NOT a bug? 🙅‍♀️</h3>
+<p>These are good examples of what should be included in a new release.</p>
+<ul>
+<li>content changes (ex: new content, modify/tweak content)</li>
+<li>UX flow changes (ex: little faster/slower, form input/section order)</li>
+<li>new features, views, or models</li>
+<li>changes to modify the current features and experiences</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<!-- Thanks for reading. It's great to put my learnings into posts and workshops so you can learn to do it too. If you're interested in improving the pace and collaboration of your team, [schedule a coaching call or sign up for a workshop](https://chancesmith.io/coaching).
+
+And don't forget, if you haven't read the "[Get Closer to Zero](https://chancesmith.io/focus-get-closer-to-zero/)" post, please give it a read. -->
+<p>Your innovation advocate, Chance 👋</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/feature-boxing/" rel="prev">← Feature Boxing: small and rapid deliveries</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/does-pair-programming-drop-your-iq/" rel="next">What if pair programming drops your IQ? →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

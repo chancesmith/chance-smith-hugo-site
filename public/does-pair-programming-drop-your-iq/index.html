@@ -1,0 +1,481 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>What if pair programming drops your IQ? | Chance Smith</title>
+<meta name="description" content="There have been many I&amp;amp;rsquo;ve met with that were concerned with pair programming. One senior developer said: I feel my IQ drops 20 points when I pair. Yeah, some come …">
+<meta property="og:title" content="What if pair programming drops your IQ?">
+<meta property="og:description" content="There have been many I&amp;amp;rsquo;ve met with that were concerned with pair programming. One senior developer said: I feel my IQ drops 20 points when I pair. Yeah, some come …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/does-pair-programming-drop-your-iq/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="What if pair programming drops your IQ?">
+<meta name="twitter:description" content="There have been many I&amp;amp;rsquo;ve met with that were concerned with pair programming. One senior developer said: I feel my IQ drops 20 points when I pair. Yeah, some come …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">What if pair programming drops your IQ?</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>There have been many I&rsquo;ve met with that were concerned with pair programming. One senior developer said:</p>
+<p>I feel my IQ drops 20 points when I pair.
+Yeah, some come to pairing feeling pressure or mentally clouded. Others can have opposing personalities.</p>
+<p><img
+    src="./pairing-sketch.png"
+    alt="pairing with one computer and two keyboards sketch"
+    loading="lazy"
+  ></p>
+<h2 id="how-can-we-adapt">How can we adapt?</h2>
+<ol>
+<li><strong>Ask questions</strong>: Dial up the collaboration and leave room for both to think and speak by asking questions. &ldquo;What if we&hellip;?&rdquo; or &ldquo;How might we&hellip;?&rdquo;</li>
+<li><strong>Trade on a rhythm</strong>: Make sure none hogs the keyboard. Trade on a failing test or set a 25-minute timer to trade the driver&rsquo;s seat.</li>
+<li><strong>Give commentary on the work</strong>: Don&rsquo;t lose your partner. Keep them updated on what you&rsquo;re thinking. This out-load thinking will help them think more like you in the future and pick up where you left off.</li>
+</ol>
+<p>You will get comfortable over time. Just like learning a new skill, starting a new job, or working from home for the first time, <strong>you&rsquo;ll need time to adjust</strong>.</p>
+<p>The real benefit to pairing, I believe to be the most valuable skill you can have in any field, is duplicating yourself. The sharing of information between the two of you is powerful.</p>
+<p>Your innovation advocate, Chance 👋</p>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/features-and-bugs-after-launch/" rel="prev">← Project Management: Features and Bugs After Launch</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/pm-two-weeks-to-launch/" rel="next">Project Management: two weeks to launch sprint →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

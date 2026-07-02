@@ -1,0 +1,496 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Exploring: Native App Testing with Maestro | Chance Smith</title>
+<meta name="description" content="TL;DR: Maestro is a tool for testing native apps. You simply write tests in a YAML file Native app testing is challenging After many attempts of testing with Cavy and …">
+<meta property="og:title" content="Exploring: Native App Testing with Maestro">
+<meta property="og:description" content="TL;DR: Maestro is a tool for testing native apps. You simply write tests in a YAML file Native app testing is challenging After many attempts of testing with Cavy and …">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/native-app-testing-with-maestro/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Exploring: Native App Testing with Maestro">
+<meta name="twitter:description" content="TL;DR: Maestro is a tool for testing native apps. You simply write tests in a YAML file Native app testing is challenging After many attempts of testing with Cavy and …">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-logo" href="/" aria-label="Chance Smith">CS</a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+
+      <main>
+        
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+  
+  
+    
+  
+  
+    
+  
+
+
+<article class="post">
+  <h1 class="post-title">Exploring: Native App Testing with Maestro</h1>
+  <p class="post-author">Chance Smith</p>
+
+  <div class="post-content">
+    <p>TL;DR: Maestro is a tool for testing native apps. You simply write tests in a YAML file</p>
+<h2 id="native-app-testing-is-challenging">Native app testing is challenging</h2>
+<p>After many attempts of testing with <a href="https://cavy.app/">Cavy</a> and Detox. I had basicly given up on E2E testing, specificly for our React Native projects.</p>
+<p>I did have success last year with <a href="https://wix.github.io/Detox/">Detox</a> and mocking the API with <a href="https://miragejs.com/">MirageJS</a> (mock server). But it was a lot of work to setup and I don&rsquo;t have a lot of experience adding tests to the project. So I was looking for something that was easier to setup and use.</p>
+<p>I will say, these tools have had time improve and I should definitely give them another try sometime.</p>
+<h2 id="maestro-is-awesome">Maestro is awesome</h2>
+<p>Then I found <a href="https://maestro.mobile.dev">Maestro</a>, a tool for testing native apps. You simply write tests in a YAML file. It&rsquo;s similar to <a href="https://cucumber.io/docs/guides/overview/">Cucumber</a>, but for native apps.</p>
+<p>This is the first flow I made today.</p>
+<p><img
+    src="./maestro-story-building-brainiac.gif"
+    alt="Maestro"
+    loading="lazy"
+  ></p>
+<p>The YAML look like this:</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">appId</span><span class="p">:</span><span class="w"> </span><span class="l">host.exp.Exponent</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="nn">---</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="c"># needed to open app in expo</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">openLink</span><span class="p">:</span><span class="w"> </span><span class="l">exp://127.0.0.1:19000</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">assertVisible</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;A Strategy Toolkit&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">tapOn</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Story Building (beta)&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">assertVisible</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Tutorial&#34;</span><span class="w">
+</span></span></span><span class="line"><span class="cl">- <span class="nt">tapOn</span><span class="p">:</span><span class="w"> </span><span class="s2">&#34;Let&#39;s Go&#34;</span><span class="w">
+</span></span></span></code></pre></div><p>It&rsquo;s very easy to write and understand. I can see this being a great tool us to continue use.</p>
+<h2 id="what-helped-me-get-started">What helped me get started?</h2>
+<p>Since I was testing a expo app, this repo by <a href="https://github.com/alexanderhodes">Alexander Hodes</a> was very helpful. It has many examples and a good starting point.</p>
+<p><a href="https://github.com/alexanderhodes/react-native-expo-maestro-example">https://github.com/alexanderhodes/react-native-expo-maestro-example</a></p>
+<h2 id="current-questions-i-have">Current questions I have</h2>
+<p>I need to go through the docs more, but here are some questions I have.</p>
+<h3 id="how-do-i-copy-the-value-of-the-text-in-a-button">How do I copy the value of the text in a button?</h3>
+<h3 id="how-do-i-check-the-value-inside-of-the-input-field-to-compare-with-what-ive-copied">How do I check the value inside of the input field to compare with what I&rsquo;ve copied?</h3>
+<h3 id="is-it-best-practice-to-have-one-test-file-that-runs-all-single-flow-files">Is it best practice to have one test file that runs all single flow files?</h3>
+
+  </div>
+
+  <hr class="post-divider">
+
+  <ul class="post-pagination">
+    <li>
+      
+        <a href="/fast-enough/" rel="prev">← Fast Enough</a>
+      
+    </li>
+    <li class="post-pagination-next">
+      
+        <a href="/document-the-problem/" rel="next">Document the Problem →</a>
+      
+    </li>
+  </ul>
+</article>
+
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>
