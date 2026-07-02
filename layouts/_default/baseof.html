@@ -22,7 +22,10 @@
 
     <div class="site-shell">
       <header class="site-header">
-        <a class="site-logo" href="/" aria-label="{{ .Site.Title }}">CS</a>
+        <a class="site-brand{{ if .IsHome }} site-brand--home{{ end }}" href="/" aria-label="{{ .Site.Title }}">
+          <span class="site-logo"><img src="/chancesmith_s.png" alt="" width="36" height="36"></span>
+          <span class="site-brand-name">Chance Smith</span>
+        </a>
         <nav class="site-nav" aria-label="Main">
           <a class="nav-link{{ if $isArchive }} is-active{{ end }}" href="/archive/">Insights</a>
           <a class="nav-link{{ if eq .RelPermalink "/about/" }} is-active{{ end }}" href="/about/">About</a>

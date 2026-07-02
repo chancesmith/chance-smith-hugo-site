@@ -61,21 +61,41 @@ body {
   margin-bottom: 64px;
 }
 
-.site-logo {
+.site-brand {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.site-brand-name {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--c-ink);
+  letter-spacing: -0.1px;
+}
+
+.site-logo {
+  display: inline-flex;
   width: 36px;
   height: 36px;
   border-radius: var(--r-full);
-  background: var(--c-primary);
-  color: var(--c-on-primary);
-  font-family: var(--font-display);
-  font-size: 12px;
-  font-weight: 500;
-  letter-spacing: 0.02em;
-  text-decoration: none;
+  overflow: hidden;
   flex-shrink: 0;
+}
+
+.site-brand--home .site-logo {
+  width: 72px;
+  height: 72px;
+}
+
+.site-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .site-nav {
@@ -604,10 +624,6 @@ hr {
   --c-action-blue: #5b9cf6;
 }
 
-[data-theme="dark"] .site-logo {
-  background: #2a2a32;
-  color: #e8e8ec;
-}
 
 [data-theme="dark"] .home-hero-title,
 [data-theme="dark"] .post-title,
