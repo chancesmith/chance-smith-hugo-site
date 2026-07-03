@@ -565,7 +565,7 @@ hr {
 /* ---- FOOTER ---- */
 
 .site-footer-wrap {
-  background: var(--c-primary);
+  background: var(--c-soft-stone);
 }
 
 .site-footer {
@@ -589,7 +589,7 @@ hr {
   text-decoration: none;
 }
 
-.footer-link:hover { color: var(--c-on-primary); }
+.footer-link:hover { color: var(--c-ink); }
 
 .footer-copy {
   font-size: 18px;
@@ -614,7 +614,7 @@ hr {
   line-height: 1.6;
 }
 
-.footer-theme-toggle:hover { color: var(--c-on-primary); border-color: var(--c-slate); }
+.footer-theme-toggle:hover { color: var(--c-ink); border-color: var(--c-slate); }
 
 .footer-theme-toggle:focus-visible {
   outline: 2px solid var(--c-action-blue);
@@ -644,6 +644,9 @@ hr {
 [data-theme="dark"] .post-content h3 {
   color: #e8e8ec;
 }
+
+[data-theme="dark"] .footer-link:hover { color: var(--c-on-primary); }
+[data-theme="dark"] .footer-theme-toggle:hover { color: var(--c-on-primary); }
 
 [data-theme="dark"] .btn {
   background: #f0f0f2;
@@ -697,18 +700,25 @@ hr {
 @media (max-width: 700px) {
   .site-shell { padding: 0 25px 100px; }
 
+  .site-brand-name { display: none; }
+
+  .site-nav { gap: 20px; }
+  .nav-link { font-size: 17px; }
+
   .home-hero { padding: 40px 0 60px; }
 
   .home-hero-title {
-    font-size: 50px;
-    letter-spacing: -1px;
+    font-size: 42px;
+    letter-spacing: -0.84px;
   }
 
   .post-title,
   .page-title,
   .archive-title {
-    font-size: 45px;
-    letter-spacing: -0.45px;
+    font-size: 36px;
+    letter-spacing: -0.36px;
+    overflow-wrap: break-word;
+    word-break: break-word;
   }
 
   .site-footer { padding: 35px 25px; }
