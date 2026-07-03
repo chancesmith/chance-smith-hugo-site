@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script>
+      (function () {
+        var saved = null;
+        try { saved = localStorage.getItem("theme"); } catch (e) {}
+        var prefersDark = window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+        document.documentElement.setAttribute("data-theme", saved || (prefersDark ? "dark" : "light"));
+      })();
+    </script>
+    <title>Books | Chance Smith</title>
+<meta name="description" content="Books written with my kids">
+<meta property="og:title" content="Books">
+<meta property="og:description" content="Books written with my kids">
+<meta property="og:type" content="website">
+<meta property="og:url" content="http://localhost:1313/books/">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="Chance Smith">
+<meta name="twitter:title" content="Books">
+<meta name="twitter:description" content="Books written with my kids">
+
+
+    <link rel="stylesheet" href="/css/global.css">
+    
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-FD4ZXPSLB6"></script>
+      <script>
+        var doNotTrack = false;
+        if ( true ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-FD4ZXPSLB6');
+        }
+      </script>
+  </head>
+  <body>
+    
+    
+    
+
+    <div class="site-shell">
+      <header class="site-header">
+        <a class="site-brand" href="/" aria-label="Chance Smith">
+          <span class="site-logo"><img src="/chancesmith_s.png" alt="" width="36" height="36"></span>
+          <span class="site-brand-name">Chance Smith</span>
+        </a>
+        <nav class="site-nav" aria-label="Main">
+          <a class="nav-link" href="/archive/">Insights</a>
+          <a class="nav-link" href="/about/">About</a>
+        </nav>
+      </header>
+
+      
+        <h1 class="page-title">Books</h1>
+      
+
+      <main>
+        
+  
+    <article class="page-content">
+      <p>Each of these is a real collaboration. The kids drive the story — I help shape it.</p>
+<h2 id="published">Published</h2>
+<p><strong><a href="https://www.amazon.com/Jimmy-Universe-Jumper-Inventors-Adventure-ebook/dp/B0B4DVTW3N">Jimmy the Universe Jumper</a></strong> — Carter Smith
+<em>The Inventors Adventure</em></p>
+<p><strong><a href="https://www.amazon.com/Max-World-Fixer-Inventors-Adventure/dp/B0B8BLVRGZ/">Max the World Fixer</a></strong> — Mason Smith
+<em>The Inventors Adventure</em></p>
+<h2 id="in-proof">In Proof</h2>
+<p><strong>Ollie and Lovey: Hide and Seek</strong> — Mia Smith</p>
+<p><strong>Palia</strong> — Carter Smith</p>
+<h2 id="in-progress">In Progress</h2>
+<p><strong>Survivor</strong> — Mason Smith</p>
+
+    </article>
+  
+
+      </main>
+    </div>
+
+    <div class="site-footer-wrap">
+      <footer class="site-footer">
+        <span class="footer-copy">© 2026 Chance Smith</span>
+        <nav class="footer-nav" aria-label="Footer">
+          <a class="footer-link" href="/about/">About</a>
+          <a class="footer-link" href="/archive/">Insights</a>
+          <a class="footer-link" href="/glossary/">Glossary</a>
+          <button class="footer-theme-toggle" type="button" data-theme-toggle aria-label="Switch to dark mode" aria-pressed="false">
+            Dark
+          </button>
+        </nav>
+      </footer>
+    </div>
+
+    <script>
+      (function () {
+        var btn = document.querySelector("[data-theme-toggle]");
+        if (!btn) return;
+        var root = document.documentElement;
+
+        function setTheme(theme, persist) {
+          root.setAttribute("data-theme", theme);
+          btn.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
+          btn.textContent = theme === "dark" ? "Light" : "Dark";
+          btn.setAttribute("aria-label", theme === "dark" ? "Switch to light mode" : "Switch to dark mode");
+          if (persist) {
+            try { localStorage.setItem("theme", theme); } catch (e) {}
+          }
+        }
+
+        setTheme(root.getAttribute("data-theme") === "dark" ? "dark" : "light", false);
+
+        btn.addEventListener("click", function () {
+          setTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark", true);
+        });
+      })();
+    </script>
+  </body>
+</html>

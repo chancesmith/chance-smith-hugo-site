@@ -10,9 +10,23 @@
 		
 		
 		
-			<lastBuildDate>Wed, 03 Jun 2026 09:14:31 -0500</lastBuildDate>
+			<lastBuildDate>Fri, 03 Jul 2026 05:57:14 -0500</lastBuildDate>
 		
 			<atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+			<item>
+				<title>Books</title>
+				<link>http://localhost:1313/books/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/books/</guid>
+				<description>&lt;p&gt;Each of these is a real collaboration. The kids drive the story — I help shape it.&lt;/p&gt;&#xA;&lt;h2 id=&#34;published&#34;&gt;Published&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.amazon.com/Jimmy-Universe-Jumper-Inventors-Adventure-ebook/dp/B0B4DVTW3N&#34;&gt;Jimmy the Universe Jumper&lt;/a&gt;&lt;/strong&gt; — Carter Smith&#xA;&lt;em&gt;The Inventors Adventure&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;&lt;a href=&#34;https://www.amazon.com/Max-World-Fixer-Inventors-Adventure/dp/B0B8BLVRGZ/&#34;&gt;Max the World Fixer&lt;/a&gt;&lt;/strong&gt; — Mason Smith&#xA;&lt;em&gt;The Inventors Adventure&lt;/em&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-proof&#34;&gt;In Proof&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Ollie and Lovey: Hide and Seek&lt;/strong&gt; — Mia Smith&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Palia&lt;/strong&gt; — Carter Smith&lt;/p&gt;&#xA;&lt;h2 id=&#34;in-progress&#34;&gt;In Progress&lt;/h2&gt;&#xA;&lt;p&gt;&lt;strong&gt;Survivor&lt;/strong&gt; — Mason Smith&lt;/p&gt;</description>
+			</item>
+			<item>
+				<title>About</title>
+				<link>http://localhost:1313/about/</link>
+				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+				<guid>http://localhost:1313/about/</guid>
+				<description>&lt;p&gt;Chance builds software and teams. Currently at Lifeway Christian Resources on the Digital Experience team — shipping mobile and TV apps for &lt;a href=&#34;https://www.lifeway.com/en/special-emphasis/lifeway-on-demand&#34;&gt;Lifeway On Demand&lt;/a&gt;. Shipped their first in-house mobile app in 2024. TV is next.&lt;/p&gt;&#xA;&lt;p&gt;Also advises at &lt;a href=&#34;https://sodiumhalogen.com?ref=csio&#34;&gt;Sodium Halogen&lt;/a&gt;, where he spent 10 years before Lifeway: 100+ client projects delivered, 30+ developers trained.&lt;/p&gt;&#xA;&lt;p&gt;8x first-place hackathon winner. 500+ candidates interviewed. 100+ people hired.&lt;/p&gt;&#xA;&lt;p&gt;Co-writing books with three of his kids — 2 published, 2 in proof, 1 in progress. &lt;a href=&#34;http://localhost:1313/books/&#34;&gt;See the books.&lt;/a&gt;&lt;/p&gt;</description>
+			</item>
 			<item>
 				<title>Glossary</title>
 				<link>http://localhost:1313/glossary/</link>
@@ -61,13 +75,6 @@
 				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
 				<guid>http://localhost:1313/out-of-the-box-interview/</guid>
 				<description>&lt;p&gt;Surprise!&#xA;Just kidding. There are no surprises in the interviews I&amp;rsquo;ve done.&#xA;I tell candidates exactly what&amp;rsquo;s coming.&#xA;Why? Because I&amp;rsquo;m not testing their ability to handle surprises.&#xA;I&amp;rsquo;m measuring their ability to prepare and transfer knowledge.&#xA;The format:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Ice breaker&lt;/li&gt;&#xA;&lt;li&gt;Share a passion&lt;/li&gt;&#xA;&lt;li&gt;Teach me something&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;Knowing the format ahead of time doesn&amp;rsquo;t make it easier. It makes it harder.&lt;/p&gt;&#xA;&lt;p&gt;Now they have to choose: What passion? What to teach? And then actually prepare.&lt;/p&gt;</description>
-			</item>
-			<item>
-				<title>About</title>
-				<link>http://localhost:1313/about/</link>
-				<pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-				<guid>http://localhost:1313/about/</guid>
-				<description>&lt;p&gt;Chance is building software and teams at &lt;a href=&#34;https://sodiumhalogen.com?ref=csio&#34;&gt;Sodium Halogen&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;&lt;strong&gt;Chance has worked with&lt;/strong&gt; prestigious and innovative companies like Chick-fil-a, Vanderbilt University, POPVOX, and The Vertex Project. He&amp;rsquo;s also an 8x first place hackathon winner. &lt;a href=&#34;http://localhost:1313/projects/&#34;&gt;See previous work.&lt;/a&gt;&lt;/p&gt;&#xA;&lt;h2 id=&#34;resourcestools&#34;&gt;Resources/Tools&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;a href=&#34;http://localhost:1313/hire-me-kit/&#34;&gt;Hire-Me Kit&lt;/a&gt; - A proven template to catch their attention and get hired.&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://mailchi.mp/afcfe7027d87/innovationexperiments?ref=csio&#34;&gt;Innovation Experiments&lt;/a&gt; - Practical innovation tips for business owners and people who think like owners.&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
 			</item>
 			<item>
 				<title>Coaching &amp; Workshops</title>
