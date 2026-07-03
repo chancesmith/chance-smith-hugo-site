@@ -50,18 +50,14 @@ Primary reference: `HUGO_MIGRATION_PLAN.md`.
   - matching files currently live in `static/projects/` (served as `/projects/...`)
 - [ ] Re-run link validation and record results under `migration/`.
 
-### Phase 7 - Cutover and cleanup (still open)
+### Phase 7 - QA (still open)
 
-- [ ] Switch local build/develop scripts from Gatsby to Hugo in `package.json`.
-- [ ] Update deploy configuration/settings to Hugo (Netlify build command + publish dir).
 - [ ] Re-run final route parity checks against `migration/phase-1-route-inventory.json`.
 - [ ] Run final QA on required routes:
   - `/`
   - `/archive/`
   - post routes like `/<slug>/`
   - `/about/`, `/coaching/`, `/glossary/`, `/hire-me-kit/`, `/level-up-mastermind/`, `/pair-coding/`, `/projects/`, `/uses/`, `/workshop-javascript/`
-- [ ] Remove Gatsby files and dependencies only after successful Hugo cutover.
-- [ ] Replace Gatsby starter instructions in `README.md` with Hugo usage.
 
 ## File mapping guidance
 
@@ -98,6 +94,15 @@ Primary reference: `HUGO_MIGRATION_PLAN.md`.
   - `/vtx-zoom.png`
 
 Track these as explicit migration tasks; do not ignore silently.
+
+## Design system
+
+`DESIGN.md` in the repo root documents the full design system (Cohere-inspired). Reference it for any visual, layout, or CSS work:
+- Color tokens (`--c-*` CSS custom properties)
+- Typography scale (sizes, weights, letter-spacing per role)
+- Breakpoints (≤1100px, ≤700px)
+- Dark mode (`data-theme="dark"` on `<html>`, `localStorage` persisted)
+- Component patterns (logo, nav, footer, cards)
 
 ## Validation checklist for each iteration
 
