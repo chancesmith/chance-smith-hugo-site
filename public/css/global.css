@@ -722,4 +722,5 @@ hr {
   }
 
   .site-footer { padding: 35px 25px; }
+  .footer-nav { gap: 20px; flex-wrap: wrap; justify-content: center; }
 }
