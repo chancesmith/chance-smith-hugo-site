@@ -12,6 +12,9 @@
       })();
     </script>
     {{ partial "seo.html" . }}
+    <link rel="icon" href="{{ "/favicon.ico" | relURL }}" sizes="32x32">
+    <link rel="icon" type="image/svg+xml" href="{{ "/favicon.svg" | relURL }}">
+    <link rel="apple-touch-icon" href="{{ "/apple-touch-icon.png" | relURL }}">
     <link rel="stylesheet" href="{{ "/css/global.css" | relURL }}">
     {{ template "_internal/google_analytics.html" . }}
   </head>
