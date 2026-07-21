@@ -18,3 +18,5 @@ Has worked with teams at Chick-fil-A, Vanderbilt University, POPVOX, and The Ver
 
 - [Hire-Me Kit](/hire-me-kit/) — A proven template to catch their attention and get hired.
 - [Innovation Experiments](https://mailchi.mp/afcfe7027d87/innovationexperiments?ref=csio) — Practical innovation tips for people who think like owners.
+- [Yourality](https://yourality.chancesmith.io/) — Your personality, no paywall. Unofficial tests, under 20 questions each, enough for a close guess, not a validated result. Every result links to the real assessment. No accounts, take your data with you.
+- [Monte](http://monte.chancesmith.io/) — A simple, free Monte Carlo simulation web app.
