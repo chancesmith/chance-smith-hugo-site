@@ -2,123 +2,38 @@
 
 ## Purpose
 
-This repo is in the late stage of migrating from Gatsby to Hugo.
-Your job as an implementation agent is to finish cleanup and cutover in small, safe steps.
+Personal site (chancesmith.io), Hugo + Markdown. Gatsby-to-Hugo migration is done (see `migration/phase-*-validation.md` for history). Your job: content edits, blog posts, layout/design tweaks, site maintenance. Not migration work.
 
-Primary reference: `HUGO_MIGRATION_PLAN.md`.
+## Stack facts
 
-## Migration principles (keep it simple)
+- Build: `hugo --gc --minify` (`npm run build`). Dev: `npm run develop` (localhost:1313, `--buildDrafts`).
+- No Gatsby, no `src/` app code. Node is only for helper scripts in `scripts/`.
+- Templates in `layouts/` (`_default/single.html`, `_default/list.html`, `blog/single.html`, `archive/list.html`, `index.html`, `404.html`, partials in `layouts/partials/`).
+- Content in `content/`: `blog/` (posts), `_drafts/` (unpublished drafts), top-level `*.md` (static pages), `archive/`, `assets/`.
+- Static passthrough in `static/`: CSS (`static/css/global.css`), images, `_redirects`, favicons.
+- Deploy via Netlify (`netlify.toml` pins Hugo version).
 
-1. Preserve behavior before improving design.
-2. Preserve URLs before refactoring content.
-3. Prefer boring, explicit templates over abstraction-heavy setups.
-4. Make small commits with clear scope.
+## Non-negotiables
 
-## Current repo facts you should assume (2026-02-18)
+1. Don't break existing post URLs. Permalinks are path-derived; if ambiguous, set explicit frontmatter `url` rather than guessing.
+2. Keep `static/_redirects` behavior intact unless a change is explicitly requested.
+3. Don't mass-edit post bodies. Edit only what's needed.
+4. No UI redesign without being asked. Reference `DESIGN.md` for the existing design system (Cohere-inspired: `--c-*` color tokens, type scale, breakpoints ≤1100px/≤700px, dark mode via `data-theme="dark"` + `localStorage`).
 
-- Migration Phases 1-5 are completed and documented in `migration/phase-*-validation.md`.
-- Baseline route inventory is `172` routes (`12` static pages + `160` posts) in `migration/phase-1-route-inventory.json`.
-- Hugo parity scaffolding exists (`hugo.toml`, `layouts/`, `content/`, `static/css/global.css`).
-- Gatsby stack still exists and has not been removed yet (`gatsby-config.js`, `gatsby-node.js`, `src/pages`, Gatsby scripts/dependencies in `package.json`).
-- Redirect rules still exist in `static/_redirects` and are part of parity constraints.
-- Static files `static/chancesmith_s.png` and `static/Hire-Me-Kit-Cover.png` exist (they are not currently missing).
+## Known residual issue
 
-## Non-negotiable requirements
+- Historical post markdown still contains legacy `/content/images/...` src references (from the Gatsby days). These are suppressed at render time by `layouts/_default/_markup/render-image.html` so they don't produce broken `<img>` tags in output. Source markdown itself was intentionally left alone (see phase-6 validation notes). Don't "fix" these unless asked — the render hook already handles it.
 
-1. Do not break existing blog post URLs.
-2. Keep these routes working:
-   - `/`
-   - `/archive/`
-   - post routes like `/<slug>/`
-   - `/about/`, `/coaching/`, `/glossary/`, `/hire-me-kit/`, `/level-up-mastermind/`, `/pair-coding/`, `/projects/`, `/uses/`, `/workshop-javascript/`
-3. Keep `static/_redirects` behavior unchanged on first pass.
-4. Do not redesign UI in the parity phase.
+## Validation checklist for content/layout changes
 
-## Remaining work (cleanup + cutover)
-
-### Phase 6 - Content and asset cleanup (still open)
-
-- [ ] Fix known typoed internal links:
-  - `content/blog/hotels-start-at-zero/index.md`: `/focus-closer-to-zero` -> `/focus-get-closer-to-zero/`
-  - `content/blog/wip/index.md`: `/work-out-load` -> `/work-out-loud/`
-- [ ] Resolve legacy image references in blog content:
-  - 25 posts still reference `/content/images/...`
-  - 79 unique `/content/images/...` paths are currently unresolved
-  - `static/content/images/` does not exist
-- [ ] Fix project image path mismatches:
-  - `content/projects.md` currently references `/envie.png`, `/sevco.png`, `/funfact-game.webp`, `/vtx-zoom.png`
-  - matching files currently live in `static/projects/` (served as `/projects/...`)
-- [ ] Re-run link validation and record results under `migration/`.
-
-### Phase 7 - QA (still open)
-
-- [ ] Re-run final route parity checks against `migration/phase-1-route-inventory.json`.
-- [ ] Run final QA on required routes:
-  - `/`
-  - `/archive/`
-  - post routes like `/<slug>/`
-  - `/about/`, `/coaching/`, `/glossary/`, `/hire-me-kit/`, `/level-up-mastermind/`, `/pair-coding/`, `/projects/`, `/uses/`, `/workshop-javascript/`
-
-## File mapping guidance
-
-- Gatsby site metadata -> Hugo config params.
-- `src/templates/blog-post.js` -> `layouts/_default/single.html` (or `layouts/blog/single.html`).
-- `src/pages/index.js` -> `layouts/index.html`.
-- `src/pages/archive.js` -> Hugo section/list page for archive.
-- `src/components/seo.js` -> shared partial (for title, description, OG, Twitter).
-- `src/styles/global.css` -> Hugo static stylesheet.
-
-## URL safety guidance
-
-- Existing Gatsby slugs are path-derived via `createFilePath`.
-- Hugo permalink config must reproduce current URL shape exactly.
-- If permalink behavior is ambiguous, use explicit frontmatter `url` values rather than guessing.
-
-## Content safety guidance
-
-- Keep existing markdown content as source of truth.
-- Do not mass-edit post bodies unless required for broken links/assets.
-- Frontmatter can be normalized carefully (`tags` format consistency), but avoid churn.
-
-## Known issues currently tracked
-
-- Internal links with typos:
-  - `/focus-closer-to-zero`
-  - `/work-out-load`
-- Legacy blog image references:
-  - `/content/images/...`
-- Project image path mismatches in `content/projects.md`:
-  - `/envie.png`
-  - `/sevco.png`
-  - `/funfact-game.webp`
-  - `/vtx-zoom.png`
-
-Track these as explicit migration tasks; do not ignore silently.
-
-## Design system
-
-`DESIGN.md` in the repo root documents the full design system (Cohere-inspired). Reference it for any visual, layout, or CSS work:
-- Color tokens (`--c-*` CSS custom properties)
-- Typography scale (sizes, weights, letter-spacing per role)
-- Breakpoints (≤1100px, ≤700px)
-- Dark mode (`data-theme="dark"` on `<html>`, `localStorage` persisted)
-- Component patterns (logo, nav, footer, cards)
-
-## Validation checklist for each iteration
-
-- Build succeeds.
-- Home page renders.
-- Archive page renders.
-- Sample old + new post URLs render.
-- Previous/next links on posts work.
-- Known broken links/assets count is not increasing (and should trend down).
-- Redirects file still present and unchanged unless intentionally updated.
+- `hugo --gc --minify` builds clean.
+- Home, archive, and a sample post render.
+- Prev/next links on posts still work.
+- `git diff -- static/_redirects` empty unless redirects were meant to change.
+- If route count matters, compare against `migration/phase-1-route-inventory.json` (160 posts + 12 static pages baseline).
 
 ## Definition of done
 
-A migration step is complete only when:
-
-1. Code is committed.
-2. Changes are pushed.
-3. Route parity checks pass for the affected scope.
-4. Notes are added to plan/checklist for any remaining risks.
+1. Code committed.
+2. Build passes locally.
+3. No unintended diff in `static/_redirects` or unrelated content.
