@@ -54,6 +54,9 @@ description: "Glossary terms and definitions."
 <h2 id="foggy-brain-tax">Foggy-Brain Tax <a href="#foggy-brain-tax">#</a></h2>
 <p>The cost of forgetting why you did something or how it works. Either write down the essential details or incentivize dealing with it now. Writing details down can help you remember them, and others can learn from them.</p>
 
+<h2 id="front-burner">Front Burner <a href="#front-burner">#</a></h2>
+<p>The front burner on a stove. One burner gets the full flame, which is our main focus. The other burners simmer as back burners, which get tended sometimes but never our full attention. Everything else stays off the stovetop entirely. The plural form of priority, "priorities," is a surprisingly modern word, not even a century old. Everything else still gets attention, just when possible, not by default.</p>
+
 <h2 id="hack-in">Hack-In <a href="#hack-in">#</a></h2>
 <p>An in-person or remote hackathon for a single project with a small team of 3-5. The biggest benefits are reducing the feedback loop and real-time collaboration.</p>
 
