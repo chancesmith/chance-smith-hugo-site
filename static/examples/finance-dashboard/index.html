@@ -1,0 +1,1118 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- demo: fictional household, all figures invented -->
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="robots" content="noindex" />
+<meta name="description" content="Example personal finance dashboard: Ramsey Baby Steps, MoneyGuy FOO, and the r/personalfinance flowchart side by side. Sample household, all figures invented." />
+<title>Example Finance Dashboard | Chance Smith</title>
+<style>
+  :root {
+    color-scheme: light;
+    --surface-1:      #fcfcfb;
+    --page:           #f9f9f7;
+    --text-primary:   #0b0b0b;
+    --text-secondary: #52514e;
+    --text-muted:     #898781;
+    --gridline:       #e1e0d9;
+    --baseline:       #c3c2b7;
+    --border:         rgba(11,11,11,0.10);
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #d03b3b;
+    --not-started-fill: #ececea;
+    --not-started-ink:  #898781;
+    --series-1:       #2a78d6;
+    --series-2:       #eb6834;
+    --series-3:       #1baf7a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:where(:not([data-theme="light"])) {
+      color-scheme: dark;
+      --surface-1:      #1a1a19;
+      --page:           #0d0d0d;
+      --text-primary:   #ffffff;
+      --text-secondary: #c3c2b7;
+      --text-muted:     #898781;
+      --gridline:       #2c2c2a;
+      --baseline:       #383835;
+      --border:         rgba(255,255,255,0.10);
+      --good:           #0ca30c;
+      --warning:        #fab219;
+      --serious:        #ec835a;
+      --critical:       #e66767;
+      --not-started-fill: #242422;
+      --not-started-ink:  #898781;
+      --series-1:       #3987e5;
+      --series-2:       #d95926;
+      --series-3:       #199e70;
+    }
+  }
+  :root[data-theme="dark"] {
+    color-scheme: dark;
+    --surface-1:      #1a1a19;
+    --page:           #0d0d0d;
+    --text-primary:   #ffffff;
+    --text-secondary: #c3c2b7;
+    --text-muted:     #898781;
+    --gridline:       #2c2c2a;
+    --baseline:       #383835;
+    --border:         rgba(255,255,255,0.10);
+    --good:           #0ca30c;
+    --warning:        #fab219;
+    --serious:        #ec835a;
+    --critical:       #e66767;
+    --not-started-fill: #242422;
+    --not-started-ink:  #898781;
+    --series-1:       #3987e5;
+    --series-2:       #d95926;
+    --series-3:       #199e70;
+  }
+
+  * { box-sizing: border-box; }
+  html { background: var(--page); }
+  body {
+    margin: 0;
+    background: var(--page);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--text-primary);
+  }
+  .viz-root { max-width: 960px; margin: 0 auto; padding: 32px 20px 64px; }
+
+  .page-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; margin-bottom: 24px; flex-wrap: wrap; }
+  .page-header h1 { font-size: 20px; margin: 0 0 4px; color: var(--text-primary); }
+  .page-header .sub { color: var(--text-secondary); font-size: 13px; }
+  .theme-toggle {
+    border: 1px solid var(--border); background: var(--surface-1); color: var(--text-primary);
+    border-radius: 6px; padding: 6px 10px; font-size: 12px; cursor: pointer;
+  }
+
+  .stat-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 10px; margin-bottom: 28px; }
+  .stat-tile {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 10px;
+    padding: 12px 14px;
+  }
+  .stat-tile .label { font-size: 11px; color: var(--text-muted); text-transform: uppercase; letter-spacing: .03em; }
+  .stat-tile .value { font-size: 20px; font-weight: 600; margin-top: 2px; color: var(--text-primary); }
+  .stat-tile .note { font-size: 11px; color: var(--text-secondary); margin-top: 2px; }
+
+  .legend { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 28px; font-size: 12px; color: var(--text-secondary); }
+  .legend .item { display: flex; align-items: center; gap: 6px; }
+  .legend .swatch { width: 10px; height: 10px; border-radius: 3px; flex: none; }
+
+  .framework {
+    background: var(--surface-1); border: 1px solid var(--border); border-radius: 12px;
+    padding: 18px 20px 14px; margin-bottom: 22px;
+  }
+  .framework-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; margin-bottom: 4px; flex-wrap: wrap; }
+  .framework-head h2 { font-size: 15px; margin: 0; color: var(--text-primary); }
+  .framework-head .position { font-size: 12px; color: var(--text-secondary); }
+  .framework-source { font-size: 11px; color: var(--text-muted); margin-bottom: 14px; }
+  .table-toggle {
+    border: 1px solid var(--border); background: transparent; color: var(--text-secondary);
+    border-radius: 6px; padding: 3px 8px; font-size: 11px; cursor: pointer; margin-left: 8px;
+  }
+  .table-toggle:hover { color: var(--text-primary); }
+
+  .track { position: relative; container-type: inline-size; }
+  .steps { display: flex; gap: 2px; align-items: stretch; }
+  .step { flex: 1; min-width: 0; position: relative; }
+  .step .bar {
+    height: 10px; border-radius: 4px;
+    background: var(--not-started-fill);
+    border: 1px solid var(--border);
+  }
+  .step.good .bar    { background: var(--good);    border-color: var(--good); }
+  .step.warning .bar { background: var(--warning); border-color: var(--warning); }
+  .step.serious .bar { background: var(--serious); border-color: var(--serious); }
+  .step.critical .bar{ background: var(--critical);border-color: var(--critical); }
+
+  .step .step-label {
+    margin-top: 6px; font-size: 10.5px; color: var(--text-secondary);
+    line-height: 1.25; display: flex; gap: 3px; align-items: flex-start;
+  }
+  .step .step-num { color: var(--text-muted); flex: none; }
+  .step .icon { flex: none; font-size: 10px; margin-top: 1px; }
+  .step.good .icon    { color: var(--good); }
+  .step.warning .icon { color: var(--warning); }
+  .step.serious .icon { color: var(--serious); }
+  .step.critical .icon{ color: var(--critical); }
+  .step.not-started .icon { color: var(--not-started-ink); }
+
+  .step .tooltip {
+    position: absolute; bottom: calc(100% + 8px); left: 50%; transform: translateX(-50%);
+    background: var(--text-primary); color: var(--surface-1);
+    font-size: 11px; line-height: 1.4; padding: 8px 10px; border-radius: 6px;
+    width: max-content; max-width: 220px; white-space: normal;
+    opacity: 0; pointer-events: none; transition: opacity .12s ease; z-index: 5;
+  }
+  .step:hover .tooltip, .step:focus-within .tooltip { opacity: 1; }
+  .step .bar { cursor: default; }
+  .step .step-label > span:last-child { min-width: 0; overflow-wrap: anywhere; hyphens: auto; }
+
+  /* Narrow tracks: segments get too thin for their labels, so stack the steps as a list */
+  @container (max-width: 760px) {
+    .steps { flex-direction: column; gap: 6px; }
+    .step { display: grid; grid-template-columns: 44px 1fr; align-items: center; column-gap: 10px; }
+    .step .step-label { margin-top: 0; font-size: 12px; }
+    .step .tooltip { left: 54px; transform: none; bottom: calc(100% + 4px); max-width: min(260px, calc(100cqw - 60px)); }
+  }
+
+  table.data-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 4px; }
+  table.data-table th, table.data-table td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--gridline); vertical-align: top; color: var(--text-primary); }
+  table.data-table th { color: var(--text-muted); font-weight: 500; font-size: 11px; text-transform: uppercase; letter-spacing: .02em; }
+  table.data-table td.status-cell { white-space: nowrap; }
+  table.data-table td.num { font-variant-numeric: tabular-nums; }
+  @media (max-width: 600px) {
+    table.data-table th, table.data-table td { overflow-wrap: anywhere; padding: 6px 5px; }
+  }
+  .pill { display: inline-flex; align-items: center; gap: 5px; font-size: 11px; padding: 2px 7px; border-radius: 999px; border: 1px solid var(--border); }
+  .pill .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .pill.good .dot { background: var(--good); }
+  .pill.warning .dot { background: var(--warning); }
+  .pill.serious .dot { background: var(--serious); }
+  .pill.critical .dot { background: var(--critical); }
+  .pill.not-started .dot { background: var(--not-started-ink); }
+
+  .hidden { display: none; }
+
+  .flags { margin-top: 10px; font-size: 12px; color: var(--text-secondary); }
+  .flags .flag { display: flex; gap: 6px; margin-top: 4px; }
+  .flags .flag .icon { flex: none; }
+  .flags .flag.serious .icon { color: var(--serious); }
+  .flags .flag.critical .icon { color: var(--critical); }
+
+  .chart-wrap { width: 100%; }
+  .chart-wrap svg { width: 100%; height: auto; display: block; }
+  .nw-point-label { font-size: 11px; font-weight: 600; fill: var(--text-primary); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .nw-month-label { font-size: 10.5px; fill: var(--text-muted); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .nw-milestone-label { font-size: 10px; fill: var(--text-muted); font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  .nw-dot { fill: var(--series-1); stroke: var(--surface-1); stroke-width: 2px; }
+  .nw-dot:hover, .nw-dot:focus { outline: none; }
+  .nw-tooltip { opacity: 0; transition: opacity .12s ease; pointer-events: none; }
+  .nw-hit { fill: transparent; cursor: default; }
+  .nw-hit:hover + .nw-tooltip, .nw-hit:focus + .nw-tooltip { opacity: 1; }
+
+  .timeline { list-style: none; margin: 10px 0 0; padding: 0; counter-reset: step; }
+  .timeline li {
+    position: relative; padding: 6px 0 10px 26px; font-size: 12.5px; color: var(--text-secondary);
+    border-left: 2px solid var(--gridline); margin-left: 7px;
+  }
+  .timeline li:last-child { border-left-color: transparent; }
+  .timeline li::before {
+    counter-increment: step; content: counter(step);
+    position: absolute; left: -9px; top: 4px; width: 16px; height: 16px; border-radius: 50%;
+    background: var(--series-1); color: #fff; font-size: 9px; font-weight: 700;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .timeline strong { color: var(--text-primary); }
+
+  .focus-strip {
+    display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap;
+    border: 1px solid var(--border); border-left: 3px solid var(--series-1); border-radius: 8px;
+    background: var(--surface-1); padding: 10px 14px; margin-bottom: 18px; font-size: 12.5px; color: var(--text-secondary);
+  }
+  .focus-strip strong { color: var(--text-primary); }
+
+  .decision {
+    border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px 12px; margin-top: 12px;
+  }
+  .decision.parked { opacity: .7; border-style: dashed; }
+  .decision-head { display: flex; gap: 10px; align-items: flex-start; }
+  .decision-num {
+    flex: none; width: 22px; height: 22px; border-radius: 50%; background: var(--series-1); color: #fff;
+    font-size: 11px; font-weight: 700; display: flex; align-items: center; justify-content: center; margin-top: 1px;
+  }
+  .decision.parked .decision-num { background: var(--not-started-ink); }
+  .decision-title { flex: 1; min-width: 0; }
+  .decision-title h3 { font-size: 14px; margin: 0 0 4px; color: var(--text-primary); }
+  .decision-meta { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; font-size: 11px; color: var(--text-muted); }
+  .chip { font-size: 10.5px; padding: 1px 7px; border-radius: 999px; border: 1px solid var(--border); color: var(--text-secondary); }
+  .decision-body { font-size: 12.5px; color: var(--text-secondary); margin: 10px 0 0 32px; }
+  .decision-body ul { margin: 6px 0; padding-left: 18px; }
+  .decision-body li { margin: 2px 0; }
+  .decision-body strong { color: var(--text-primary); }
+  .decision-body .lean { margin-top: 6px; }
+  .decision-chart { margin: 10px 0 0 32px; position: relative; }
+  .decision-chart .legend { margin-bottom: 6px; }
+  .decision-toggle { text-align: right; margin-top: 2px; }
+
+  .chart-tip {
+    position: absolute; pointer-events: none; opacity: 0; transition: opacity .1s ease; z-index: 5;
+    background: var(--text-primary); color: var(--surface-1); font-size: 11px; line-height: 1.4;
+    padding: 6px 9px; border-radius: 6px; white-space: nowrap; transform: translate(-50%, -100%);
+  }
+  .chart-tip.show { opacity: 1; }
+  .tip-hit { fill: transparent; cursor: default; }
+
+  footer.note { font-size: 11px; color: var(--text-muted); margin-top: 20px; }
+</style>
+<body>
+<div class="viz-root">
+
+  <div class="page-header">
+    <div>
+      <h1>Where We Are, Three Frameworks</h1>
+      <div class="sub">Ramsey Baby Steps, MoneyGuy FOO, r/personalfinance flowchart. Sample household, all figures invented</div>
+    </div>
+    <button class="theme-toggle" id="themeToggle" type="button">Dark mode</button>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat-tile">
+      <div class="label">Net worth</div>
+      <div class="value" data-key="net-worth">$38,260</div>
+      <div class="note">as of Oct</div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">Savings rate</div>
+      <div class="value" data-key="savings-rate">12.5%</div>
+      <div class="note" data-key="savings-rate-parts">retirement 8.5% + cash 3.5% + kid savings 0.5%, of gross. Goal 15%</div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">Emergency fund</div>
+      <div class="value" data-key="ef-months">~2.5 mo</div>
+      <div class="note" data-key="ef-note">$7,200 liquid vs ~$2,900/mo</div>
+    </div>
+    <div class="stat-tile">
+      <div class="label">Shared blocker</div>
+      <div class="value">Car loan</div>
+      <div class="note">$5,550 left at 6.9%</div>
+    </div>
+  </div>
+
+  <div class="focus-strip">
+    <span><strong>Current focus:</strong> clear the car loan, then let the freed payment roll forward.</span>
+    <span><strong>Money:</strong> settle the decisions below together, then automate and let it run.</span>
+  </div>
+
+  <!-- DECISIONS -->
+  <section class="framework" id="decisions">
+    <div class="framework-head">
+      <h2>Decisions to Make Together</h2>
+      <div class="position">5 open, in the order to take them</div>
+    </div>
+    <div class="framework-source">Each card shows which step in each framework it unblocks. Most of the dollars are already decided; these open questions are what keeps everything feeling spread thin. Close one, then the next.</div>
+
+    <!-- 1. Loan vs cushion -->
+    <div class="decision" id="d-ef">
+      <div class="decision-head">
+        <div class="decision-num">1</div>
+        <div class="decision-title">
+          <h3>Pay off the car loan from cash now, or keep the cushion?</h3>
+          <div class="decision-meta">
+            <span class="pill warning"><span class="dot"></span>Do first, sets up #2 and #3</span>
+            <span>Unblocks:</span><span class="chip">Ramsey 2</span><span class="chip">FOO 4</span><span class="chip">Flowchart 1</span>
+          </div>
+        </div>
+      </div>
+      <div class="decision-body">
+        <ul>
+          <li><strong>Pay it off now:</strong> cash drops to about $1,650. Still above Ramsey's $1,000 starter fund, and the $310/mo payment frees up today.</li>
+          <li><strong>Keep paying monthly:</strong> cash stays at $7,200 and reaches a 3-month fund ($8,700 at ~$2,900/mo) in about 10 months. The loan finishes on schedule.</li>
+        </ul>
+        Ramsey says pay it now. FOO and the flowchart would rather see 3 months of cash first, since 6.9% is moderate, not high, interest.
+        <div class="lean"><strong>Why it matters now:</strong> every month the loan runs costs about $32 in interest. Every month without a cushion means one surprise bill lands on a credit card.</div>
+      </div>
+      <div class="decision-chart">
+        <div class="track chart-wrap" id="ef-track">
+          <svg id="efChart" viewBox="0 0 820 150" role="img" aria-label="Cash now and after paying off the car loan versus the starter and 3-month emergency fund levels"></svg>
+        </div>
+        <table class="data-table hidden" id="ef-table">
+          <thead><tr><th>Point in time</th><th>Cash</th><th>vs $1,000 starter</th><th>vs $8,700 (3 mo)</th></tr></thead>
+          <tbody>
+            <tr><td>Now</td><td class="num">$7,200</td><td class="num">+$6,200</td><td class="num">&minus;$1,500</td></tr>
+            <tr><td>After paying off the loan</td><td class="num">$1,650</td><td class="num">+$650</td><td class="num">&minus;$7,050</td></tr>
+          </tbody>
+        </table>
+        <div class="decision-toggle"><button class="table-toggle" data-target="ef-table" data-track="ef-track" type="button">Table view</button></div>
+      </div>
+    </div>
+
+    <!-- 2. 529 -->
+    <div class="decision" id="d-529">
+      <div class="decision-head">
+        <div class="decision-num">2</div>
+        <div class="decision-title">
+          <h3>Start a 529 now, or after the car is paid off?</h3>
+          <div class="decision-meta">
+            <span class="pill serious"><span class="dot"></span>Decide by spring</span>
+            <span>Unblocks:</span><span class="chip">Ramsey 5</span><span class="chip">FOO 8</span><span class="chip">Flowchart 6.2</span>
+          </div>
+        </div>
+      </div>
+      <div class="decision-body">
+        <ul>
+          <li><strong>Start now:</strong> $50/mo, moved over from the kid savings line plus a little from cash.</li>
+          <li><strong>Wait a year:</strong> keep everything pointed at the loan and the cushion first. Costs a year of contributions and growth.</li>
+          <li><strong>Skip it:</strong> decide college savings isn't a goal for now and remove it, so it stops showing up as open.</li>
+        </ul>
+        <div class="lean"><strong>Chart:</strong> $50/mo at 7%, from age 6. Waiting one year leaves about $1,336 less by age 18.</div>
+      </div>
+      <div class="decision-chart">
+        <div class="legend">
+          <div class="item"><span class="swatch" style="background:var(--series-1)"></span>Start now</div>
+          <div class="item"><span class="swatch" style="background:var(--series-2)"></span>Start a year later</div>
+        </div>
+        <div class="track chart-wrap" id="c529-track">
+          <svg id="c529Chart" viewBox="0 0 820 220" role="img" aria-label="529 balance by age, starting now versus a year later"></svg>
+        </div>
+        <table class="data-table hidden" id="c529-table">
+          <thead><tr><th>Kid's age</th><th>Start now</th><th>Start a year later</th></tr></thead>
+          <tbody></tbody>
+        </table>
+        <div class="decision-toggle"><button class="table-toggle" data-target="c529-table" data-track="c529-track" type="button">Table view</button></div>
+      </div>
+    </div>
+
+    <!-- 3. Split vs full redirect -->
+    <div class="decision" id="d-split">
+      <div class="decision-head">
+        <div class="decision-num">3</div>
+        <div class="decision-title">
+          <h3>Once the loan is gone, keep $150/mo flowing to cash (split), or send the full $310 to a Roth IRA?</h3>
+          <div class="decision-meta">
+            <span class="pill warning"><span class="dot"></span>Same sitting as #2</span>
+            <span>Unblocks:</span><span class="chip">FOO 5</span><span class="chip">Flowchart 4.1</span>
+          </div>
+        </div>
+      </div>
+      <div class="decision-body">
+        Both reach $20k combined in the same month (month 39). The only difference is how much of that sits in cash vs. the Roth.
+        <ul>
+          <li><strong>Split:</strong> more cushion, grows well past 3 months. Good if a bigger cash buffer helps us sleep.</li>
+          <li><strong>Full redirect:</strong> cash still grows on the existing $130/mo, more money compounding tax-free.</li>
+        </ul>
+        Full month-by-month detail is in <a href="#compare" style="color:var(--series-1)">Compare</a> below.
+      </div>
+      <div class="decision-chart">
+        <div class="legend">
+          <div class="item"><span class="swatch" style="background:var(--series-1)"></span>Cash</div>
+          <div class="item"><span class="swatch" style="background:var(--series-3)"></span>Roth IRA</div>
+        </div>
+        <div class="track chart-wrap" id="split-track">
+          <svg id="splitChart" viewBox="0 0 820 150" role="img" aria-label="Savings at month 48 split into cash and Roth IRA for each option"></svg>
+        </div>
+        <table class="data-table hidden" id="split-table">
+          <thead><tr><th>Option</th><th>Cash</th><th>Roth IRA</th><th>Total</th></tr></thead>
+          <tbody>
+            <tr><td>Split ($150/mo to cash)</td><td class="num">$19,926</td><td class="num">$5,229</td><td class="num">$25,155</td></tr>
+            <tr><td>Full redirect ($0/mo extra to cash)</td><td class="num">$15,202</td><td class="num">$10,131</td><td class="num">$25,333</td></tr>
+          </tbody>
+        </table>
+        <div class="decision-toggle"><button class="table-toggle" data-target="split-table" data-track="split-track" type="button">Table view</button></div>
+      </div>
+    </div>
+
+    <!-- 4. Vehicle -->
+    <div class="decision" id="d-vehicle">
+      <div class="decision-head">
+        <div class="decision-num">4</div>
+        <div class="decision-title">
+          <h3>Start a car replacement fund, or drive this one into the ground?</h3>
+          <div class="decision-meta">
+            <span class="pill not-started"><span class="dot"></span>After #1</span>
+            <span>Unblocks:</span><span class="chip">Flowchart 4.2</span>
+          </div>
+        </div>
+      </div>
+      <div class="decision-body">
+        The car is 9 years old and runs fine. If a replacement is likely in the next 3 years, it becomes a named cash goal (Ramsey style, paid in cash, no new loan) and changes how much cash we keep above 3 months. If not, flowchart 4.2 closes as satisfied.
+      </div>
+    </div>
+
+    <!-- 5. Parked -->
+    <div class="decision parked" id="d-recalc">
+      <div class="decision-head">
+        <div class="decision-num">5</div>
+        <div class="decision-title">
+          <h3>Set a long-term retirement target</h3>
+          <div class="decision-meta">
+            <span class="pill not-started"><span class="dot"></span>Parked, not a joint decision</span>
+          </div>
+        </div>
+      </div>
+      <div class="decision-body">
+        Worth a real number once the loan is gone and retirement is closer to 15%. Nothing to decide today.
+      </div>
+    </div>
+
+    <ol class="timeline" style="margin-top:16px;">
+      <li><strong>This week:</strong> loan now or later (#1).</li>
+      <li><strong>Before spring, one sitting:</strong> 529 (#2) and split vs. full redirect (#3). Set every automatic transfer at once.</li>
+      <li><strong>After #1:</strong> car fund (#4).</li>
+      <li><strong>After that:</strong> retirement target (#5).</li>
+    </ol>
+  </section>
+
+  <!-- NET WORTH -->
+  <section class="framework" id="networth">
+    <div class="framework-head">
+      <h2>Net Worth Over Time</h2>
+      <div class="position" id="networthPosition"></div>
+    </div>
+    <div class="framework-source">Only months with a logged check-in are plotted. July has no recorded snapshot, shown as a dashed gap rather than an assumed straight line. Dashed gray line marks the $50k net worth milestone.</div>
+
+    <div class="track chart-wrap" id="networth-track">
+      <svg id="networthChart" viewBox="0 0 880 230" role="img" aria-label="Net worth line chart, May through October"></svg>
+    </div>
+    <table class="data-table hidden" id="networth-table">
+      <thead><tr><th>Month</th><th>Net worth</th><th>Delta</th><th>Savings rate</th></tr></thead>
+      <tbody>
+        <tr><td>May</td><td class="num">$33,750</td><td class="num">&ndash;</td><td class="num">11.8%</td></tr>
+        <tr><td>Jun</td><td class="num">$34,520</td><td class="num">+$770</td><td class="num">12.1%</td></tr>
+        <tr><td>Jul</td><td class="num">no snapshot</td><td class="num">&ndash;</td><td class="num">&ndash;</td></tr>
+        <tr><td>Aug</td><td class="num">$34,390</td><td class="num">&minus;$130</td><td class="num">12.4%</td></tr>
+        <tr><td>Sep</td><td class="num">$37,060</td><td class="num">+$2,670</td><td class="num">12.6%</td></tr>
+        <tr><td>Oct</td><td class="num">$38,260</td><td class="num">+$1,200</td><td class="num">12.5%</td></tr>
+      </tbody>
+    </table>
+    <div style="text-align:right; margin-top:4px;">
+      <button class="table-toggle" data-target="networth-table" data-track="networth-track" type="button">Table view</button>
+    </div>
+
+    <div class="framework-head" style="margin-top:18px;">
+      <h2>What Moved, May to Sep</h2>
+      <div class="position" id="movedPosition"></div>
+    </div>
+    <div class="framework-source">Change in each account group between the May and September check-ins. Most of the gain is retirement contributions plus a market rebound. The loan balance shrinking counts as a gain; the car losing value counts against it.</div>
+    <div class="track chart-wrap" id="moved-track">
+      <svg id="movedChart" viewBox="0 0 880 230" role="img" aria-label="Horizontal bar chart of net worth change by account group, May to September"></svg>
+    </div>
+    <table class="data-table hidden" id="moved-table">
+      <thead><tr><th>Group</th><th>Accounts</th><th>May</th><th>Sep</th><th>Change</th></tr></thead>
+      <tbody></tbody>
+    </table>
+    <div style="text-align:right; margin-top:4px;">
+      <button class="table-toggle" data-target="moved-table" data-track="moved-track" type="button">Table view</button>
+    </div>
+  </section>
+
+  <div class="legend">
+    <div class="item"><span class="swatch" style="background:var(--good)"></span>Done / satisfied</div>
+    <div class="item"><span class="swatch" style="background:var(--warning)"></span>In progress</div>
+    <div class="item"><span class="swatch" style="background:var(--serious)"></span>Flagged / open decision</div>
+    <div class="item"><span class="swatch" style="background:var(--not-started-fill); border:1px solid var(--border)"></span>Not started</div>
+  </div>
+
+  <!-- RAMSEY -->
+  <section class="framework" id="ramsey">
+    <div class="framework-head">
+      <h2>Dave Ramsey's 7 Baby Steps</h2>
+      <div class="position">Working Step 2 <button class="table-toggle" data-target="ramsey-table" data-track="ramsey-track" type="button">Table view</button></div>
+    </div>
+    <div class="framework-source">Steps 4-6 run in parallel in practice per the framework reference, shown sequentially here because that's how Ramsey presents them.</div>
+
+    <div class="track" id="ramsey-track">
+      <div class="steps" id="ramseySteps"></div>
+    </div>
+    <table class="data-table hidden" id="ramsey-table"></table>
+
+    <div class="flags">
+      <div class="flag serious"><span class="icon">&#9888;</span><span>Step 2 (car loan) is the active blocker. Strict Ramsey would also pause the 401k above the match until it's gone; this household is keeping the match.</span></div>
+    </div>
+  </section>
+
+  <!-- FOO -->
+  <section class="framework" id="foo">
+    <div class="framework-head">
+      <h2>MoneyGuy Financial Order of Operations</h2>
+      <div class="position">Working steps 4 and 9 in parallel <button class="table-toggle" data-target="foo-table" data-track="foo-track" type="button">Table view</button></div>
+    </div>
+    <div class="framework-source">FOO is explicitly not a straight line, steps run in parallel by design. The useful signal is which steps are satisfied, in progress, or skipped ahead of an earlier unsatisfied one.</div>
+
+    <div class="track" id="foo-track">
+      <div class="steps" id="fooSteps"></div>
+    </div>
+    <table class="data-table hidden" id="foo-table"></table>
+
+    <div class="flags">
+      <div class="flag serious"><span class="icon">&#9888;</span><span>Step 4 (3-6 months of reserves) is about 10 months out at the current $130/mo, or sooner if the loan payment rolls into cash.</span></div>
+      <div class="flag serious"><span class="icon">&#9888;</span><span>Step 5 (Roth IRA) hasn't started. It's the first place the freed car payment lands under either option in Decision 3.</span></div>
+    </div>
+  </section>
+
+  <!-- FLOWCHART -->
+  <section class="framework" id="flowchart">
+    <div class="framework-head">
+      <h2>r/personalfinance Spending Flowchart</h2>
+      <div class="position">Phase 1, full emergency fund <button class="table-toggle" data-target="flowchart-table" data-track="flowchart-track" type="button">Table view</button></div>
+    </div>
+    <div class="framework-source">Decision-tree flowchart, walked top to bottom. Current position = first row neither satisfied nor N/A. Phases 0-3 shown as one chip each; phases 4-6 shown node by node.</div>
+
+    <div class="track" id="flowchart-track">
+      <div class="steps" id="flowchartSteps"></div>
+    </div>
+    <table class="data-table hidden" id="flowchart-table"></table>
+
+    <div class="flags">
+      <div class="flag"><span class="icon" style="color:var(--good)">&#8593;</span><span>Ahead of the chart: phase 2 (employer match) is already satisfied even though phase 1 isn't finished.</span></div>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section class="framework" id="plan">
+    <div class="framework-head">
+      <h2>The Plan: Closing the Gaps</h2>
+      <div class="position">Rolling the car payment forward, not new cash flow</div>
+    </div>
+    <div class="framework-source">Two flows get freed and redirected: the $310/mo car payment once the loan is gone, and the $130/mo cash line once the emergency fund reaches 3 months ($8,700 at ~$2,900/mo).</div>
+
+    <div class="stat-row" style="margin-bottom:16px;">
+      <div class="stat-tile">
+        <div class="label">Car loan</div>
+        <div class="value">$5,550 &rarr; $0</div>
+        <div class="note">$310/mo, or now from cash (Decision 1)</div>
+      </div>
+      <div class="stat-tile">
+        <div class="label">401k</div>
+        <div class="value">6% &rarr; 8%</div>
+        <div class="note">+$70/mo after the loan, toward 15%</div>
+      </div>
+      <div class="stat-tile">
+        <div class="label">Roth IRA</div>
+        <div class="value">$0 &rarr; $240/mo</div>
+        <div class="note">opens once the loan is gone</div>
+      </div>
+      <div class="stat-tile">
+        <div class="label">529</div>
+        <div class="value">$50/mo</div>
+        <div class="note">1 kid, decide by spring</div>
+      </div>
+    </div>
+
+    <table class="data-table" id="plan-table">
+      <thead><tr><th>Source</th><th>Freed</th><th>Goes to</th><th>Amount</th></tr></thead>
+      <tbody>
+        <tr><td>Car payment (once the loan is gone)</td><td class="num">$310/mo</td><td>401k increase (6%&rarr;8%)</td><td class="num">$70/mo</td></tr>
+        <tr><td>&nbsp;</td><td></td><td>Roth IRA</td><td class="num">$240/mo</td></tr>
+        <tr><td>Cash line (once EF hits 3 months)</td><td class="num">$130/mo</td><td>529</td><td class="num">$50/mo</td></tr>
+        <tr><td>&nbsp;</td><td></td><td>Car replacement fund</td><td class="num">$80/mo</td></tr>
+      </tbody>
+    </table>
+
+    <ol class="timeline">
+      <li><strong>Now:</strong> decide loan vs. cushion (Decision 1). Keep the 401k at 6% so the full match keeps coming.</li>
+      <li><strong>When the loan is gone:</strong> raise the 401k to 8% and open a Roth IRA at $240/mo.</li>
+      <li><strong>When cash reaches 3 months:</strong> split the $130/mo cash line between the 529 and a car fund.</li>
+      <li><strong>Next year:</strong> raise the 401k 1% at each raise until retirement reaches 15% of gross.</li>
+    </ol>
+  </section>
+
+  <!-- COMPARE -->
+  <section class="framework" id="compare">
+    <div class="framework-head">
+      <h2>Compare: Full Redirect vs. Split</h2>
+      <div class="position">Same $20k finish line either way <button class="table-toggle" data-target="compare-table" data-track="compare-track" type="button">Table view</button></div>
+    </div>
+    <div class="framework-source">Both options move the same total dollars each month. The loan runs on schedule for 18 months, then the freed $310/mo goes either all to the Roth or split with cash. Cash earns 4%, the Roth 7% assumed. Projection starts from $7,200 cash, with $130/mo to cash throughout.</div>
+
+    <div class="legend" style="margin-bottom:10px;">
+      <div class="item"><span class="swatch" style="background:var(--series-1)"></span>Split ($150/mo to cash)</div>
+      <div class="item"><span class="swatch" style="background:#eb6834"></span>Full redirect ($0/mo extra to cash)</div>
+      <div class="item"><span class="swatch" style="background:var(--gridline); border:1px dashed var(--text-muted)"></span>$8,700 EF (3 mo)</div>
+    </div>
+
+    <div class="track chart-wrap" id="compare-track">
+      <svg id="compareChart" viewBox="0 0 880 260" role="img" aria-label="Cash balance over 48 months, full redirect vs split scenarios"></svg>
+    </div>
+
+    <table class="data-table hidden" id="compare-table">
+      <thead><tr><th>Metric</th><th>Full redirect</th><th>Split ($150/mo to cash)</th></tr></thead>
+      <tbody>
+        <tr><td>Cash, months 0-17</td><td class="num">$130/mo</td><td class="num">$130/mo</td></tr>
+        <tr><td>Cash, month 18+</td><td class="num">$130/mo</td><td class="num">$280/mo</td></tr>
+        <tr><td>Roth IRA, month 18+</td><td class="num">$310/mo</td><td class="num">$160/mo</td></tr>
+        <tr><td>Cash balance at month 48</td><td class="num">$15,202</td><td class="num">$19,926</td></tr>
+        <tr><td>Roth balance at month 48</td><td class="num">$10,131</td><td class="num">$5,229</td></tr>
+        <tr><td>Combined at month 48</td><td class="num">$25,333</td><td class="num">$25,155</td></tr>
+        <tr><td>Month $20k is crossed</td><td class="num">39</td><td class="num">39</td></tr>
+      </tbody>
+    </table>
+
+    <div class="flags">
+      <div class="flag"><span class="icon" style="color:var(--good)">&#8593;</span><span>The split costs almost nothing on the $20k timeline, both cross it the same month, it just holds about $4,700 more in cash and $4,900 less in the Roth at month 48.</span></div>
+    </div>
+  </section>
+
+  <footer class="note">Sample household, all figures invented for illustration. Hover/tap a step for detail; "Table view" swaps to the accessible row list.</footer>
+</div>
+
+<script>
+(function () {
+  const STATUS_ICON = { good: '✓', warning: '◐', serious: '!', critical: '✕', 'not-started': '·' };
+  const STATUS_LABEL = { good: 'Done', warning: 'In progress', serious: 'Flagged', critical: 'Blocked', 'not-started': 'Not started' };
+
+  function renderTrack(containerId, tableId, steps) {
+    const track = document.getElementById(containerId);
+    const table = document.getElementById(tableId);
+
+    steps.forEach((s) => {
+      const el = document.createElement('div');
+      el.className = 'step ' + s.status;
+      el.tabIndex = 0;
+      el.innerHTML =
+        '<div class="bar"></div>' +
+        '<div class="step-label"><span class="step-num">' + s.num + '</span>' +
+        '<span class="icon">' + STATUS_ICON[s.status] + '</span>' +
+        '<span>' + s.name + '</span></div>' +
+        '<div class="tooltip"><strong>' + s.num + ' ' + s.name + '</strong><br>' + s.detail + '</div>';
+      track.appendChild(el);
+    });
+
+    let rows = '<thead><tr><th>#</th><th>Node</th><th>Status</th><th>Detail</th></tr></thead><tbody>';
+    steps.forEach(s => {
+      rows += '<tr><td>' + s.num + '</td><td>' + s.name + '</td>' +
+        '<td class="status-cell"><span class="pill ' + s.status + '"><span class="dot"></span>' + STATUS_LABEL[s.status] + '</span></td>' +
+        '<td>' + s.detail + '</td></tr>';
+    });
+    rows += '</tbody>';
+    table.innerHTML = rows;
+  }
+
+  const ramsey = [
+    { num: 1, name: 'Starter EF', status: 'good', detail: '$1,000 criterion cleared, $7,200 liquid on hand.' },
+    { num: 2, name: 'Debt snowball', status: 'serious', detail: 'Car loan, $5,550 left at 6.9%, $310/mo. Only debt. Paying it from cash is Decision 1.' },
+    { num: 3, name: 'Full EF (3-6mo)', status: 'not-started', detail: '~2.5 months already liquid, but in Ramsey order this step starts after the loan is gone.' },
+    { num: 4, name: 'Retirement 15%', status: 'not-started', detail: 'Retirement at 8.5% of gross (6% plus a 3% match). Climbs once the car payment frees up.' },
+    { num: 5, name: "Kid's college fund", status: 'not-started', detail: 'No 529 yet. Open question in Decision 2.' },
+    { num: 6, name: 'Pay off home early', status: 'not-started', detail: 'Renting, no mortgage. Becomes relevant only if a home purchase happens.' },
+    { num: 7, name: 'Build wealth & give', status: 'not-started', detail: 'Blocked behind steps 2-6 in strict Ramsey ordering.' },
+  ];
+
+  const foo = [
+    { num: 1, name: 'Deductibles covered', status: 'good', detail: 'Highest insurance deductible $1,000, covered by cash on hand.' },
+    { num: 2, name: 'Employer match', status: 'good', detail: 'Contributing 6% to get the full 3% match ($105/mo).' },
+    { num: 3, name: 'High-interest debt', status: 'good', detail: 'No debt at 10%+ APR. The 6.9% car loan sits under step 9.' },
+    { num: 4, name: 'Emergency reserves', status: 'warning', detail: '~2.5 months at ~$2,900/mo. 3 months is $8,700, about 10 months out at $130/mo.' },
+    { num: 5, name: 'Roth IRA & HSA', status: 'not-started', detail: 'No Roth IRA yet. Opens with the freed car payment (Decision 3).' },
+    { num: 6, name: 'Max employer retirement', status: 'not-started', detail: 'At 6%, well under the IRS limit. Not a goal yet.' },
+    { num: 7, name: 'Hyperaccumulation (25%+)', status: 'not-started', detail: 'Retirement at 8.5% of gross. 15% comes first.' },
+    { num: 8, name: 'Prepay future expenses', status: 'not-started', detail: '529 and car fund are both open (Decisions 2 and 4).' },
+    { num: 9, name: 'Low-interest debt', status: 'warning', detail: 'Car loan at 6.9% being paid on schedule, or now from cash (Decision 1).' },
+  ];
+
+  const flowchart = [
+    { num: '0', name: 'Budget & reduce expenses', status: 'good', detail: 'Budget tracked monthly, essentials covered, no missed payments.' },
+    { num: '1', name: 'Emergency fund', status: 'warning', detail: 'Small EF done. Full EF at ~2.5 of 3 months. Current position on the chart.' },
+    { num: '2', name: 'Employer match', status: 'good', detail: 'Full 3% match captured at a 6% contribution.' },
+    { num: '3', name: 'Debt', status: 'warning', detail: 'No high-interest debt. Car loan at 6.9% is moderate interest, being paid down.' },
+    { num: '4.1', name: 'Max Roth IRAs', status: 'not-started', detail: 'No Roth yet. First stop for the freed car payment.' },
+    { num: '4.2', name: 'Required near-term purchases', status: 'not-started', detail: 'Car replacement in the next few years is possible (Decision 4).' },
+    { num: '5.1', name: 'Retirement at 15%', status: 'not-started', detail: 'At 8.5% of gross, climbing after the loan.' },
+    { num: '6.2', name: "Kid's college (529)", status: 'not-started', detail: 'Open question in Decision 2.' },
+    { num: '6.3', name: 'Choose path', status: 'not-started', detail: 'Too early to choose between retire-early and nearer-term goals.' },
+  ];
+
+  renderTrack('ramseySteps', 'ramsey-table', ramsey);
+  renderTrack('fooSteps', 'foo-table', foo);
+  renderTrack('flowchartSteps', 'flowchart-table', flowchart);
+
+  // Net worth line chart
+  (function renderNetWorth() {
+    const points = [
+      { idx: 0, month: 'May', label: 'May', value: 33750 },
+      { idx: 1, month: 'Jun', label: 'Jun', value: 34520 },
+      { idx: 3, month: 'Aug', label: 'Aug', value: 34390 },
+      { idx: 4, month: 'Sep', label: 'Sep', value: 37060 },
+      { idx: 5, month: 'Oct', label: 'Oct', value: 38260 },
+    ];
+    const allMonths = ['May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'];
+    const milestone = 50000;
+
+    const svg = document.getElementById('networthChart');
+    const W = 880, H = 230;
+    const padL = 54, padR = 60, padT = 20, padB = 30;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+
+    const yMin = 25000, yMax = 52000;
+    function x(idx) { return padL + (idx / (allMonths.length - 1)) * plotW; }
+    function y(val) { return padT + plotH - ((val - yMin) / (yMax - yMin)) * plotH; }
+
+    const css = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      const node = document.createElementNS(css, tag);
+      Object.keys(attrs).forEach(k => node.setAttribute(k, attrs[k]));
+      return node;
+    }
+
+    // baseline
+    svg.appendChild(el('line', { x1: padL, y1: padT + plotH, x2: padL + plotW, y2: padT + plotH, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+
+    // milestone line
+    const my = y(milestone);
+    const mLine = el('line', { x1: padL, y1: my, x2: padL + plotW, y2: my, stroke: 'var(--gridline)', 'stroke-width': 1.5, 'stroke-dasharray': '4,4' });
+    svg.appendChild(mLine);
+    const mLabel = el('text', { x: padL + plotW, y: my - 6, 'text-anchor': 'end', class: 'nw-milestone-label' });
+    mLabel.textContent = '$50k milestone';
+    svg.appendChild(mLabel);
+
+    // month ticks
+    allMonths.forEach((m, i) => {
+      const lbl = el('text', { x: x(i), y: padT + plotH + 18, 'text-anchor': 'middle', class: 'nw-month-label' });
+      lbl.textContent = m;
+      svg.appendChild(lbl);
+    });
+
+    // segments: dashed where a month is skipped, solid between adjacent known months
+    for (let i = 0; i < points.length - 1; i++) {
+      const a = points[i], b = points[i + 1];
+      const gap = (b.idx - a.idx) > 1;
+      const line = el('line', {
+        x1: x(a.idx), y1: y(a.value), x2: x(b.idx), y2: y(b.value),
+        stroke: 'var(--series-1)', 'stroke-width': 2,
+        'stroke-dasharray': gap ? '6,5' : 'none',
+      });
+      svg.appendChild(line);
+    }
+
+    // points + labels + hover
+    points.forEach(p => {
+      const cx = x(p.idx), cy = y(p.value);
+      const hit = el('circle', { cx, cy, r: 14, class: 'nw-hit' });
+      const dot = el('circle', { cx, cy, r: 5, class: 'nw-dot', tabindex: 0 });
+      const label = el('text', { x: cx, y: cy - 14, 'text-anchor': 'middle', class: 'nw-point-label' });
+      label.textContent = '$' + p.value.toLocaleString();
+      const tip = el('text', { x: cx, y: cy + 22, 'text-anchor': 'middle', class: 'nw-month-label nw-tooltip' });
+      tip.textContent = p.label;
+      svg.appendChild(hit);
+      svg.appendChild(dot);
+      svg.appendChild(label);
+      svg.appendChild(tip);
+    });
+
+    const first = points[0].value, last = points[points.length - 1].value;
+    document.getElementById('networthPosition').textContent =
+      '+$' + (last - first).toLocaleString() + ' since May' +
+      ' (' + Math.round((last / milestone) * 1000) / 10 + '% to $50k)';
+  })();
+
+  // What moved: net worth change by account group, May check-in to Sep check-in
+  (function renderMoved() {
+    const groups = [
+      { name: 'Retirement', accounts: '401k', may: 24750, sep: 26600 },
+      { name: 'Car loan', accounts: 'Liability, 6.9%', may: -6900, sep: -5820 },
+      { name: 'Cash', accounts: 'Checking, HYS', may: 6100, sep: 6850 },
+      { name: 'Kid savings', accounts: 'Savings account', may: 300, sep: 430 },
+      { name: 'Vehicle', accounts: 'Car (KBB est.)', may: 9500, sep: 9000 },
+    ];
+    const fmt = v => (v < 0 ? '-$' : '$') + Math.abs(v).toLocaleString();
+    const fmtDelta = v => v === 0 ? 'no change' : (v > 0 ? '+$' : '-$') + Math.abs(v).toLocaleString();
+
+    const svg = document.getElementById('movedChart');
+    const W = 880, H = 230;
+    const padL = 130, padR = 200, padT = 12, padB = 12;
+    const plotW = W - padL - padR;
+    const rowH = (H - padT - padB) / groups.length;
+    const barH = 16;
+    const maxDelta = Math.max(...groups.map(g => g.sep - g.may));
+
+    const ns = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      const node = document.createElementNS(ns, tag);
+      Object.keys(attrs).forEach(k => node.setAttribute(k, attrs[k]));
+      return node;
+    }
+
+    svg.appendChild(el('line', { x1: padL, y1: padT, x2: padL, y2: H - padB, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+
+    groups.forEach((g, i) => {
+      const d = g.sep - g.may;
+      const cy = padT + rowH * i + rowH / 2;
+      const w = d > 0 ? (d / maxDelta) * plotW : 0;
+
+      const name = el('text', { x: padL - 10, y: cy + 4, 'text-anchor': 'end', class: 'nw-point-label' });
+      name.textContent = g.name;
+      svg.appendChild(name);
+
+      const row = el('g', { tabindex: 0 });
+      const title = el('title', {});
+      title.textContent = g.name + ' (' + g.accounts + '): ' + fmt(g.may) + ' in May, ' + fmt(g.sep) + ' in Sep, ' + fmtDelta(d);
+      row.appendChild(title);
+      row.appendChild(el('rect', { x: padL, y: cy - rowH / 2, width: plotW + padR, height: rowH, fill: 'transparent' }));
+      if (w > 0) {
+        row.appendChild(el('rect', { x: padL, y: cy - barH / 2, width: w, height: barH, rx: 4, fill: 'var(--series-1)' }));
+      }
+      const val = el('text', { x: padL + w + 8, y: cy + 4, class: d > 0 ? 'nw-point-label' : 'nw-month-label' });
+      val.textContent = fmtDelta(d) + '   (' + fmt(g.may) + ' → ' + fmt(g.sep) + ')';
+      row.appendChild(val);
+      svg.appendChild(row);
+    });
+
+    const total = groups.reduce((s, g) => s + (g.sep - g.may), 0);
+    document.getElementById('movedPosition').textContent = fmtDelta(total) + ' total';
+
+    let rows = '';
+    groups.forEach(g => {
+      rows += '<tr><td>' + g.name + '</td><td>' + g.accounts + '</td><td class="num">' + fmt(g.may) +
+        '</td><td class="num">' + fmt(g.sep) + '</td><td class="num">' + fmtDelta(g.sep - g.may) + '</td></tr>';
+    });
+    rows += '<tr><td><strong>Net worth</strong></td><td></td><td class="num">$33,750</td><td class="num">$37,060</td><td class="num"><strong>' + fmtDelta(total) + '</strong></td></tr>';
+    document.querySelector('#moved-table tbody').innerHTML = rows;
+  })();
+
+  // Compare: full redirect vs split, cash balance over 48 months
+  (function renderCompare() {
+    const months = [0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48];
+    const fullCash  = [7200, 7664, 8132, 8605, 9082, 9565, 10052, 10544, 11041, 11543, 12050, 12563, 13080, 13602, 14130, 14663, 15202];
+    const splitCash = [7200, 7664, 8132, 8605, 9082, 9565, 10052, 10996, 11949, 12911, 13884, 14866, 15858, 16860, 17872, 18894, 19926];
+    const efFloor = 8700;
+
+    const svg = document.getElementById('compareChart');
+    const W = 880, H = 260;
+    const padL = 54, padR = 70, padT = 20, padB = 34;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+
+    const maxMonth = months[months.length - 1];
+    const yMin = 0, yMax = 22000;
+    function x(m) { return padL + (m / maxMonth) * plotW; }
+    function y(val) { return padT + plotH - ((val - yMin) / (yMax - yMin)) * plotH; }
+
+    const ns = 'http://www.w3.org/2000/svg';
+    function el(tag, attrs) {
+      const node = document.createElementNS(ns, tag);
+      Object.keys(attrs).forEach(k => node.setAttribute(k, attrs[k]));
+      return node;
+    }
+
+    // baseline
+    svg.appendChild(el('line', { x1: padL, y1: padT + plotH, x2: padL + plotW, y2: padT + plotH, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+
+    // EF floor line
+    const fy = y(efFloor);
+    svg.appendChild(el('line', { x1: padL, y1: fy, x2: padL + plotW, y2: fy, stroke: 'var(--gridline)', 'stroke-width': 1.5, 'stroke-dasharray': '4,4' }));
+    const floorLabel = el('text', { x: padL + plotW, y: fy - 6, 'text-anchor': 'end', class: 'nw-milestone-label' });
+    floorLabel.textContent = '$8,700 EF (3 mo)';
+    svg.appendChild(floorLabel);
+
+    // year/month ticks (every 12 months, plus the final month)
+    [0, 12, 24, 36, 48].forEach(m => {
+      const lbl = el('text', { x: x(m), y: padT + plotH + 18, 'text-anchor': 'middle', class: 'nw-month-label' });
+      lbl.textContent = m === 0 ? 'Now' : (m / 12) + 'yr';
+      svg.appendChild(lbl);
+    });
+
+    function drawLine(data, color) {
+      const pts = months.map((m, i) => x(m) + ',' + y(data[i])).join(' ');
+      svg.appendChild(el('polyline', { points: pts, fill: 'none', stroke: color, 'stroke-width': 2 }));
+      months.forEach((m, i) => {
+        const hit = el('circle', { cx: x(m), cy: y(data[i]), r: 10, class: 'nw-hit' });
+        const dot = el('circle', { cx: x(m), cy: y(data[i]), r: 3.5, fill: color, stroke: 'var(--surface-1)', 'stroke-width': 1.5, tabindex: 0 });
+        svg.appendChild(hit);
+        svg.appendChild(dot);
+      });
+      const lastIdx = data.length - 1;
+      const endLabel = el('text', { x: x(months[lastIdx]) + 6, y: y(data[lastIdx]) + 4, class: 'nw-point-label', style: 'fill:' + color });
+      endLabel.textContent = '$' + data[lastIdx].toLocaleString();
+      svg.appendChild(endLabel);
+    }
+
+    drawLine(fullCash, '#eb6834');
+    drawLine(splitCash, 'var(--series-1)');
+  })();
+
+  // Decisions: shared helpers
+  const NS = 'http://www.w3.org/2000/svg';
+  function svgEl(tag, attrs) {
+    const node = document.createElementNS(NS, tag);
+    Object.keys(attrs).forEach(k => node.setAttribute(k, attrs[k]));
+    return node;
+  }
+  function money(v) { return '$' + Math.round(v).toLocaleString(); }
+
+  // One HTML tooltip per chart, positioned over the hovered mark
+  function attachTip(svg, target, text) {
+    const wrap = svg.parentNode;
+    let tip = wrap.querySelector('.chart-tip');
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'chart-tip';
+      wrap.appendChild(tip);
+    }
+    target.setAttribute('tabindex', 0);
+    function show() {
+      const box = target.getBoundingClientRect(), base = wrap.getBoundingClientRect();
+      tip.textContent = text;
+      tip.style.left = (box.left + box.width / 2 - base.left) + 'px';
+      tip.style.top = (box.top - base.top - 6) + 'px';
+      tip.classList.add('show');
+    }
+    function hide() { tip.classList.remove('show'); }
+    target.addEventListener('mouseenter', show);
+    target.addEventListener('focus', show);
+    target.addEventListener('mouseleave', hide);
+    target.addEventListener('blur', hide);
+  }
+
+  // Horizontal bar with a rounded data-end and square baseline end
+  function hbarPath(x0, y0, w, h) {
+    const r = Math.min(4, w);
+    return 'M' + x0 + ',' + y0 + 'H' + (x0 + w - r) + 'Q' + (x0 + w) + ',' + y0 + ' ' + (x0 + w) + ',' + (y0 + r) +
+      'V' + (y0 + h - r) + 'Q' + (x0 + w) + ',' + (y0 + h) + ' ' + (x0 + w - r) + ',' + (y0 + h) + 'H' + x0 + 'Z';
+  }
+
+  // Decision 1: cash vs the two EF floor options
+  (function renderEF() {
+    const svg = document.getElementById('efChart');
+    const W = 820, padL = 190, padR = 70, top = 30;
+    const plotW = W - padL - padR;
+    const xMax = 10000;
+    const x = v => padL + (v / xMax) * plotW;
+    const rows = [
+      { label: 'Now', value: 7200 },
+      { label: 'After loan payoff', value: 1650 },
+    ];
+    const barH = 22, gap = 22;
+    const bottom = top + rows.length * (barH + gap) - gap;
+
+    svg.appendChild(svgEl('line', { x1: padL, y1: top - 8, x2: padL, y2: bottom + 8, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+
+    rows.forEach((r, i) => {
+      const y0 = top + i * (barH + gap);
+      const lbl = svgEl('text', { x: padL - 10, y: y0 + barH / 2 + 4, 'text-anchor': 'end', class: 'nw-month-label' });
+      lbl.textContent = r.label;
+      svg.appendChild(lbl);
+      const bar = svgEl('path', { d: hbarPath(padL, y0, x(r.value) - padL, barH), fill: 'var(--series-1)' });
+      svg.appendChild(bar);
+      const val = svgEl('text', { x: x(r.value) + 6, y: y0 + barH / 2 + 4, class: 'nw-point-label' });
+      val.textContent = money(r.value);
+      svg.appendChild(val);
+      attachTip(svg, bar, r.label + ': ' + money(r.value) + ' (' + (r.value >= 8700 ? 'above' : 'below') + ' 3 months, ' + (r.value >= 1000 ? 'above' : 'below') + ' the $1,000 starter)');
+    });
+
+    [{ v: 1000, t: '$1,000 starter' }, { v: 8700, t: '$8,700 (3 mo)' }].forEach((f, i) => {
+      svg.appendChild(svgEl('line', { x1: x(f.v), y1: top - 12, x2: x(f.v), y2: bottom + 10, stroke: 'var(--text-muted)', 'stroke-width': 1.5, 'stroke-dasharray': '4,4' }));
+      const t = svgEl('text', { x: x(f.v), y: i === 0 ? bottom + 26 : top - 16, 'text-anchor': 'middle', class: 'nw-milestone-label' });
+      t.textContent = f.t;
+      svg.appendChild(t);
+    });
+  })();
+
+  // Decision 2: 529, start now vs a year later ($50/mo, 7%, monthly, age 6 to 18)
+  (function render529() {
+    const r = 0.07 / 12;
+    function project(startMonth) {
+      const out = [];
+      let b = 0;
+      for (let m = 0; m <= 144; m++) {
+        if (m % 24 === 0) out.push(Math.round(b));
+        if (m < 144) b = b * (1 + r) + (m >= startMonth ? 50 : 0);
+      }
+      return out;
+    }
+    const ages = [6, 8, 10, 12, 14, 16, 18];
+    const now = project(0), later = project(12);
+
+    const tbody = document.querySelector('#c529-table tbody');
+    tbody.innerHTML = ages.map((a, i) =>
+      '<tr><td>' + a + '</td><td class="num">' + money(now[i]) + '</td><td class="num">' + money(later[i]) + '</td></tr>').join('');
+
+    const svg = document.getElementById('c529Chart');
+    const W = 820, H = 220, padL = 54, padR = 80, padT = 16, padB = 30;
+    const plotW = W - padL - padR, plotH = H - padT - padB;
+    const yMax = 12000;
+    const x = i => padL + (i / (ages.length - 1)) * plotW;
+    const y = v => padT + plotH - (v / yMax) * plotH;
+
+    [0, 6000, 12000].forEach(v => {
+      svg.appendChild(svgEl('line', { x1: padL, y1: y(v), x2: padL + plotW, y2: y(v), stroke: v === 0 ? 'var(--baseline)' : 'var(--gridline)', 'stroke-width': 1 }));
+      const t = svgEl('text', { x: padL - 8, y: y(v) + 4, 'text-anchor': 'end', class: 'nw-month-label' });
+      t.textContent = money(v);
+      svg.appendChild(t);
+    });
+    ages.forEach((a, i) => {
+      const t = svgEl('text', { x: x(i), y: padT + plotH + 18, 'text-anchor': 'middle', class: 'nw-month-label' });
+      t.textContent = 'Age ' + a;
+      svg.appendChild(t);
+    });
+
+    function line(data, color, name) {
+      svg.appendChild(svgEl('polyline', { points: data.map((v, i) => x(i) + ',' + y(v)).join(' '), fill: 'none', stroke: color, 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }));
+      data.forEach((v, i) => {
+        const g = svgEl('g', {});
+        g.appendChild(svgEl('circle', { cx: x(i), cy: y(v), r: 12, class: 'tip-hit' }));
+        g.appendChild(svgEl('circle', { cx: x(i), cy: y(v), r: 4, fill: color, stroke: 'var(--surface-1)', 'stroke-width': 2 }));
+        svg.appendChild(g);
+        attachTip(svg, g, name + ', age ' + ages[i] + ': ' + money(v));
+      });
+      const end = svgEl('text', { x: x(data.length - 1) + 10, y: y(data[data.length - 1]) + 4, class: 'nw-point-label' });
+      end.textContent = money(data[data.length - 1]);
+      svg.appendChild(end);
+    }
+    line(later, 'var(--series-2)', 'Start a year later');
+    line(now, 'var(--series-1)', 'Start now');
+  })();
+
+  // Decision 3: stacked cash + Roth IRA at month 48, per option
+  (function renderSplit() {
+    const svg = document.getElementById('splitChart');
+    const W = 820, padL = 190, padR = 90, top = 30;
+    const plotW = W - padL - padR;
+    const xMax = 28000;
+    const x = v => padL + (v / xMax) * plotW;
+    const rows = [
+      { label: 'Split ($150/mo to cash)', cash: 19926, brokerage: 5229 },
+      { label: 'Full redirect', cash: 15202, brokerage: 10131 },
+    ];
+    const barH = 22, gap = 22;
+    const bottom = top + rows.length * (barH + gap) - gap;
+
+    svg.appendChild(svgEl('line', { x1: padL, y1: top - 8, x2: padL, y2: bottom + 8, stroke: 'var(--baseline)', 'stroke-width': 1 }));
+
+    rows.forEach((r, i) => {
+      const y0 = top + i * (barH + gap);
+      const lbl = svgEl('text', { x: padL - 10, y: y0 + barH / 2 + 4, 'text-anchor': 'end', class: 'nw-month-label' });
+      lbl.textContent = r.label;
+      svg.appendChild(lbl);
+
+      const cashW = x(r.cash) - padL;
+      const cash = svgEl('rect', { x: padL, y: y0, width: cashW - 1, height: barH, fill: 'var(--series-1)' });
+      svg.appendChild(cash);
+      attachTip(svg, cash, r.label + ', cash: ' + money(r.cash));
+
+      const brokW = x(r.cash + r.brokerage) - x(r.cash);
+      const brok = svgEl('path', { d: hbarPath(x(r.cash) + 1, y0, brokW - 1, barH), fill: 'var(--series-3)' });
+      svg.appendChild(brok);
+      attachTip(svg, brok, r.label + ', Roth IRA: ' + money(r.brokerage));
+
+      const total = svgEl('text', { x: x(r.cash + r.brokerage) + 6, y: y0 + barH / 2 + 4, class: 'nw-point-label' });
+      total.textContent = money(r.cash + r.brokerage);
+      svg.appendChild(total);
+    });
+
+    svg.appendChild(svgEl('line', { x1: x(20000), y1: top - 12, x2: x(20000), y2: bottom + 10, stroke: 'var(--text-muted)', 'stroke-width': 1.5, 'stroke-dasharray': '4,4' }));
+    const t = svgEl('text', { x: x(20000), y: bottom + 26, 'text-anchor': 'middle', class: 'nw-milestone-label' });
+    t.textContent = '$20k combined, month 39';
+    svg.appendChild(t);
+  })();
+
+  document.querySelectorAll('.table-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const table = document.getElementById(btn.dataset.target);
+      const track = document.getElementById(btn.dataset.track);
+      const showingTable = !table.classList.contains('hidden');
+      if (showingTable) {
+        table.classList.add('hidden');
+        track.classList.remove('hidden');
+        btn.textContent = 'Table view';
+      } else {
+        table.classList.remove('hidden');
+        track.classList.add('hidden');
+        btn.textContent = 'Track view';
+      }
+    });
+  });
+
+  const themeBtn = document.getElementById('themeToggle');
+  themeBtn.addEventListener('click', () => {
+    const root = document.documentElement;
+    const isDark = root.getAttribute('data-theme') === 'dark';
+    root.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    themeBtn.textContent = isDark ? 'Dark mode' : 'Light mode';
+  });
+})();
+</script>
+</body>
+</html>
