@@ -7,7 +7,7 @@ tags: constraints, leadership, agile, project management
 description: "Just like a business has the constraints of supply and demand, you should know what the constraints of your team is."
 ---
 
-What is your team's constraint?
+What is your [team's constraint](/glossary#team-constraint)?
 
 A business has the constraints of supply and demand. This is common knowledge. These are fundamental. They are binary. If you decide what constraint the business has, the conversation is much more narrow. Not 10 constraints, but supply or demand.
 
