@@ -95,6 +95,10 @@ description: "Glossary terms and definitions."
 <h2 id="surface-over-mass">Surface Over Mass <a href="#surface-over-mass">#</a></h2>
 <p>Prioritizing what impacts the customer and high-level metrics. Peter Drucker said to run lean. Organizations often focus on internal complexities over external impact. Think about a biological organism. The inner mass grows faster than the outer surface which diverts energy to manage the internal mass.</p>
 
+<div id="team-constraints"></div>
+<h2 id="team-constraint">Team Constraint <a href="#team-constraint">#</a></h2>
+<p>The one thing currently stalling a team. A business is constrained by supply or demand. A team is constrained by Planning or Delivery.</p>
+
 <h2 id="thin-slices">Thin Slices <a href="#thin-slices">#</a></h2>
 <p>Quick release. Working on and sharing the smallest possible piece of work that can be done. This helps prevent roadblocks and wasted time doing the wrong work. See also: 5on2.</p>
 
