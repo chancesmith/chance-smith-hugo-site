@@ -3,6 +3,14 @@ layout: post
 title: "The 3Ws Cost You Customers"
 date: 2026-07-29T08Z
 tags: business, 3Ws
+authorship: ai-draft
+stage: shaped
+appetite: small
+dod:
+  gates: false
+  explain_it: false
+  wrote_it: false
+  read_aloud: false
 ---
 
 My mower has an oil leak and the right wheel drive quit pulling.
