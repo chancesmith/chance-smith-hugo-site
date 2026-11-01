@@ -80,3 +80,68 @@ Tactical · Collaborative · Reusable · Generous
   - Why did Chance loosen the rule? What was he actually protecting, and did he decide it was the wrong thing to protect?
   - What did the kids do with the freedom once they had it?
 - **Captured:** 2026-08-14
+
+### Stability Is a Leadership Choice When the Tools Won't Sit Still
+- **Premise:** The loudest AI-at-work content says "everything changes next week." A leader who repeats that hands their team anxiety, not direction. Anchor on principles that predate the tools (self-organizing teams, value over activity, change plans on proof, sustainable quality, improve the process instead of following it) and let the team adapt the HOW while you keep the WHY steady.
+- **Employer-safe:** Reframed. Source is industry conversation and public "AI is compressing the work" discourse, not any specific workplace. No names, no team context, no internal quotes.
+- **Gates:** Relatable ✓ (new lead getting asked by their team "are our jobs changing?") · Transformative ~ (principle list alone is Agile Manifesto rehash; needs the one move a lead makes this week) · Share-worthy ~ ("don't communicate instability" is close, not there yet)
+- **Verdict:** Needs sharpening
+- **Sharpening notes:**
+  - The five principles are not the post. Everyone has read them. The post is the act of choosing calm language on purpose.
+  - Candidate concrete move: a dedicated "how we work" retro, separate from the sprint retro, where the team names what the new tools changed and what they didn't.
+  - Slop risk is high. "Lean on first principles during AI change" is a thousand LinkedIn posts. Chance's specific phrasing is the edge.
+- **Open questions:**
+  - What's one phrase leaders say about AI that Chance thinks makes teams worse?
+  - Has he ever watched a leader communicate instability? What did the team do next (generic, no employer details)?
+  - Which of the five principles does he think breaks first under AI pressure?
+- **Answers (2026-10-28, scrubbed to general):**
+  - Phrase that hurts teams: "it won't be the same next week." If nothing holds still, nobody optimizes anything. Constant change reads as churn, not iteration.
+  - Real pressure isn't instability, it's throughput. AI produces more than humans can review, so the bottleneck moves to review. The work becomes building enough understanding and trust that what got produced is right.
+  - Instability should be measured, not announced: new bugs, customer tickets. Data, not vibes.
+- **Pivot candidate:** The throughput and review bottleneck angle is stronger than the first-principles list. Less saturated, more specific, and it's Chance's own observation.
+- **Employer-safe watch:** The throughput point must stay industry-level ("teams using AI are hitting...") with no "we," and no real bug or ticket numbers from work.
+- **Captured:** 2026-10-22
+
+### Give the Agent Its Own Badge: Security for AI Agents in Repos You Don't Own
+- **Premise:** Teams are handing AI agents design-prototyping and front-end work inside repos that belong to someone else. The reflex is to buy a tool or write a policy. The better first question is blast radius: what can this agent reach if it goes wrong, and whose credentials is it using? Anchor on scoped agent credentials, sandboxing, and where a monitor like Plango fits versus where it does not.
+- **Employer-safe:** Reframed. Source was a question that came in conversation. Scrubbed to the principle. No names, no quotes, no internal context, no mention of any employer's tooling, repos, or security posture. Write as "leaders keep asking" or "I hold this principle," never "we."
+- **Gates:** Relatable ✓ (new tech lead getting asked "is it safe to let the agent in the repo?") · Transformative ~ (scoped creds + sandbox is the standard answer, needs a decision rule or a Monday-morning checklist) · Share-worthy ✗ (no hook yet, "least privilege" is table stakes)
+- **Verdict:** Needs sharpening
+- **Sharpening notes:**
+  - Read-only alone breaks for prototyping and FE work, because the agent has to push something. The interesting part is the write path: branch or fork only, no merge rights, human-gated PR.
+  - Plango's own site describes visibility and control, not sandboxing. A monitor on a laptop is a different layer than a credential that never lands on that laptop. That distinction could be the post.
+  - Prompt injection from untrusted repo content is not in the current list of instincts. Decide if it belongs.
+  - Public third-party product only. Do not frame as "what we evaluated."
+- **Open questions blocking the draft:**
+  - Which of the two instincts (scoped creds, sandbox) would you fight hardest for, and what pushback do you expect?
+  - Where does read-only stop working for the agent's job, and what is your rule for write access?
+  - What is the one thing you would never let an agent touch, regardless of scope?
+- **Captured:** 2026-10-27
+- **Update 2026-10-27 (Chance's stated position):** Policies and workflows come first. Those decisions then pick the tools. Proposed move: run an audit that can be shared across any team working this way, using a model for the first pass.
+  - Hook candidate (his words, keep): lead with policy and workflow, let those decisions choose the tool.
+  - Reusable angle: ship the audit prompt or checklist inside the post. That is the Monday-morning action and fits the Tactical/Reusable/Generous brand.
+  - Gates now: Relatable ✓ · Transformative ✓ only if the audit ships in the post · Share-worthy ~ ("policy before tool" is close, "have the model audit the setup the model will run in" is sharper)
+  - Tension to resolve: first instinct was controls (scoped creds, sandbox), second was policy first. Pick the order and explain why.
+  - Gap: a model audits what it is shown. Laptop-local exposure (env files, SSH keys, keychain, global tokens) may not be visible to it.
+
+### AI Didn't Remove Your Constraint. It Moved It.
+- **Premise:** Teams using AI ship faster, then hit a new wall: either there isn't enough ready work to pull, or work piles up between started and done (review, handoffs). Borrow the business idea of naming one constraint at a time (Hormozi's supply vs demand, Goldratt's Theory of Constraints underneath it) and turn it into a retro exercise: Plan / Flow / Capacity, one vote, one constraint, fix it this sprint.
+- **Employer-safe:** Reframed. Source was an internal conversation and a draft retro message. Scrubbed to the principle. No names, no team context, no vote results, no PR counts. Write as "teams using AI keep hitting..." or "here's an exercise I'd run," never "my team voted X."
+- **Gates:** Relatable ✓ (new tech lead whose team suddenly moves faster than the backlog) · Transformative ✓ if the exercise ships in the post, ready to paste into a retro board · Share-worthy ~ (hook candidate: "AI didn't remove your constraint. It moved it.")
+- **Verdict:** In progress: `ai-didnt-remove-your-constraint-it-moved-it/index.md`
+- **Sharpening notes:**
+  - Overlaps the 2026-10-22 pivot candidate (throughput and review bottleneck). Decide: merge into one post, or make this the tactical follow-up to that one.
+  - Hormozi's supply/demand is the hook, but the three buckets map closer to Theory of Constraints. Name the real lineage or the framing reads borrowed.
+  - Labels still in flux: "Flow" may become something plainer. Settle before drafting.
+  - Capacity bucket mixes things: "collaboration" arguably belongs in Flow. Tighten each bucket so voters can't split hairs.
+- **Open questions:**
+  - Which constraint do you think most AI-accelerated teams have right now, and why (generic, no work data)?
+  - What's one fix per constraint you'd hand a reader?
+  - What happens after the vote: does the team commit to one experiment, and how do they know it worked?
+- **Captured:** 2026-10-30
+- **Update 2026-10-30 (Chance's stated position):** Prefers a binary like Hormozi's. Common words (supply / demand) cut the conversation in half before getting specific. Still debating two vs three.
+  - Thesis (his words, keep): get out of the weeds and look at the constraint at a higher level. There's a lot of work to do, but we need intentional focus *on* the house as well as *in* the house.
+  - Lineage to credit: Gerber, *The E-Myth* ("work on the business, not in it"), plus Hormozi and Goldratt.
+  - Structure candidate: two-level vote. Level 1: Demand (not enough ready, worthwhile work to pull) vs Supply (can't turn ready work into done). Level 2, only if Supply: Stuck (flow) vs Short (capacity). Binary keeps the simplicity, the drill-down keeps the precision.
+  - Risk: "demand" on a product team can be read as customer demand. Define both words on the board in one line each or the vote turns into a definitions debate.
+  - Share-worthy now ✓: "Work on the house, not just in it" + "AI didn't remove your constraint. It moved it."
