@@ -99,6 +99,10 @@ description: "Glossary terms and definitions."
 <h2 id="team-constraint">Team Constraint <a href="#team-constraint">#</a></h2>
 <p>The one thing currently stalling a team. A business is constrained by supply or demand. A team is constrained by Planning or Delivery.</p>
 
+<div id="working-defaults"></div>
+<h2 id="team-defaults">Team Defaults <a href="#team-defaults">#</a></h2>
+<p>The written answers to the questions a team keeps re-litigating, what we do when nobody tells us what to do. Unlike values, a default is specific enough to break: it has a stated exception and a named person who decides at the edge. Teams write values because values are safe to agree with. Defaults require someone to lose an argument first, which is why the exercise that produces them should hunt for disagreement instead of consensus. See also: Clarity Check, Work Out Loud.</p>
+
 <h2 id="thin-slices">Thin Slices <a href="#thin-slices">#</a></h2>
 <p>Quick release. Working on and sharing the smallest possible piece of work that can be done. This helps prevent roadblocks and wasted time doing the wrong work. See also: 5on2.</p>
 
