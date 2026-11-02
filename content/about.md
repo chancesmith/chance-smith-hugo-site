@@ -4,6 +4,8 @@ url: "/about/"
 description: "About Chance Smith"
 ---
 
+![Chance Smith](/chancesmith_s.png)
+
 Chance builds software and teams. Currently at Lifeway Christian Resources on the Digital Experience team — shipping mobile and TV apps for [Lifeway On Demand](https://www.lifeway.com/en/special-emphasis/lifeway-on-demand). Shipped their first in-house mobile app in 2024. TV is next.
 
 Also advises at [Sodium Halogen](https://sodiumhalogen.com?ref=csio), where he spent 10 years before Lifeway: 100+ client projects delivered, 30+ developers trained.
