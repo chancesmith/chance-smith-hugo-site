@@ -32,6 +32,10 @@ description: "Glossary terms and definitions."
 <h2 id="bus-co-efficiency">Bus Co-efficiency <a href="#bus-co-efficiency">#</a></h2>
 <p>The number of people on your team that could get hit by a bus (or called-in-rich) and the project (or company) would survive. Disseminating knowledge across your team will increase your bus co-efficiency.</p>
 
+<div id="business-constraints"></div>
+<h2 id="business-constraint">Business Constraint <a href="#business-constraint">#</a></h2>
+<p>The one thing currently limiting a business. Every business is constrained by supply or demand. You must have demand for there to be anything to supply. A gym is demand constrained. A cleaning service is supply constrained. Focusing on a single constraint starts with a simple binary decision. Then attack that problem with everything you've got. Once it's solved, the constraint moves, so ask the question again. See also: Team Constraint. Credit: <a href="https://x.com/AlexHormozi/status/1796993675412861053">Alex Hormozi</a>, built on <em>The Goal</em> by Eliyahu Goldratt.</p>
+
 <h2 id="clarity-check">Clarity Check <a href="#clarity-check">#</a></h2>
 <p>A continuous planning practice of revisiting what's blurry, to help set expectations. We ask: What can we plan next, at any level of granularity? It's permission to move forward with what we know and be honest about what we don't. Keeps planning ongoing so teams are ready when big planning moments arrive. See also: 3Ws, Horizon.</p>
 
@@ -97,7 +101,7 @@ description: "Glossary terms and definitions."
 
 <div id="team-constraints"></div>
 <h2 id="team-constraint">Team Constraint <a href="#team-constraint">#</a></h2>
-<p>The one thing currently stalling a team. A business is constrained by supply or demand. A team is constrained by Planning or Delivery.</p>
+<p>The one thing currently stalling a team. A team is constrained by Planning or Delivery. See also: Business Constraint.</p>
 
 <div id="working-defaults"></div>
 <h2 id="team-defaults">Team Defaults <a href="#team-defaults">#</a></h2>
