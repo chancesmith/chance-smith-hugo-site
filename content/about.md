@@ -4,7 +4,7 @@ url: "/about/"
 description: "About Chance Smith"
 ---
 
-![Chance Smith](/chancesmith_s.png)
+<img class="headshot" src="/chancesmith_s.png" alt="Chance Smith" width="200" height="200">
 
 Chance builds software and teams. Currently at Lifeway Christian Resources on the Digital Experience team — shipping mobile and TV apps for [Lifeway On Demand](https://www.lifeway.com/en/special-emphasis/lifeway-on-demand). Shipped their first in-house mobile app in 2024. TV is next.
 
