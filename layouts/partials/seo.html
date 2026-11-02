@@ -31,14 +31,20 @@
   {{- end -}}
 {{- end -}}
 
+{{- $image := .Params.image | default "og-default.png" | absURL -}}
+
 <title>{{ $pageTitle }}</title>
 <meta name="description" content="{{ $description }}">
 <meta property="og:title" content="{{ $title }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ .Site.Title }}">
+<meta property="og:image" content="{{ $image }}">
+<meta property="og:image:alt" content="{{ $title }}">
 <meta name="twitter:card" content="summary">
-{{ with .Site.Params.author }}<meta name="twitter:creator" content="{{ . }}">{{ end }}
+<meta name="twitter:image" content="{{ $image }}">
+{{ with .Site.Params.social.twitter }}<meta name="twitter:creator" content="@{{ . }}">{{ end }}
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
 {{ if gt (len $keywords) 0 }}<meta name="keywords" content="{{ delimit $keywords ", " }}">{{ end }}
