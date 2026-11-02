@@ -17,10 +17,10 @@
 {{- end -}}
 {{- if and (not .IsHome) (eq $description (.Site.Params.description | default "")) -}}
   {{- with .Summary -}}
-    {{- $description = . | plainify | replaceRE "\\s+" " " | truncate 170 -}}
+    {{- $description = . | plainify | htmlUnescape | replaceRE "\\s+" " " | truncate 170 -}}
   {{- end -}}
 {{- end -}}
-{{- $description = $description | plainify | replaceRE "\\s+" " " | strings.TrimSpace -}}
+{{- $description = $description | plainify | htmlUnescape | replaceRE "\\s+" " " | strings.TrimSpace -}}
 
 {{- $keywords := slice -}}
 {{- with .Params.keywords -}}
