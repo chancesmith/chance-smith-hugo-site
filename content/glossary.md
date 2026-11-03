@@ -107,6 +107,9 @@ description: "Glossary terms and definitions."
 <h2 id="team-defaults">Team Defaults <a href="#team-defaults">#</a></h2>
 <p>The written answers to the questions a team keeps re-litigating, what we do when nobody tells us what to do. Unlike values, a default is specific enough to break: it has a stated exception and a named person who decides at the edge. Teams write values because values are safe to agree with. Defaults require someone to lose an argument first, which is why the exercise that produces them should hunt for disagreement instead of consensus. See also: Clarity Check, Work Out Loud.</p>
 
+<h2 id="teams-constraint-anchor">Team's Constraint Anchor <a href="#teams-constraint-anchor">#</a></h2>
+<p>A visual for Team Constraint. Picture an anchor thrown from a sailboat: one hook catches, planning on the left, delivery on the right, and that's the side slowing the team down. See also: Team Constraint.</p>
+
 <h2 id="thin-slices">Thin Slices <a href="#thin-slices">#</a></h2>
 <p>Quick release. Working on and sharing the smallest possible piece of work that can be done. This helps prevent roadblocks and wasted time doing the wrong work. See also: 5on2.</p>
 
