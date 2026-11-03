@@ -32,14 +32,14 @@ Tactical · Collaborative · Reusable · Generous
 - **Verdict:** Needs sharpening
 - **Open questions to resolve before draft:**
   - What were you actually modeling/deciding when existing tools got in the way? (estimation? risk on a project plan? something else?)
-  - Whose complexity — a specific tool you tried and bounced off of?
-  - Once we have the scene, angle is: pick speed of iteration over rigor when you're trying to think, not publish — directly relevant to new tech leads who over-tool their first forecasts.
+  - Whose complexity: a specific tool you tried and bounced off of?
+  - Once we have the scene, angle is: pick speed of iteration over rigor when you're trying to think, not publish. Directly relevant to new tech leads who over-tool their first forecasts.
 - **Captured:** 2026-07-21
 
 ### The 3Ws Cost You Customers
 - **Premise:** A mower repair shop skipped a scheduled pickup over a missed call, then said they'd let me know if they were "still interested." Being at capacity isn't a scheduling problem, it's the most important fact about your business, and silence hands the job to your competitor.
 - **Gates:** Relatable ✓ (anyone who has hired a small business and been left in silence) · Transformative ✓ (four numbers to count, three Monday moves) · Share-worthy ✓ ("still interested in picking it up" is the quotable line)
-- **Verdict:** Drafted — `the-3ws-cost-you-customers/index.md`
+- **Verdict:** Drafted: `the-3ws-cost-you-customers/index.md`
 - **Note:** Returns 3Ws to their original customer-facing meaning (Janda), which the blog has drifted toward team/project use.
 - **Open gap:** gross/net numbers for a mower repair shop, if Chance found real ones. TODO marker in draft.
 - **Captured:** 2026-07-29
@@ -124,24 +124,88 @@ Tactical · Collaborative · Reusable · Generous
   - Tension to resolve: first instinct was controls (scoped creds, sandbox), second was policy first. Pick the order and explain why.
   - Gap: a model audits what it is shown. Laptop-local exposure (env files, SSH keys, keychain, global tokens) may not be visible to it.
 
-### AI Didn't Remove Your Constraint. It Moved It.
-- **Premise:** Teams using AI ship faster, then hit a new wall: either there isn't enough ready work to pull, or work piles up between started and done (review, handoffs). Borrow the business idea of naming one constraint at a time (Hormozi's supply vs demand, Goldratt's Theory of Constraints underneath it) and turn it into a retro exercise: Plan / Flow / Capacity, one vote, one constraint, fix it this sprint.
-- **Employer-safe:** Reframed. Source was an internal conversation and a draft retro message. Scrubbed to the principle. No names, no team context, no vote results, no PR counts. Write as "teams using AI keep hitting..." or "here's an exercise I'd run," never "my team voted X."
-- **Gates:** Relatable ✓ (new tech lead whose team suddenly moves faster than the backlog) · Transformative ✓ if the exercise ships in the post, ready to paste into a retro board · Share-worthy ~ (hook candidate: "AI didn't remove your constraint. It moved it.")
-- **Verdict:** In progress: `ai-didnt-remove-your-constraint-it-moved-it/index.md`
-- **Sharpening notes:**
-  - Overlaps the 2026-10-22 pivot candidate (throughput and review bottleneck). Decide: merge into one post, or make this the tactical follow-up to that one.
-  - Hormozi's supply/demand is the hook, but the three buckets map closer to Theory of Constraints. Name the real lineage or the framing reads borrowed.
-  - Labels still in flux: "Flow" may become something plainer. Settle before drafting.
-  - Capacity bucket mixes things: "collaboration" arguably belongs in Flow. Tighten each bucket so voters can't split hairs.
-- **Open questions:**
-  - Which constraint do you think most AI-accelerated teams have right now, and why (generic, no work data)?
-  - What's one fix per constraint you'd hand a reader?
-  - What happens after the vote: does the team commit to one experiment, and how do they know it worked?
-- **Captured:** 2026-10-30
-- **Update 2026-10-30 (Chance's stated position):** Prefers a binary like Hormozi's. Common words (supply / demand) cut the conversation in half before getting specific. Still debating two vs three.
-  - Thesis (his words, keep): get out of the weeds and look at the constraint at a higher level. There's a lot of work to do, but we need intentional focus *on* the house as well as *in* the house.
-  - Lineage to credit: Gerber, *The E-Myth* ("work on the business, not in it"), plus Hormozi and Goldratt.
-  - Structure candidate: two-level vote. Level 1: Demand (not enough ready, worthwhile work to pull) vs Supply (can't turn ready work into done). Level 2, only if Supply: Stuck (flow) vs Short (capacity). Binary keeps the simplicity, the drill-down keeps the precision.
-  - Risk: "demand" on a product team can be read as customer demand. Define both words on the board in one line each or the vote turns into a definitions debate.
-  - Share-worthy now ✓: "Work on the house, not just in it" + "AI didn't remove your constraint. It moved it."
+### Are we mixing missed opportunities and problems?
+- **Premise:** Problems and opportunities look like equals, but they're not: unchecked problems compound, while chasing opportunities just adds new unknown problems. Exhaust your biggest constraint before adding more buckets (leaky bucket analogy).
+- **Thread:** The Team's Constraint
+- **Source:** queue
+- **Captured:** 2026-11-01
+
+### Planning & Delivery decision tree
+- **Premise:** Decision tree: is there an actionable, vetted, approved, prioritized plan? No → planning constraint. Yes → is work flowing and finishing at a reasonable pace? No → delivery constraint (capacity or flow). Yes → constraint is elsewhere.
+- **Thread:** The Team's Constraint
+- **Source:** queue
+- **Update 2026-11-02 (merged):** Queue repeated this as "having a constraint decision-tree and framework for working through what the narrowed constraint is." Same spark, not a new one. No new content to add yet.
+- **Captured:** 2026-11-01
+
+### Sailboat Exercise
+- **Premise:** Icebreaker where a team names what's pushing them forward (wind) and what's holding them back (anchors), then spends the energy resolving anchors instead of admiring wind.
+- **Thread:** The Team's Constraint
+- **Source:** queue
+- **Captured:** 2026-11-01
+- **Verdict:** In progress: `sailboat-exercise/index.md`
+
+### Token budgeting, and how to do it
+- **Premise:** Ideas for a skill or AGENTS.md rule that starts a simple token-spending experiment, narrated as a running account of how Chance's own experiment is going.
+- **Source:** queue
+- **Update 2026-11-02 (merged, partial):** Queue item added the finance-budgeting analogy (track token spend like personal finance) and candidate categories: features, optimization, review, spinning out of control, critiquing. Filed, safe to use. One line from that same queue item held back, see session log.
+- **Captured:** 2026-11-01
+
+### I'm a big fan of strong held beliefs by others
+- **Premise:** Borrowing other people's strong-held rules and constraints as daily counsel, "how would X solve this" as a practical habit, anchored on the Ecclesiastes "multitude of counselors" principle.
+- **Source:** queue
+- **Captured:** 2026-11-01
+
+### We're spending tokens like congress
+- **Premise:** We're spending tokens like congress, while our skills and abilities atrophy. Spending with few limits set and little plans; we should be running smaller experiments and more safeguards.
+- **Thread:** Token budgeting, and how to do it
+- **Source:** queue (raw notes held in vault, check source of quoted remarks before drafting)
+- **Captured:** 2026-11-01
+
+### A self organized team
+- **Premise:** I'd like to define it or find the origin.
+- **Source:** queue (raw note held in vault, confirm whether the person named is a public source before drafting)
+- **Captured:** 2026-11-01
+
+### Engineers building their own Jarvis
+- **Premise:** Engineers keep building their own apps and plugins on top of the same consistent data sources, instead of waiting on a vendor tool, so they can take action the way they actually want.
+- **Gates:** Relatable ✗ (no named reader/moment) · Transformative ✗ (observation, no behavior change yet) · Share-worthy ~ (Jarvis framing has a hook but no concrete scene)
+- **Source:** queue
+- **Captured:** 2026-11-01
+
+### How Mason and I named SoMuch
+- **Premise:** Picked the name for the business with Mason, then found the scriptures that matched it.
+- **Gates:** Relatable ✓ (parents building something with a kid) · Transformative ~ (inspiring, not yet a change the reader makes) · Share-worthy ~ (needs the actual name-and-verse pairing to land as quotable)
+- **Thread:** SoMuch with Mason
+- **Source:** queue
+- **Captured:** 2026-11-01
+
+### SoMuch's first offer: Send 1 Give 1
+- **Premise:** Starbucks brainstorm with Mason landed on Send 1 Give 1 (BOGO) as the opening offer, goal is to be ready to take orders and payment this week.
+- **Gates:** Relatable ✓ (anyone launching a first offer with a kid or on a shoestring) · Transformative ✓ (a specific offer-shape to copy) · Share-worthy ~ (needs the real stakes/numbers once it ships)
+- **Thread:** SoMuch with Mason
+- **Source:** queue
+- **Captured:** 2026-11-01
+
+### A book a week, with a written report
+- **Premise:** Inspired by the Ben Carson story, started requiring the two oldest boys (10, 13) to read one book a week and write a report before TV or play. Not perfect, but kept pushing it: effort doesn't come naturally, you have to impose the requirement on yourself to get the outcome.
+- **Gates:** Relatable ✓ (parent trying to build a reading habit) · Transformative ✓ (the ask is copyable: pick a cadence, require the report) · Share-worthy ~ (strong line already there, "I've never regretted a workout, but I rarely want to do the workout," needs a concrete scene from the actual reports/pictures to be fully quotable)
+- **Source:** queue
+- **Captured:** 2026-11-01
+
+### Constant constraint, not fluctuating
+- **Premise:** Hormozi says a business has one constant constraint, demand or supply. I'd press that a team's constraint works the same way: whichever wall it hits cycle after cycle is the one to fix, not whichever is loudest this week.
+- **Gates:** Relatable ✓ (any lead staring at a backlog of problems) · Transformative ~ (reframe is useful, but reads as wondering, not yet a claim he'd defend) · Share-worthy ~ (needs one sentence that states his answer, not the question)
+- **Thread:** The Team's Constraint
+- **Source:** queue
+- **Captured:** 2026-11-01
+
+### AI creating is a guest bedroom you don't own
+- **Premise:** Having AI create is like living in a guest bedroom you don't own. In a room you own, you didn't create the items, but you picked them.
+- **Source:** queue
+- **Captured:** 2026-11-02
+
+### Constrain the backlog, or just clear it?
+- **Premise:** Keeping 20% of the backlog and archiving the rest is one constraint on a team's work. But if AI makes compute so fast, we could just handle the bugs and tech debt sooner, as long as we budget and prioritize for the feature work we've committed to.
+- **Thread:** Toys That Make Them Cry
+- **Source:** brain dump
+- **Captured:** 2026-11-03
