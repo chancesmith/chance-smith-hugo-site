@@ -15,7 +15,8 @@ So, that got me motivated. I got toys into a couple of containers and all but 5-
 In the end, she was shocked when she saw her room. She's been so proud of her room ever since. An extra win has been that she's made her bed most days since.
 
 These photos are embarrassing, but this is the [fishbowl experience](/glossary#fishbowl-experience) I can offer.
-![before: a very messy and cluttered room with lots of pink stuff piled on the floor / after: a clean room, made bed, little to nothing on the floor. From left to right: bed, dresser, doll house, two windows, open toy cabinet](mias-room-before-after.jpg)
+
+![before: a very messy and cluttered room with lots of pink stuff piled on the floor / after: a clean room, made bed, little to nothing on the floor. From left to right: bed, dresser, doll house, two windows, open toy cabinet](mias-room-before-after.webp)
 
 **The more she has the more she has to manage, the more we can get out, the less time she spends managing it all. She had too much to manage, and broke into tears.**
 
