@@ -24,7 +24,7 @@ While some stuff is in a container and a bag, she's had a much easier time clean
 
 **Removing a lot is freeing up her space and time for more play.**
 
-The point is, if we reduce down to the things that get played with most, we'll be getting [closer to zero](/focus-get-closer-to-zero).
+The point is, getting [closer to zero](/focus-get-closer-to-zero) is reducing down to the things that get used (played with) most, and preventing the overwhelm.
 
 This feels very much like the Pareto principle: 20% of the toys that get 80% of the attention.
 
