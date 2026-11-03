@@ -18,3 +18,5 @@ Me - "Yeah, let's get closer to zero."
 Zero is not the goal, but a space occupied by less needs less cleaning.
 
 Also, the kids will typically play in their room when it's clean.
+
+**[UPDATE]** [Our daughter also needed help getting closer to zero.](/toys-that-make-them-cry)
