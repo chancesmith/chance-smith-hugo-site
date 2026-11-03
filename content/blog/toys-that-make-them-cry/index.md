@@ -6,13 +6,13 @@ tags: parenting, focus
 description: "Reduce to the things that get played with most...the 20% that get 80% of the attention."
 ---
 
-Our daughter, Mia (6 year old), cried a couple weeks ago about her room being messy.
+Our daughter, Mia (6 years old), cried a couple weeks ago about her room being messy.
 
 She said, "I'm bad at cleaning my room!" I thought, "No, you're not bad at cleaning. This room is too messy for you to know where to start."
 
 So, that got me motivated. I got toys into a couple of containers and all but 5-6 stuffies into large yard bags. Everything else was obviously trash or dirty clothes.
 
-In the end, she was shocked when she saw her room. She's been so proud of her room ever since. An extra win has been that she's made her bed most days since.
+In the end, she was shocked when she saw her room. She's been so proud of her room. An extra win has been that she's made her bed most days since.
 
 These photos are embarrassing, but this is the [fishbowl experience](/glossary#fishbowl-experience) I can offer.
 
@@ -20,22 +20,26 @@ These photos are embarrassing, but this is the [fishbowl experience](/glossary#f
 
 **The more she has the more she has to manage, the more we can get out, the less time she spends managing it all. She had too much to manage, and broke into tears.**
 
-While some stuff is in a container and a bag, she's had a much easier time cleaning the room. Most of all she's played in her room more, too.
+While some stuff is in a container and a bag, she's had a much easier time cleaning the room. Most of all, she's played in her room more, too.
 
 **Removing a lot is freeing up her space and time for more play.**
 
-The point is, getting [closer to zero](/focus-get-closer-to-zero) is reducing down to the things that get used (played with) most, and preventing the overwhelm.
+The best thing we did for my daughter in this moment was use the principle I learned from William Donald, "Make it easy to do the right thing and hard to do the wrong thing." Removing the quantity of items that made it hard to have a clean room gave her less to clean, making it easier to clean.
 
-This feels very much like the Pareto principle: 20% of the toys that get 80% of the attention.
+The point is, getting [closer to zero](/focus-get-closer-to-zero) is reducing to the things that get used (played with) most, and preventing the overwhelm.
 
-The best thing we did for my daughter in this moment was use the principle I learned from William Donald, "Make it easy to do the right thing and hard to do the wrong thing." Removing the quantity of items that made it hard to have a clean room, gave her less to clean, making it easier to clean.
+This feels very much like the Pareto principle: 20% of the items get 80% of the attention.
 
 <hr/>
 
-So, your turn. Give it a shot. Get some containers and bags. Take the majority of the stuff out of the kids' room, primarily the items they don't spend a lot of time with. In the end, they can ask for anything back. Only the obvious items are thrown away (fast food meal toys, dentist treasure box toys, old school crafts, etc). 
+So, for you parents, it's your turn. Give it a shot. Get some containers and bags. Take the majority of the stuff out of the kids' room, primarily the items they don't spend a lot of time with. In the end, they can ask for anything back. Only the obvious items are thrown away (fast food meal toys, dentist treasure box toys, old school crafts, etc.). 
 
-They'll be so excited to have a space they can play in and be in without the clutter in their way of their play. 
+They'll be so excited to have a space they can play in and be in without the clutter in the way of their play. 
 
 While zero is definitely easier to clean, less is still easier to clean than a lot.
 
 Mia is happy with less, and we're happy she's happy. ❤️
+
+<hr/>
+
+As for our backlog of todos, we can give ourselves permission to reduce, too. We can keep the most important todos and archive the rest. Keep 20%? Maybe, but it's a good place to start.
