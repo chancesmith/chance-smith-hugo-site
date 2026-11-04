@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tackling Yourself First: Not the Results"
-date: "2012-11-19T22Z"
+date: 2012-11-19T22:00:00Z
 ---
 
 As I go through the day and dealing with all of the projects I have in the air, I feel that I am struggling to win. The desire for a perfect website layout, business model, or blog post is always imminent. I am in need of just focusing on a few things. I also need to take on these few tasks with small burst of intensity. As we know the hard part is not getting results but getting us to do what we need to. We fight perfection, overwhelming todo lists, and distractions all day.

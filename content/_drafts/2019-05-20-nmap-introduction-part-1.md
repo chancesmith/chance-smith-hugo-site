@@ -1,6 +1,6 @@
 ---
 title: Nmap Introduction - Part 1
-date: "2019-04-20T11Z"
+date: 2019-04-20T11:00:00Z
 tags: Network+, Compti
 ---
 

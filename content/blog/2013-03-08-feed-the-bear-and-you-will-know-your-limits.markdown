@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Feed the Bear and You Will Know Your Limits
-date: "2013-03-08T22Z"
+date: 2013-03-08T22:00:00Z
 tags:
   - motivation
   - successful-people

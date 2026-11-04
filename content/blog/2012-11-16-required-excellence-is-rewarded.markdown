@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Required Excellence is Rewarded?
-date: "2012-11-16T22Z"
+date: 2012-11-16T22:00:00Z
 ---
 
 I had one of my managers ask me a question last week. "Could we give a reward for the team members that do their tasks perfectly?"

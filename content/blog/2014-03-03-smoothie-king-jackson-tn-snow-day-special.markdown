@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Snow Day Special - Smoothie King in Jackson, TN
-date: "2014-03-03T22Z"
+date: 2014-03-03T22:00:00Z
 tags:
   - marketing
   - smoothie-king

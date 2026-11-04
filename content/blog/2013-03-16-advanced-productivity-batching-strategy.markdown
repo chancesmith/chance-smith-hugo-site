@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Advanced Productivity Batching Strategy
-date: "2013-03-16T22Z"
+date: 2013-03-16T22:00:00Z
 ---
 
 [easyazon-image align="right" asin="0307465357" locale="us" height="110" src="https://ecx.images-amazon.com/images/I/51G957Lf-1L._SL110_.jpg" width="73"]You guys might have played around with Tim Ferris's batching technique from his Four-Hour Work Week book from 2007(Picture is an affilate link). The book thrives on getting <strong>a lot done in a small amount of time</strong>. He finds success in completing a full batch of one  task that you would the typically do daily, weekly or month. That way you can wait till the work builds up and then just cram it in 3-4 hours. This strategy is wonderful and I have put that into my workflow for a lot projects.

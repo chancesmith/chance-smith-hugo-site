@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Reasons working at night seems more productive
-date: "2014-12-27T22Z"
+date: 2014-12-27T22:00:00Z
 tags:
   - productivity-2
 ---

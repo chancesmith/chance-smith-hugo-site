@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Motivation: Growing Strength, Smiles, and Perspective"
-date: "2012-11-26T22Z"
+date: 2012-11-26T22:00:00Z
 ---
 
 We just got back from our yearly travels to see our families. We are very happy to be home again though. We got our <a title="2012 Smith Christmas tree " href="https://t.co/RC1CisrZ" target="_blank">Christmas tree up</a>, thanks to my wife, and watched Polar Express and Arthur Christmas. Still need to finish Arthur Christmas tonight. It was a glorious date night together with popcorn and "hot hot hot, hot chocolate."

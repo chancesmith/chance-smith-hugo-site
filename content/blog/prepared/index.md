@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Prepared"
-date: "2021-04-02T08Z"
+date: 2021-04-02T08:00:00Z
 ---
 
 "To make ready beforehand." - dictionary

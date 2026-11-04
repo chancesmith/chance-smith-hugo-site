@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ownership trumps education, experience, and residency
-date: "2014-12-28T22Z"
+date: 2014-12-28T22:00:00Z
 ---
 
 Want an opportunity at more flexibility?

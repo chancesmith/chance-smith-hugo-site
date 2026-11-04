@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Optimizing for the result you want"
-date: "2022-02-21T08Z"
+date: 2022-02-21T08:00:00Z
 tags:
 ---
 

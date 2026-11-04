@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Feature Boxing: small and rapid deliveries"
-date: "2022-03-01T08Z"
+date: 2022-03-01T08:00:00Z
 tags: project management, sodium halogen, agile
 ---
 

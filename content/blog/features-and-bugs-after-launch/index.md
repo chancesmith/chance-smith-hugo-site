@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Project Management: Features and Bugs After Launch"
-date: "2022-03-31T08Z"
+date: 2022-03-31T08:00:00Z
 tags: project management, sodium halogen, agile
 ---
 

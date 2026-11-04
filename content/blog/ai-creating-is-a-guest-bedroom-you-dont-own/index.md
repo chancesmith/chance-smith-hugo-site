@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "AI Creates The Guest Room Effect"
-date: 2026-11-03
+date: 2026-11-03T00:00:00Z
 tags: ownership, creating, ai
 description: "Make sure you have agency over what AI generates or it will forever feel like what it's like to live in a guest bedroom."
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to make your own gifs : TLDR"
-date: "2014-12-10T22Z"
+date: 2014-12-10T22:00:00Z
 tags:
   - tldr
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Building Motivation Muscles for Purpose
-date: "2013-01-08T22Z"
+date: 2013-01-08T22:00:00Z
 tags:
   - motivation
   - purpose

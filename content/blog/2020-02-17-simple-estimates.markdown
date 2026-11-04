@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Do A Short Discovery for Very Small Project
-date: "2020-02-17T22Z"
+date: 2020-02-17T22:00:00Z
 tags:
   - git
 ---

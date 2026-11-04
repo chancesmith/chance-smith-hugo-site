@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $posts := partial "func/sorted-posts.html" . }}
+  {{ $posts := sort (where .Site.RegularPages "Section" "blog") "Date" "desc" }}
 
   <div class="archive-header">
     <p class="archive-section-label">All Posts</p>
@@ -9,7 +9,7 @@
 
   <section class="archive-list">
     {{ range $posts }}
-      {{ $displayDate := (partial "func/post-date.html" .).Format "Jan 02, 2006" }}
+      {{ $displayDate := .Date.Format "Jan 02, 2006" }}
       <article class="archive-post">
         <h3 class="archive-post-title">
           <a href="{{ .RelPermalink }}">

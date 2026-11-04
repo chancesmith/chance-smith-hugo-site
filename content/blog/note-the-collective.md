@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 2: Note the Collective"
-date: "2023-04-18T22Z"
+date: 2023-04-18T22:00:00Z
 tags: leadership
 ---
 

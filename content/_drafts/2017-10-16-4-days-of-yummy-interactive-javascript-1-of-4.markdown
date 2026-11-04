@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 4 Days of Yummy Interactive Javascript (1 of 4)
-date: "2017-10-16T22Z"
+date: 2017-10-16T22:00:00Z
 tags:
   - web-development
 ---

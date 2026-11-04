@@ -1,7 +1,7 @@
 ---
 layout: post
 title: One Man Show - A Personal Approach
-date: "2014-12-21T22Z"
+date: 2014-12-21T22:00:00Z
 tags:
   - strategy
   - customer-service

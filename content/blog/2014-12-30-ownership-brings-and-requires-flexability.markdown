@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ownership brings and requires flexability
-date: "2014-12-30T22Z"
+date: 2014-12-30T22:00:00Z
 tags:
   - leadership
   - ownership

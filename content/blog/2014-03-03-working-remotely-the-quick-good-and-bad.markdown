@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Working Remotely: The quick good and bad."
-date: "2014-03-03T22Z"
+date: 2014-03-03T22:00:00Z
 ---
 
 ![cover-image](/content/images/2014/Mar/PgK8XmCzTvyXl_VJ8diJ9kmYO92m5zwgvrlEbA6QA80.jpg)

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Local Wordpress Development Setup
-date: "2016-06-13T22Z"
+date: 2016-06-13T22:00:00Z
 tags:
   - web-development
 ---

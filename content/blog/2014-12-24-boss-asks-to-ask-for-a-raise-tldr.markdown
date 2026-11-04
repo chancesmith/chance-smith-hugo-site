@@ -1,7 +1,7 @@
 ---
 layout: post
 title: When a boss asks you to ask for a raise | TLDR
-date: "2014-12-24T22Z"
+date: 2014-12-24T22:00:00Z
 tags:
   - leadership
   - tldr

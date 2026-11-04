@@ -1,6 +1,6 @@
 ---
 title: My 2017 Review
-date: "2017-12-30T22Z"
+date: 2017-12-30T22:00:00Z
 tags:
   - goals
 ---

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: TLDR Blogging - Write Quick Helpful Posts
-date: "2014-12-24T22Z"
+date: 2014-12-24T22:00:00Z
 tags:
   - tldr
 ---

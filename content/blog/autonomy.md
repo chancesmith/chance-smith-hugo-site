@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 4: Autonomy"
-date: "2023-04-20T22Z"
+date: 2023-04-20T22:00:00Z
 tags: leadership
 ---
 

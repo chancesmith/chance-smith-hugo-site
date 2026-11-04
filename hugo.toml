@@ -42,9 +42,9 @@ ignoreFiles = ["^content/_drafts/", "^content/_ready/"]
   blog = "/:contentbasename/"
 
 [frontmatter]
-  date = [":filename", ":fileModTime"]
+  date = ["date", ":filename", ":fileModTime"]
   lastmod = [":git", ":fileModTime"]
-  publishDate = []
+  publishDate = ["publishDate", "date"]
   expiryDate = []
 
 [services]

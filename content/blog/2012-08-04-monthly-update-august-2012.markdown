@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Monthly Update August 2012
-date: "2012-08-04T22Z"
+date: 2012-08-04T22:00:00Z
 tags:
   - monthly-update-2
 ---

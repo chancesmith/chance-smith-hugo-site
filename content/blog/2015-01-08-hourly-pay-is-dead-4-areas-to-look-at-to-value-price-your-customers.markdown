@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Hourly pay is dead: 4 areas to look at to value price your customers"
-date: "2015-01-08T22Z"
+date: 2015-01-08T22:00:00Z
 tags:
   - strategy
   - business

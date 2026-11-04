@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Project Manage Your Team and Self | TLDR
-date: "2015-01-25T22Z"
+date: 2015-01-25T22:00:00Z
 tags:
   - productivity-2
   - tldr

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "BetaTester Mode"
-date: 2023-05-12T22Z
+date: 2023-05-12T22:00:00Z
 tags: development, productivity
 ---
 

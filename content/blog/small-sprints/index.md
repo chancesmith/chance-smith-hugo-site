@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Agile Project Management: Working In One-Week Sprints"
-date: "2022-02-25T08Z"
+date: 2022-02-25T08:00:00Z
 tags: project management, sodium halogen, agile
 ---
 

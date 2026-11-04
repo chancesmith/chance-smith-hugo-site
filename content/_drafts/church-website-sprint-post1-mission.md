@@ -1,6 +1,6 @@
 ---
 title: "Go Find a Church"
-date: 2026-07-17
+date: 2026-07-17T00:00:00Z
 draft: true
 tags: ["church", "web", "service", "local church"]
 series: "Simple Church Website Sprint"

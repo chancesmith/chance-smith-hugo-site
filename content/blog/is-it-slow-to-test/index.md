@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Is it slow to test?"
-date: "2024-03-08T08Z"
+date: 2024-03-08T08:00:00Z
 tags: development, testing, sodium halogen
 ---
 

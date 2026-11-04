@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "TDD is worth it"
-date: "2021-04-05T08Z"
+date: 2021-04-05T08:00:00Z
 tags: development, testing, sodium halogen
 ---
 

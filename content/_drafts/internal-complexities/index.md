@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Why Businesses Should Focus on Impact Over Internal Complexities"
-date: 2023-09-22T22Z
+date: 2023-09-22T22:00:00Z
 tags: ["business", "strategy"]
 ---
 

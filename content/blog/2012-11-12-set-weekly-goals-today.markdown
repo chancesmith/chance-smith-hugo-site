@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Set Weekly Goals Today
-date: "2012-11-12T22Z"
+date: 2012-11-12T22:00:00Z
 ---
 
 [dropcap]As[/dropcap] you can see my list is just beginning. It can be long at times but I recommend staring small to you can complete it. I went over a little goal setting information I had gathered from the EntreLeadership book post.

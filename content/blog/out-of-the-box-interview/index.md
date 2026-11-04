@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Out-of-the-Box Interview"
-date: "2024-09-19T08Z"
+date: 2024-09-19T08:00:00Z
 tags: business, conversation, hiring, interview
 ---
 
