@@ -39,7 +39,6 @@ description: "Glossary terms and definitions."
 <h2 id="clarity-check">Clarity Check <a href="#clarity-check">#</a></h2>
 <p>A continuous planning practice of revisiting what's blurry, to help set expectations. We ask: What can we plan next, at any level of granularity? It's permission to move forward with what we know and be honest about what we don't. Keeps planning ongoing so teams are ready when big planning moments arrive. See also: 3Ws, Horizon.</p>
 
-<div id="teams-constraint-anchor"></div>
 <h2 id="constraint-anchor">Constraint Anchor <a href="#constraint-anchor">#</a></h2>
 <p>A visual for finding the one constraint. Picture an anchor thrown from a sailboat: it has two hooks, but one side catches the seabed and causes most of the drag. A business's constraint anchor is supply or demand. A team's constraint anchor is planning or delivery. See also: Business Constraint, Team Constraint.</p>
 
