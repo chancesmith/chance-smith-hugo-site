@@ -1,0 +1,75 @@
+{{ define "main" }}
+  {{ $site := "site:chancesmith.io" }}
+  <article class="page-content">
+    {{ .Content }}
+  </article>
+
+  <form id="search-form" class="search-form" role="search" action="https://www.google.com/search" method="get">
+    <label class="search-label" for="search-q">Search posts</label>
+    <input class="search-input" type="search" id="search-q" name="q" placeholder="Enter a search term..." autocomplete="off" required>
+    <input type="hidden" name="as_sitesearch" value="chancesmith.io">
+    <button class="btn search-submit" type="submit">Search</button>
+  </form>
+
+  {{ with site.Params.commonSearches }}
+    <section class="search-common">
+      <p class="archive-section-label">Common Searches</p>
+      <ul class="search-chips">
+        {{ range . }}
+          {{ $q := printf "%s \"%s\"" $site .query }}
+          <li>
+            <a class="search-chip" href="https://www.google.com/search?{{ querify "q" $q | safeURL }}" data-search-term="{{ .label }}" data-search-query="{{ $q }}">{{ .label }}</a>
+          </li>
+        {{ end }}
+      </ul>
+    </section>
+  {{ end }}
+
+  <script>
+    (function () {
+      var form = document.getElementById("search-form");
+      if (!form) return;
+      var input = document.getElementById("search-q");
+      var site = {{ $site }};
+
+      function googleUrl(q) {
+        return "https://www.google.com/search?q=" + encodeURIComponent(q);
+      }
+
+      function track(term, source, url) {
+        var done = false;
+        function go() {
+          if (done || !url) return;
+          done = true;
+          window.location.href = url;
+        }
+        if (typeof window.gtag !== "function") return go();
+        window.gtag("event", "search", {
+          search_term: term,
+          search_source: source,
+          event_callback: go,
+          event_timeout: 800
+        });
+        setTimeout(go, 1000);
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        var q = input.value.trim();
+        if (!q) return;
+        track(q, "form", googleUrl(site + " " + q));
+      });
+
+      document.querySelectorAll(".search-chip").forEach(function (chip) {
+        chip.addEventListener("click", function (e) {
+          // New-tab clicks keep default navigation; still log the search.
+          if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) {
+            return track(chip.dataset.searchTerm, "common", null);
+          }
+          e.preventDefault();
+          track(chip.dataset.searchTerm, "common", googleUrl(chip.dataset.searchQuery));
+        });
+      });
+    })();
+  </script>
+{{ end }}

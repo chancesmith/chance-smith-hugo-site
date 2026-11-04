@@ -454,6 +454,89 @@ body {
   letter-spacing: 0.14px;
 }
 
+.archive-search-link {
+  display: inline-block;
+  margin-top: 24px;
+  font-family: var(--font-mono);
+  font-size: 16px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  color: var(--c-action-blue);
+  text-decoration: none;
+}
+
+.archive-search-link:hover { text-decoration: underline; }
+
+/* ---- SEARCH ---- */
+
+.search-form {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 40px 0 0;
+}
+
+.search-label {
+  flex-basis: 100%;
+  font-family: var(--font-mono);
+  font-size: 18px;
+  letter-spacing: 0.28px;
+  text-transform: uppercase;
+  color: var(--c-muted);
+}
+
+.search-input {
+  flex: 1 1 320px;
+  min-width: 0;
+  padding: 16px;
+  font-family: var(--font-body);
+  font-size: 21px;
+  color: var(--c-ink);
+  background: transparent;
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-xs);
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #9b60aa;
+}
+
+.search-common {
+  margin-top: 60px;
+}
+
+.search-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.search-chip {
+  display: inline-block;
+  padding: 6px 18px;
+  border: 1px solid var(--c-hairline);
+  border-radius: var(--r-full);
+  color: var(--c-slate);
+  font-family: var(--font-mono);
+  font-size: 15px;
+  letter-spacing: 0.2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  line-height: 1.6;
+}
+
+.search-chip:hover { color: var(--c-ink); border-color: var(--c-slate); }
+
+.search-chip:focus-visible {
+  outline: 2px solid var(--c-action-blue);
+  outline-offset: 2px;
+}
+
 /* ---- BUTTONS ---- */
 
 .btn {
@@ -667,6 +750,7 @@ hr {
 
 [data-theme="dark"] .footer-link:hover { color: var(--c-on-primary); }
 [data-theme="dark"] .footer-theme-toggle:hover { color: var(--c-on-primary); }
+[data-theme="dark"] .search-chip:hover { color: var(--c-on-primary); }
 
 [data-theme="dark"] .btn {
   background: #f0f0f2;
@@ -743,4 +827,7 @@ hr {
 
   .site-footer { padding: 35px 25px; }
   .footer-nav { gap: 20px; flex-wrap: wrap; justify-content: center; }
+
+  .search-input { flex-basis: 100%; font-size: 18px; }
+  .search-submit { width: 100%; }
 }
