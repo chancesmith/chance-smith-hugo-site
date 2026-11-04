@@ -227,6 +227,19 @@ body {
 
 .home-post-read-more:hover { text-decoration: underline; }
 
+.home-post-footer {
+  display: flex;
+  align-items: baseline;
+  gap: 24px;
+}
+
+.home-post-reading-time {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--c-muted);
+  letter-spacing: 0.14px;
+}
+
 /* ---- BLOG POST ---- */
 
 .post-title {

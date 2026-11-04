@@ -1,0 +1,2 @@
+{{/* Returns a post's estimated reading time in minutes. Computed at build from Hugo's word count (213 wpm). */}}
+{{ return math.Max 1 .ReadingTime }}

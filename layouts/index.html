@@ -26,7 +26,10 @@
               <p>{{ .Plain | truncate 240 }}</p>
             {{ end }}
           </div>
-          <a class="home-post-read-more" href="{{ .RelPermalink }}">Continue reading →</a>
+          <div class="home-post-footer">
+            <a class="home-post-read-more" href="{{ .RelPermalink }}">Continue reading →</a>
+            <span class="home-post-reading-time">{{ partial "func/reading-time.html" . }} min read</span>
+          </div>
         </article>
       {{ end }}
     </div>

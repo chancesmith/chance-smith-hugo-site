@@ -47,4 +47,6 @@
 {{ with .Site.Params.social.twitter }}<meta name="twitter:creator" content="@{{ . }}">{{ end }}
 <meta name="twitter:title" content="{{ $title }}">
 <meta name="twitter:description" content="{{ $description }}">
+{{ if and .IsPage (eq .Section "blog") }}<meta name="twitter:label1" content="Reading time">
+<meta name="twitter:data1" content="{{ partial "func/reading-time.html" . }} min read">{{ end }}
 {{ if gt (len $keywords) 0 }}<meta name="keywords" content="{{ delimit $keywords ", " }}">{{ end }}
