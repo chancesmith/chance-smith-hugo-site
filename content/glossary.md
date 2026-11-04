@@ -39,6 +39,10 @@ description: "Glossary terms and definitions."
 <h2 id="clarity-check">Clarity Check <a href="#clarity-check">#</a></h2>
 <p>A continuous planning practice of revisiting what's blurry, to help set expectations. We ask: What can we plan next, at any level of granularity? It's permission to move forward with what we know and be honest about what we don't. Keeps planning ongoing so teams are ready when big planning moments arrive. See also: 3Ws, Horizon.</p>
 
+<div id="teams-constraint-anchor"></div>
+<h2 id="constraint-anchor">Constraint Anchor <a href="#constraint-anchor">#</a></h2>
+<p>A visual for finding the one constraint. Picture an anchor thrown from a sailboat: it has two hooks, but one side catches the seabed and causes most of the drag. A business's constraint anchor is supply or demand. A team's constraint anchor is planning or delivery. See also: Business Constraint, Team Constraint.</p>
+
 <h2 id="context-stacking">Context Stacking <a href="#context-stacking">#</a></h2>
 <p>The practice of storing what you give AI once, making information atomic and additive as needed. It creates a decision tree that stacks context based on what you're working on, for efficient, modular use without clutter.</p>
 
@@ -106,9 +110,6 @@ description: "Glossary terms and definitions."
 <div id="working-defaults"></div>
 <h2 id="team-defaults">Team Defaults <a href="#team-defaults">#</a></h2>
 <p>The written answers to the questions a team keeps re-litigating, what we do when nobody tells us what to do. Unlike values, a default is specific enough to break: it has a stated exception and a named person who decides at the edge. Teams write values because values are safe to agree with. Defaults require someone to lose an argument first, which is why the exercise that produces them should hunt for disagreement instead of consensus. See also: Clarity Check, Work Out Loud.</p>
-
-<h2 id="teams-constraint-anchor">Team's Constraint Anchor <a href="#teams-constraint-anchor">#</a></h2>
-<p>A visual for Team Constraint. Picture an anchor thrown from a sailboat: one hook catches, planning on the left, delivery on the right, and that's the side slowing the team down. See also: Team Constraint.</p>
 
 <h2 id="thin-slices">Thin Slices <a href="#thin-slices">#</a></h2>
 <p>Quick release. Working on and sharing the smallest possible piece of work that can be done. This helps prevent roadblocks and wasted time doing the wrong work. See also: 5on2.</p>
