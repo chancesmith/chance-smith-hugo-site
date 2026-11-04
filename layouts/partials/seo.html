@@ -31,11 +31,16 @@
   {{- end -}}
 {{- end -}}
 
+{{- $shareTitle := $title -}}
+{{- if and .IsPage (eq .Section "blog") -}}
+  {{- $shareTitle = printf "%s · %d min read" $title (partial "func/reading-time.html" .) -}}
+{{- end -}}
+
 {{- $image := .Params.image | default "og-default-v2.png" | absURL -}}
 
 <title>{{ $pageTitle }}</title>
 <meta name="description" content="{{ $description }}">
-<meta property="og:title" content="{{ $title }}">
+<meta property="og:title" content="{{ $shareTitle }}">
 <meta property="og:description" content="{{ $description }}">
 <meta property="og:type" content="website">
 <meta property="og:url" content="{{ .Permalink }}">
@@ -45,8 +50,6 @@
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="{{ $image }}">
 {{ with .Site.Params.social.twitter }}<meta name="twitter:creator" content="@{{ . }}">{{ end }}
-<meta name="twitter:title" content="{{ $title }}">
+<meta name="twitter:title" content="{{ $shareTitle }}">
 <meta name="twitter:description" content="{{ $description }}">
-{{ if and .IsPage (eq .Section "blog") }}<meta name="twitter:label1" content="Reading time">
-<meta name="twitter:data1" content="{{ partial "func/reading-time.html" . }} min read">{{ end }}
 {{ if gt (len $keywords) 0 }}<meta name="keywords" content="{{ delimit $keywords ", " }}">{{ end }}
