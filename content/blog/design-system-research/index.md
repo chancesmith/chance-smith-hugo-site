@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Design System Research"
-date: "2021-06-05T08Z"
+date: 2021-06-05T08:00:00Z
 tags: frontend, development
 ---
 

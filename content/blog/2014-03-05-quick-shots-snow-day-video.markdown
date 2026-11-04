@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Quick Shots: Snow Day Video"
-date: "2014-03-05T22Z"
+date: 2014-03-05T22:00:00Z
 tags:
   - video-production
 ---

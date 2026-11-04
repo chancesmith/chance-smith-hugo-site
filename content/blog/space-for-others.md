@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 3: Space for Others"
-date: "2023-04-19T22Z"
+date: 2023-04-19T22:00:00Z
 tags: leadership
 ---
 

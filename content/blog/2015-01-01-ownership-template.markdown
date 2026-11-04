@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ownership Template
-date: "2015-01-01T22Z"
+date: 2015-01-01T22:00:00Z
 tags: ownership
 ---
 

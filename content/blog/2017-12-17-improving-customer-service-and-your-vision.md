@@ -1,6 +1,6 @@
 ---
 title: Improving Customer Service and Casting Your Vision
-date: "2017-12-17T22Z"
+date: 2017-12-17T22:00:00Z
 tags:
   - customer-service
   - leadership

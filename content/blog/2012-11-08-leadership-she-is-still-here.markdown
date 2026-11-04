@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Leadership: She is Still Here?"
-date: "2012-11-08T22Z"
+date: 2012-11-08T22:00:00Z
 tags:
   - accountability
   - leadership

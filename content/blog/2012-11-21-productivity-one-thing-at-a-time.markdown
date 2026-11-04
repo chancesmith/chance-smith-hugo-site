@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Productivity: One Thing At A Time"
-date: "2012-11-21T22Z"
+date: 2012-11-21T22:00:00Z
 tags:
   - motivation
   - productivity-2

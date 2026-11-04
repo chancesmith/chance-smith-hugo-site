@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Iterating off of the Lean Dashboard
-date: "2014-12-12T22Z"
+date: 2014-12-12T22:00:00Z
 tags:
   - strategy
 ---

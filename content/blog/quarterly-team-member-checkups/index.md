@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Quarterly Team Member Checkups"
-date: 2023-05-18T22Z
+date: 2023-05-18T22:00:00Z
 tags: soduim halogen, leadership
 ---
 

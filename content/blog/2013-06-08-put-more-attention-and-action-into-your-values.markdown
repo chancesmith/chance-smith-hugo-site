@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Put More Attention & Action into Your Values
-date: "2013-06-08T22Z"
+date: 2013-06-08T22:00:00Z
 ---
 
 Distractions and laziness leads to our poverty, failures, and unhappiness no matter the case. If we do not plan for the future, set goals, and stay focused we will be <em>here</em> tomorrow. We will be standing in the exact same place we are today, tomorrow. For our lives to change we must change! This post helps with setting goals, "<a title="You Must Have Goals" href="https://www.chancesmith.org/if-you-dont-have-goals-you-plan-to-fail/" target="_blank">If You Don't Have Goals You Plan To Fail</a>."

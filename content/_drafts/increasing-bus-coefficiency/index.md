@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Increase Bus-coefficiency"
-date: "2023-2-27T08Z"
+date: 2023-02-27T08:00:00Z
 tags: team work, sodium halogen
 ---
 

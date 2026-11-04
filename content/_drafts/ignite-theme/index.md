@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Ignite with Multiple Theme Switching"
-date: "2022-05-23T08Z"
+date: 2022-05-23T08:00:00Z
 tags: development
 ---
 

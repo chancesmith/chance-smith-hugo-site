@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Create Your First Mission Statement
-date: "2013-02-08T22Z"
+date: 2013-02-08T22:00:00Z
 tags:
   - growth
   - mission-statement

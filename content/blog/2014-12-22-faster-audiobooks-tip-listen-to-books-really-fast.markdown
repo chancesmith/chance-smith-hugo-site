@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Faster Audiobooks Tip - Listen to books really fast
-date: "2014-12-22T22Z"
+date: 2014-12-22T22:00:00Z
 ---
 
 ![cover-image](/content/images/2014/12/headphones-on-macbook-1.JPG)

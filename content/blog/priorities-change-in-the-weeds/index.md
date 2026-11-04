@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Priorities Change in the Weeds"
-date: 2023-05-10T22Z
+date: 2023-05-10T22:00:00Z
 tags: productivity
 ---
 

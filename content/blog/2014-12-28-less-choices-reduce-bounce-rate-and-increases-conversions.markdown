@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Less choices reduce bounce rate and increases conversions
-date: "2014-12-28T22Z"
+date: 2014-12-28T22:00:00Z
 tags:
   - strategy
   - project

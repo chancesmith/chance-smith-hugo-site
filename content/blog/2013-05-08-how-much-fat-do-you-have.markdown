@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Life: How Much Fat Do You Have?"
-date: "2013-05-08T22Z"
+date: 2013-05-08T22:00:00Z
 ---
 
 Now I will admit that I have never had a fat percentage problem but possibly it being too low. In my high school and college days I easily was hitting a 4% body fat percentage. I'm thin and fit and I blame the results on my genes and the gym. I know, I know! Everyone hate me!

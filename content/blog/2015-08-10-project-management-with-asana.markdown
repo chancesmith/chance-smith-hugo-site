@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Project Management with Asana
-date: "2015-08-10T22Z"
+date: 2015-08-10T22:00:00Z
 tags:
   - productivity-2
   - video

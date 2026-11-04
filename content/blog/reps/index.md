@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Improve with Reps"
-date: 2023-05-01T22Z
+date: 2023-05-01T22:00:00Z
 tags: productivity
 ---
 

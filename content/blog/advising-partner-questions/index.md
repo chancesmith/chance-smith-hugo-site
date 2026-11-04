@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Advising Partner Questions"
-date: 2023-05-17T22Z
+date: 2023-05-17T22:00:00Z
 tags: sodium-halogen, advising
 ---
 

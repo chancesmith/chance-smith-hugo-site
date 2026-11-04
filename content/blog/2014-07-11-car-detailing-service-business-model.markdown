@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Car Detailing Service Business Model
-date: "2014-07-11T22Z"
+date: 2014-07-11T22:00:00Z
 tags:
   - business-model
 ---

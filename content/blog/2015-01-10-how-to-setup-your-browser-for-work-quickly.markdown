@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to setup your browser for work quickly
-date: "2015-01-10T22Z"
+date: 2015-01-10T22:00:00Z
 tags:
   - productivity-2
   - workflow

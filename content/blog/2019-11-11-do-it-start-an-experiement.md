@@ -1,6 +1,6 @@
 ---
 title: Do It - Start an experiment
-date: "2019-11-11T11Z"
+date: 2019-11-11T11:00:00Z
 tags: motivation
 ---
 

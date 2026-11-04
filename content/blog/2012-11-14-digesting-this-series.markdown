@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Digesting this: Series"
-date: "2012-11-14T22Z"
+date: 2012-11-14T22:00:00Z
 tags:
   - entrepreneurial
   - learning

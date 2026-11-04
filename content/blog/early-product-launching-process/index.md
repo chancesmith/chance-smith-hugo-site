@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "An Early Product Launching Process"
-date: "2024-03-20T08Z"
+date: 2024-03-20T08:00:00Z
 tags: business, conversation, product, launch
 ---
 

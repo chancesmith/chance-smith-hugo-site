@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Strategic Business Card Ideas
-date: "2015-01-07T22Z"
+date: 2015-01-07T22:00:00Z
 tags:
   - marketing
   - strategy

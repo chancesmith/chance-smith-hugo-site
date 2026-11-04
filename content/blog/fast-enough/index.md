@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Fast Enough"
-date: "2023-03-16T08Z"
+date: 2023-03-16T08:00:00Z
 tags: leadership, sodium halogen
 ---
 

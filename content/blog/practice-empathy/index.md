@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Practice Empathy By Watching"
-date: 2023-06-14T22Z
+date: 2023-06-14T22:00:00Z
 tags: developemnt, software, creating
 ---
 

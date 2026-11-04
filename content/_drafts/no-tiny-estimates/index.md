@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "No Tiny Estimates"
-date: "2021-06-05T08Z"
+date: 2021-06-05T08:00:00Z
 tags: frontend, development
 ---
 

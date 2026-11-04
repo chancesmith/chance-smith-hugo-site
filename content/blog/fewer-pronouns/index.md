@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Communicate Bedar Part 2: Fewer Pronouns"
-date: 2023-05-07T22Z
+date: 2023-05-07T22:00:00Z
 tags: communication
 ---
 

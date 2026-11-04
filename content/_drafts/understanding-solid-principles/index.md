@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Understanding Solid Principles"
-date: "2021-02-06T08Z"
+date: 2021-02-06T08:00:00Z
 tags: development, testing, sodium halogen
 ---
 

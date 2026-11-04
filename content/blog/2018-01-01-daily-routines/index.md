@@ -1,6 +1,6 @@
 ---
 title: Daily Routines - small simple bites to achieve the goals we set
-date: "2018-01-01T22Z"
+date: 2018-01-01T22:00:00Z
 tags:
   - systems
 ---

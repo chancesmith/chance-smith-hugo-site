@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Communicate Bedar Part 1: Clear Diction"
-date: 2023-05-06T22Z
+date: 2023-05-06T22:00:00Z
 tags: communication
 ---
 

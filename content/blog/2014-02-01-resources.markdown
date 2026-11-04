@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Resources
-date: "2014-02-01T22Z"
+date: 2014-02-01T22:00:00Z
 ---
 
 #products i use/love

@@ -1,6 +1,6 @@
 ---
 title: Collaborative Superpowers
-date: 2023-04-21T22Z
+date: 2023-04-21T22:00:00Z
 tags: leadership
 ---
 

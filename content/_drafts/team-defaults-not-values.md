@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Your Team Doesn't Need Values, It Needs Defaults"
-date: 2026-08-05T12Z
+date: 2026-08-05T12:00:00Z
 tags: leadership
 ---
 

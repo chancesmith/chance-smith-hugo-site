@@ -1,6 +1,6 @@
 ---
 title: Good Semantic Markup Examples
-date: "2019-03-20T10Z"
+date: 2019-03-20T10:00:00Z
 tags: CITQ, S3, AWS
 ---
 

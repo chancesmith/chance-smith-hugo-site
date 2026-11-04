@@ -1,7 +1,7 @@
 ---
 layout: post
 title: September & October Monthly Update
-date: "2012-11-02T22Z"
+date: 2012-11-02T22:00:00Z
 ---
 
 Two months in one! Sorry, I let time get past me and procrastination get the best of me. I am always trying to be more productive and yet things just don't go as planned. I'm up for bat now and ready to go. So I'm going to forget my lack of **\_**, **\_\_\_**, and **\_\_** and just move forward. I am sure there are many titles we could give ourselves but lets just stick with the positive.

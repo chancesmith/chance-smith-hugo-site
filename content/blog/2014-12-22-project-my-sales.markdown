@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Project My Sales App
-date: "2014-12-22T22Z"
+date: 2014-12-22T22:00:00Z
 tags:
   - web-development
   - project

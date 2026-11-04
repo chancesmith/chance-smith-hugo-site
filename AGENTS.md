@@ -12,6 +12,7 @@ Personal site (chancesmith.io), Hugo + Markdown. Gatsby-to-Hugo migration is don
 - Content in `content/`: `blog/` (posts), `_drafts/` (unpublished drafts), top-level `*.md` (static pages), `archive/`, `assets/`.
 - Static passthrough in `static/`: CSS (`static/css/global.css`), images, `_redirects`, favicons.
 - Deploy via Netlify (`netlify.toml` pins Hugo version).
+- Post dates: frontmatter `date: YYYY-MM-DDTHH:MM:SSZ` (unquoted RFC 3339, e.g. `2026-11-04T00:00:00Z`). Hugo reads `.Date` and `.PublishDate` from it, so templates use `.Date` directly.
 
 ## Non-negotiables
 

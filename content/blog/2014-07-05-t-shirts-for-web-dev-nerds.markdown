@@ -1,7 +1,7 @@
 ---
 layout: post
 title: T-Shirts for Productive Web-Dev Nerds
-date: "2014-07-05T22Z"
+date: 2014-07-05T22:00:00Z
 ---
 
 ![cover-image](/content/images/2014/Jul/Photo-on-7-2-14-at-12-08-PM--3.jpg)

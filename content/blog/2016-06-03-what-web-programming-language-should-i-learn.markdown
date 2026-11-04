@@ -1,7 +1,7 @@
 ---
 layout: post
 title: What web programming language should I learn?
-date: "2016-06-03T22Z"
+date: 2016-06-03T22:00:00Z
 ---
 
 Picking a career and deciding on the skills that you'll be proficient is daunting task. It feels like you are predicting your future.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Workflow: work browser setup video walkthrough"
-date: "2015-01-10T22Z"
+date: 2015-01-10T22:00:00Z
 tags:
   - productivity-2
   - workflow

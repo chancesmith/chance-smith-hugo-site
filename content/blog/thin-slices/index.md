@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 7: Chop Up the Work"
-date: 2023-04-25T22Z
+date: 2023-04-25T22:00:00Z
 tags: leadership
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: How To Get A Development Job
-date: "2019-11-07T11Z"
+date: 2019-11-07T11:00:00Z
 tags: Development
 ---
 

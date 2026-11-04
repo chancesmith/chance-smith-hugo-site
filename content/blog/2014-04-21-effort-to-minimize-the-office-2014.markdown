@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Effort To Minimize the Office 2014
-date: "2014-04-21T22Z"
+date: 2014-04-21T22:00:00Z
 ---
 
 Some of us enjoy moving items around the house or just in our office's to experience a new beginning. Part of shifting things around just feels good. It is also helps in cleaning the area up while giving that _fresh start_ feeling.

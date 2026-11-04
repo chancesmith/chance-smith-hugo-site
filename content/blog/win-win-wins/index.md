@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Find Win-win-wins"
-date: 2023-05-02T22Z
+date: 2023-05-02T22:00:00Z
 tags: productivity
 ---
 

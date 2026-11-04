@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Sound of Collaboration"
-date: "2023-04-17T22Z"
+date: 2023-04-17T22:00:00Z
 tags: leadership
 ---
 

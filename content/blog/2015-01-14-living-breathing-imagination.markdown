@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The Living Breathing Imagination
-date: "2015-01-14T22Z"
+date: 2015-01-14T22:00:00Z
 ---
 
 When you set a goal your mind won’t stop in helping you achieve that goal. Your creative mind turns on to help you achieve what you have set out to do.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Tackle Yourself First: Forge the Confident You"
-date: "2012-12-11T22Z"
+date: 2012-12-11T22:00:00Z
 ---
 
 <strong>Tackle Yourself First</strong>: Be intentional about your success. When you make the smallest attempt to feel better, look better, or be better... you will! With the best intentions, you can fake it until you make it!

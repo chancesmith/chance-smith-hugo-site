@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "App Update: Gift Match"
-date: "2015-11-12T22Z"
+date: 2015-11-12T22:00:00Z
 ---
 
 As Christmas heads our way, families and team members are creating lists for gift swapping.

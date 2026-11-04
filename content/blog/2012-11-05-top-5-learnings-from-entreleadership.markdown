@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Top 5 Learnings from EntreLeadership
-date: "2012-11-05T22Z"
+date: 2012-11-05T22:00:00Z
 tags:
   - books
   - entrepreneurial

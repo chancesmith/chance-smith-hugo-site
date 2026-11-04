@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "2020 Business Lessons Learned"
-date: "2021-04-05T08Z"
+date: 2021-04-05T08:00:00Z
 tags: business
 ---
 

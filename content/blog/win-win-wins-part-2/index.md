@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Win-win-wins Part 2: Activity Stacking Continued"
-date: 2023-05-04T22Z
+date: 2023-05-04T22:00:00Z
 tags: productivity
 ---
 

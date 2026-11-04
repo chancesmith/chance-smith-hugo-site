@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 9: United"
-date: 2023-04-28T22Z
+date: 2023-04-28T22:00:00Z
 tags: leadership
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Interviewing Kids: What I Learned & Tools I Used"
-date: "2013-06-01T22Z"
+date: 2013-06-01T22:00:00Z
 ---
 
 [video type="vimeo" id="67363229" hd="true" width="650"]

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 10: Too Much Noise"
-date: 2023-04-29T22Z
+date: 2023-04-29T22:00:00Z
 tags: leadership, productivity, collaboration
 ---
 
