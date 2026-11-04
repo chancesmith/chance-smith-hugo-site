@@ -221,8 +221,6 @@ body {
   font-weight: 500;
   color: var(--c-action-blue);
   text-decoration: none;
-  margin-top: 4px;
-  align-self: flex-start;
 }
 
 .home-post-read-more:hover { text-decoration: underline; }
@@ -231,6 +229,7 @@ body {
   display: flex;
   align-items: baseline;
   gap: 24px;
+  margin-top: 4px;
 }
 
 .home-post-reading-time {
