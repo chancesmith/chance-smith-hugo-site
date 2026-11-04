@@ -1,0 +1,10 @@
+{{/* Returns blog posts sorted newest first by frontmatter date. */}}
+{{ $entries := slice }}
+{{ range where site.RegularPages "Section" "blog" }}
+  {{ $entries = $entries | append (dict "ts" (partial "func/post-date.html" .).Unix "page" .) }}
+{{ end }}
+{{ $posts := slice }}
+{{ range sort $entries "ts" "desc" }}
+  {{ $posts = $posts | append .page }}
+{{ end }}
+{{ return $posts }}

@@ -1,5 +1,5 @@
 {{ define "main" }}
-  {{ $posts := sort (where .Site.RegularPages "Section" "blog") "Params.date" "desc" }}
+  {{ $posts := partial "func/sorted-posts.html" . }}
   {{ $latestPosts := first 3 $posts }}
 
   <section class="home-hero">

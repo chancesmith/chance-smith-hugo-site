@@ -1,4 +1,4 @@
-{{ $posts := sort (where .Site.RegularPages "Section" "blog") "Params.date" "desc" }}
+{{ $posts := partial "func/sorted-posts.html" . }}
 {{ $currentIndex := -1 }}
 {{ range $index, $post := $posts }}
   {{ if eq $post.RelPermalink $.RelPermalink }}
