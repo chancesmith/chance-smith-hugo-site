@@ -13,6 +13,31 @@ ignoreFiles = ["^content/_drafts/", "^content/_ready/"]
     twitter = "chance_smith"
     github = "chancesmith"
 
+  [[params.commonSearches]]
+    label = "Leadership"
+    query = "leadership"
+  [[params.commonSearches]]
+    label = "Productivity"
+    query = "productivity"
+  [[params.commonSearches]]
+    label = "Testing"
+    query = "testing"
+  [[params.commonSearches]]
+    label = "Constraints"
+    query = "constraint"
+  [[params.commonSearches]]
+    label = "Agile"
+    query = "agile"
+  [[params.commonSearches]]
+    label = "Work Out Loud"
+    query = "work out loud"
+  [[params.commonSearches]]
+    label = "Feature-Boxing"
+    query = "feature-boxing"
+  [[params.commonSearches]]
+    label = "Async"
+    query = "async"
+
 [permalinks]
   blog = "/:contentbasename/"
 
