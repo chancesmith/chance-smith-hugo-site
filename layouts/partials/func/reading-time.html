@@ -1,2 +1,3 @@
-{{/* Returns a post's estimated reading time in minutes. Computed at build from Hugo's word count (213 wpm). */}}
-{{ return math.Max 1 .ReadingTime }}
+{{/* Returns a post's estimated reading time in minutes. Computed at build from word count and site.Params.readingWPM. */}}
+{{ $wpm := site.Params.readingWPM | default 200 }}
+{{ return int (math.Max 1 (math.Ceil (div (float .WordCount) $wpm))) }}

@@ -6,6 +6,7 @@ ignoreFiles = ["^content/_drafts/", "^content/_ready/"]
 
 [params]
   author = "Chance Smith"
+  readingWPM = 200
   description = "What if management wasn't about controlling the work, but creating space for it? Exploring leadership that serves engineers instead of managing them."
 
   [params.social]
