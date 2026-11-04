@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 13 Ways to onboard new team members easier and faster
-date: "2015-01-02T22Z"
+date: 2015-01-02T22:00:00Z
 tags:
   - leadership
   - onboarding

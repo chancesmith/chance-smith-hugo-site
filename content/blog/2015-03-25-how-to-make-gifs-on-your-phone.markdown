@@ -1,7 +1,7 @@
 ---
 layout: post
 title: How to make GIFs on your phone
-date: "2015-03-25T22Z"
+date: 2015-03-25T22:00:00Z
 tags:
   - gif
 ---

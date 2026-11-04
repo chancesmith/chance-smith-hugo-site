@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Add Delight To Your Software"
-date: "2022-02-21T08Z"
+date: 2022-02-21T08:00:00Z
 tags: software, sodium halogen
 ---
 

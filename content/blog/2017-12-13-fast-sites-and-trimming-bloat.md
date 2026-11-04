@@ -1,6 +1,6 @@
 ---
 title: Fast sites and trimming bloat
-date: "2017-12-13T22Z"
+date: 2017-12-13T22:00:00Z
 tags:
   - web-development
 ---

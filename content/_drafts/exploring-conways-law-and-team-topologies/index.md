@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Exploring Conway's Law and Team Topologies"
-date: 2023-11-02T22Z
+date: 2023-11-02T22:00:00Z
 tags:
 ---
 

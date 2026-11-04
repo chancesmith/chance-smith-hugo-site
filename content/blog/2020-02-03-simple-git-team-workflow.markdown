@@ -1,7 +1,7 @@
 ---
 layout: post
 title: A Simple Git Team Workflow
-date: "2020-02-03T22Z"
+date: 2020-02-03T22:00:00Z
 tags:
   - git
 ---

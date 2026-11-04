@@ -1,7 +1,7 @@
 ---
 layout: post
 title: If You Don't Have Goals, You Plan to Fail
-date: "2013-04-08T22Z"
+date: 2013-04-08T22:00:00Z
 ---
 
 Goals give you steps to take. Completed goals creates growth. When you grow you succeed.

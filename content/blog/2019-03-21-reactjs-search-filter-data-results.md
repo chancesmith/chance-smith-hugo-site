@@ -1,6 +1,6 @@
 ---
 title: ReactJS - Search and Filter Data Results
-date: "2019-03-21T11Z"
+date: 2019-03-21T11:00:00Z
 tags: CITQ, S3, AWS
 ---
 

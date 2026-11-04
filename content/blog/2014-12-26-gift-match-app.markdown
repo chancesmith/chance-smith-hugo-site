@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Gift Match App - One page app to match gifts for giving
-date: "2014-12-26T22Z"
+date: 2014-12-26T22:00:00Z
 tags:
   - web-development
 ---

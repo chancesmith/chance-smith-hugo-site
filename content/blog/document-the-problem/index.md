@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Document the Problem"
-date: "2023-03-21T08Z"
+date: 2023-03-21T08:00:00Z
 tags: workflow, sodium halogen
 ---
 

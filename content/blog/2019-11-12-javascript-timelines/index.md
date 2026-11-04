@@ -1,6 +1,6 @@
 ---
 title: Javascript Timelines
-date: "2019-11-12T11Z"
+date: 2019-11-12T11:00:00Z
 tags: development, sodium halogen
 ---
 

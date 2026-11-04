@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The 3Ws Cost You Customers"
-date: 2026-07-29T08Z
+date: 2026-07-29T08:00:00Z
 tags: business, 3Ws
 authorship: ai-draft
 stage: shaped

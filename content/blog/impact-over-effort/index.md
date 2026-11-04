@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Impact Over Effort"
-date: "2022-02-17T08Z"
+date: 2022-02-17T08:00:00Z
 tags: impact, sodium halogen
 ---
 

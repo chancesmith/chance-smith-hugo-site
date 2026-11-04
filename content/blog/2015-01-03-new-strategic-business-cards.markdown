@@ -1,7 +1,7 @@
 ---
 layout: post
 title: New strategic business cards
-date: "2015-01-03T22Z"
+date: 2015-01-03T22:00:00Z
 tags:
   - strategy
   - design

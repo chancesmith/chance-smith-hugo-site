@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Motivation for Success
-date: "2014-01-08T22Z"
+date: 2014-01-08T22:00:00Z
 ---
 
 Welcome to the new year...again! The big 2014. It's time to role up your sleeves! Ready to do something different? Are you ready to find some success with your ?

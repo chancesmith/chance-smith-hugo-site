@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "This New Blog: The Seal Breaker"
-date: "2012-07-23T22Z"
+date: 2012-07-23T22:00:00Z
 ---
 
 <p style="text-align: left;">My mind has been bursting at the seams and so has my Evernote account. I have been journaling all my ideas as they have come to me. I feel that in the past if I didn't take note of an idea instantly the ideas would stop coming. My brain would stop producing once I deemed it unimportant to take note of it's work or revelation. I am now at the mercy of my own ideas and productivity and can't let either dissipate or time disappear from me. I have been reading a lot on propper time managment and striving for more and more productivity within the smallest periods of time. I have to admit that this has not been a easy task.</p>

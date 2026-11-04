@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Accessibility Introduction"
-date: "2023-02-10T08Z"
+date: 2023-02-10T08:00:00Z
 tags: development, sodium halogen
 ---
 

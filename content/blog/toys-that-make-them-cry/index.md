@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Toys That Make Them Cry"
-date: 2026-11-02
+date: 2026-11-02T00:00:00Z
 tags: parenting, focus
 description: "Reduce to the things that get played with most...the 20% that get 80% of the attention."
 ---

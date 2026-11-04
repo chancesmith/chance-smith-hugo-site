@@ -1,6 +1,6 @@
 ---
 title: September & October Monthly Update
-date: "2012-11-02T22Z"
+date: 2012-11-02T22:00:00Z
 ---
 
 Is

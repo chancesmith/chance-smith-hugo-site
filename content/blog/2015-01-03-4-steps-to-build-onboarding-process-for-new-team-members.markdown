@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 4 Steps to build an onboarding process for new team members
-date: "2015-01-03T22Z"
+date: 2015-01-03T22:00:00Z
 tags:
   - leadership
   - onboarding

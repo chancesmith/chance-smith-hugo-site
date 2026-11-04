@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Our Frontend Design System"
-date: "2021-07-20T08Z"
+date: 2021-07-20T08:00:00Z
 tags: development, sodium halogen
 ---
 

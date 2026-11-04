@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Testing Your React App Logic"
-date: "2024-03-16T08Z"
+date: 2024-03-16T08:00:00Z
 tags: development, testing
 ---
 

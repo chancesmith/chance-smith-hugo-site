@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 6: Communicate For 5 Minutes"
-date: 2023-04-24T22Z
+date: 2023-04-24T22:00:00Z
 tags: leadership
 ---
 

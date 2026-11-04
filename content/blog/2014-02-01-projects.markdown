@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Projects
-date: "2014-02-01T22Z"
+date: 2014-02-01T22:00:00Z
 ---
 
 Here are the current projects I am working on.

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 8: Work Out Loud"
-date: 2023-04-26T22Z
+date: 2023-04-26T22:00:00Z
 tags: leadership
 ---
 

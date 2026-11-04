@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "What if pair programming drops your IQ?"
-date: "2022-05-06T08Z"
+date: 2022-05-06T08:00:00Z
 tags: pair programming, sodium halogen, agile
 ---
 

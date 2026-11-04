@@ -1,7 +1,7 @@
 ---
 layout: post
 title: April 2015 - Smoothie King Marketing Campaign
-date: "2015-04-23T22Z"
+date: 2015-04-23T22:00:00Z
 ---
 
 This campaign was focused on increasing awareness of our retail while promoting our smoothies. Every customer that comes in gets a sample of a energy drink, protein bar, or some Smoothie King snack.

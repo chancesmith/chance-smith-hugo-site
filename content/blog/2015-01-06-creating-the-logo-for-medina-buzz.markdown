@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Creating the logo for Medina Buzz
-date: "2015-01-06T22Z"
+date: 2015-01-06T22:00:00Z
 tags:
   - project
   - design

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Collaboration Part 5: Earning Autonomy"
-date: 2023-04-23T22Z
+date: 2023-04-23T22:00:00Z
 tags: leaderhsip
 ---
 

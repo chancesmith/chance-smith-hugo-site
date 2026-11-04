@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Skydive 2014
-date: "2014-07-26T22Z"
+date: 2014-07-26T22:00:00Z
 tags:
   - bucketlist
 ---

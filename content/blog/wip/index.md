@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Push Up A WIP"
-date: 2023-05-11T22Z
+date: 2023-05-11T22:00:00Z
 tags: collaboration, productivity
 ---
 

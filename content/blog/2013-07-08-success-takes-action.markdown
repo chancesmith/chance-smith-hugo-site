@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Success Takes Action
-date: "2013-07-08T22Z"
+date: 2013-07-08T22:00:00Z
 tags:
   - motivation
   - productivity-2

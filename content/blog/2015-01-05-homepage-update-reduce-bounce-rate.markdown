@@ -1,7 +1,7 @@
 ---
 layout: post
 title: homepage update - reduce bounce rate
-date: "2015-01-05T22Z"
+date: 2015-01-05T22:00:00Z
 tags:
   - strategy
   - ab-testing

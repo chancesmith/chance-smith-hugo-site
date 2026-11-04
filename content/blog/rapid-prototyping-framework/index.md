@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Rapid Prototyping Framework"
-date: "2023-03-11T08Z"
+date: 2023-03-11T08:00:00Z
 tags: development, sodium halogen
 ---
 

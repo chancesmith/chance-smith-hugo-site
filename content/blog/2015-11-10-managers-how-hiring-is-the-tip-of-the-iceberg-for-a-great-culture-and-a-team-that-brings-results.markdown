@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Managers: How hiring is just the tip of the iceberg"
-date: "2015-11-10T22Z"
+date: 2015-11-10T22:00:00Z
 tags:
   - leadership
   - hiring

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Find Success & Stop Caring What Others Think
-date: "2013-08-08T22Z"
+date: 2013-08-08T22:00:00Z
 ---
 
 When you have a dream, an idea, or a passion you just need to go for it. Most of the times when an idea comes to mind I always blow the reaction of others out of proportion in the negative way. I think the idea is great but I'm scared what they might think.

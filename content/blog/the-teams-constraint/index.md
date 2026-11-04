@@ -2,7 +2,7 @@
 layout: post
 title: "The Team's Constraint"
 slug: the-teams-constraint
-date: 2026-11-01
+date: 2026-11-01T00:00:00Z
 tags: constraints, leadership, agile, project management
 description: "Just like a business has the constraints of supply and demand, you should know what the constraints of your team is."
 ---

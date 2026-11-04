@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Why great bosses want you on their team
-date: "2014-12-31T22Z"
+date: 2014-12-31T22:00:00Z
 tags:
   - leadership
   - rockstar-effort

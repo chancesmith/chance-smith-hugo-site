@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Contextual Gifs With Snow Gifs
-date: "2014-12-19T22Z"
+date: 2014-12-19T22:00:00Z
 tags:
   - strategy
 ---

@@ -1,6 +1,6 @@
 ---
 title: Boys and Having Fewer Toys
-date: "2019-11-11T11Z"
+date: 2019-11-11T11:00:00Z
 tags: minimalism, partenting
 ---
 

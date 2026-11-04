@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Goals: Scale to Ideal State"
-date: "2023-04-10T08Z"
+date: 2023-04-10T08:00:00Z
 tags: decipline, goals
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Evaluating Cadidates: No take home code challenges"
-date: "2021-10-19T08Z"
+date: 2021-10-19T08:00:00Z
 tags: team work, sodium halogen
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Having "Bigger Than You" Goals
-date: "2014-12-20T22Z"
+date: 2014-12-20T22:00:00Z
 tags:
   - leadership
 ---

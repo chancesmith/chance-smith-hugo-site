@@ -1,7 +1,7 @@
 ---
 layout: post
 title: My 2015 Goals
-date: "2015-01-15T22Z"
+date: 2015-01-15T22:00:00Z
 ---
 
 Here is what I have so far. Yeah, I’m still developing my goals for this year. Don’t judge. :)

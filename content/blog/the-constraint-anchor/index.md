@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Constraint Anchor"
-date: 2026-11-04
+date: 2026-11-04T00:00:00Z
 tags: constraints, leadership, agile, project management
 description: "There are two fundamental constraints to a business or a team, just like an anchor has two hooks and only one catches on the floor of the ocean."
 ---

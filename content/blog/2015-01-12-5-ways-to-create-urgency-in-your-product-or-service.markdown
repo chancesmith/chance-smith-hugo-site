@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 5 Ways To Create Urgency In Your Product or Service
-date: "2015-01-12T22Z"
+date: 2015-01-12T22:00:00Z
 tags:
   - strategy
 ---

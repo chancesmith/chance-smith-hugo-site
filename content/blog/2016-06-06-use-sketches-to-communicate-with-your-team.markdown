@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Use sketches to communicate with your team
-date: "2016-06-06T22Z"
+date: 2016-06-06T22:00:00Z
 ---
 
 Working with the team at Sodium Halogen, I get to see their [Designtific Method](https://www.sodiumhalogen.com/our-method/) at work.

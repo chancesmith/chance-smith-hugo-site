@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Framework for Working with an Expert"
-date: "2021-09-29T08Z"
+date: 2021-09-29T08:00:00Z
 tags: project management, sodium halogen
 ---
 

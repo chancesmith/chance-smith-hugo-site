@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Pairing"
-date: 2023-05-09T22Z
+date: 2023-05-09T22:00:00Z
 tags: productivity
 ---
 

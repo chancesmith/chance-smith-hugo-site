@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Imagination: How you reach your dream."
-date: "2015-01-09T22Z"
+date: 2015-01-09T22:00:00Z
 tags:
   - ownership
 ---

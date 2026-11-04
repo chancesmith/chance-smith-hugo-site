@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "The Bottleneck Label"
-date: "2023-01-20T08Z"
+date: 2023-01-20T08:00:00Z
 tags: business
 ---
 

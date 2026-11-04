@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Customer Red Flags"
-date: "2021-07-18T08Z"
+date: 2021-07-18T08:00:00Z
 tags: business, sodium halogen
 ---
 

@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Always Accumulating"
-date: 2023-05-08T22Z
+date: 2023-05-08T22:00:00Z
 tags: productivity
 ---
 
