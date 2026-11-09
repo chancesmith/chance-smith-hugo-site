@@ -6,7 +6,7 @@ description: "Glossary terms and definitions."
 
 <div id="3Ws"></div>
 <h2 id="3ws">3Ws <a href="#3ws">#</a></h2>
-<p>Prevent your customers from worrying, waiting, wondering. Credit: <em>Burn Your Portfolio</em> by Michael Janda.</p>
+<p>Prevent your customers (anyone) from worrying, waiting, wondering. Credit: <em>Burn Your Portfolio</em> by Michael Janda.</p>
 
 <div id="accountability-tool"></div>
 <h2 id="accountability-tool">Accountability Tool <a href="#accountability-tool">#</a></h2>
