@@ -17,6 +17,7 @@ I'm paraphrasing to be concise, but here they are:
 Yes, there are more categories of work besides just Planning and Delivery, but I see the other categories being inside of Planning and Delivery.
 
 Planning is... Making the right work clear, aligned, and ready to start, and goals defined.
+
 Delivery is... Turning that planned work into finished outcomes at a consistent pace.
 
 Now, the categories are not the people or the roles in planning/delivery, but the work people do that holds up future work.
